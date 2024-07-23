@@ -12,7 +12,7 @@ optdepends=()
 
 # Build and install instructions
 prepare() {
-    tar -xvf ${pkgname}-${pkgver}.tar.xz
+    tar -xvf ${pkgname}-${pkgver}.tar.gz
     cd ${pkgname}-${pkgver}
 }
 
@@ -29,5 +29,5 @@ clean() {
     echo "Cleaning up..."
     cd ..
     rm -Rf ${pkgname}-${pkgver}
-    rm ${pkgname}-${pkgver}.tar.xz
+    rm ${pkgname}-${pkgver}.tar.gz
 }
