@@ -1,0 +1,40 @@
+# Maintainer: Harouat Abderrahmane <abderrahmane.harouat@gmail.com>
+
+pkgname="libdrm"
+pkgver="2.4.122"
+source="https://dri.freedesktop.org/libdrm/${pkgname}-${pkgver}.tar.xz"
+md5sum="143c8df50e09cd1eeb1fb53f05ecb64a"
+
+# Optional: Add more metadata as needed
+depends=()
+makedepends=()
+optdepends=()
+
+# Build and install instructions
+prepare() {
+    tar -xvf ${pkgname}-${pkgver}.tar.xz
+    cd ${pkgname}-${pkgver}
+}
+
+build() {
+    mkdir build &&
+	cd build &&
+
+meson setup --prefix=$XORG_PREFIX \
+            --buildtype=release   \
+            -Dudev=true           \
+            -Dvalgrind=disabled   \
+            .. && ninja
+}
+
+install() {
+    ninja install
+}
+
+# Clean function
+clean() {
+    echo "Cleaning up..."
+    cd ../..
+    rm -Rf ${pkgname}-${pkgver}
+    rm ${pkgname}-${pkgver}.tar.xz
+}
