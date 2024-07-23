@@ -1,5 +1,3 @@
-# Maintainer: Harouat Abderrahmane <abderrahmane.harouat@gmail.com>
-
 pkgname="Mako"
 pkgver="1.3.5"
 source="https://files.pythonhosted.org/packages/source/M/Mako/${pkgname}-${pkgver}.tar.gz"
@@ -12,7 +10,8 @@ optdepends=()
 
 # Build and install instructions
 prepare() {
-    tar -xvf ${pkgname}-${pkgver}.tar.gz
+    downloaded_file=$(basename "${source}")
+    tar -xvf ${downloaded_file}
     cd ${pkgname}-${pkgver}
 }
 
@@ -28,6 +27,7 @@ install() {
 clean() {
     echo "Cleaning up..."
     cd ..
+    downloaded_file=$(basename "${source}")
     rm -Rf ${pkgname}-${pkgver}
-    rm ${pkgname}-${pkgver}.tar.gz
+    rm ${downloaded_file}
 }
