@@ -1,0 +1,42 @@
+pkgname="curl"
+pkgver="8.9.0"
+source="https://curl.se/download/${pkgname}-${pkgver}.tar.xz"
+md5sum="6f6d2ff25c2a8fa8602511dc33201cc4"
+
+# Build and install instructions
+prepare() {
+    downloaded_file=$(basename "${source}")
+    tar -xf ${downloaded_file}
+    cd ${pkgname}-${pkgver}
+}
+
+build() {
+    ./configure --prefix=/usr                           \
+            --disable-static                        \
+            --with-openssl                          \
+            --enable-threaded-resolver              \
+            --with-ca-path=/etc/ssl/certs &&
+    make
+}
+
+install() {
+    make install &&
+
+rm -rf docs/examples/.deps &&
+
+find docs \( -name Makefile\* -o  \
+             -name \*.1       -o  \
+             -name \*.3       -o  \
+             -name CMakeLists.txt \) -delete &&
+
+cp -v -R docs -T /usr/share/doc/curl-8.9.0
+}
+
+# Clean function
+clean() {
+    echo "Cleaning up..."
+    cd ..
+    downloaded_file=$(basename "${source}")
+    rm -Rf ${pkgname}-${pkgver}
+    rm ${downloaded_file}
+}

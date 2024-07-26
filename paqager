@@ -1,34 +1,40 @@
 #!/bin/bash
-# paqager - Package manager for building and installing packages
+
+# LFS Build Script
 
 set -e
 
-LOGFILE="/var/log/packages.log"
+PKGINFO_FILE="${PWD}/OOO"
 
-# Function to log installations
-log_installation() {
-    echo "${pkgname} ${pkgver} installed on $(date)" >> "$LOGFILE"
-}
-
-# Main execution
-if [ ! -f "OOO" ]; then
-    echo "Error: OOO file not found in the current directory."
+if [ ! -f "$PKGINFO_FILE" ]; then
+    echo "Error: Package info file 'OOO' not found in the current directory."
     exit 1
 fi
 
-source "./OOO"
+source "$PKGINFO_FILE"
 
+# Download function
+download() {
+    echo "Downloading ${pkgname}-${pkgver}..."
+    wget "${source}"
+}
+
+# Verify function
+verify() {
+    downloaded_file=$(basename "${source}")
+    echo "Verifying MD5 checksum..."
+    echo "${md5sum}  ${downloaded_file}" | md5sum -c --status
+    if [ $? -ne 0 ]; then
+        echo "MD5 checksum verification failed. Aborting."
+        exit 1
+    fi
+}
+
+# Main execution
 echo "Building package: ${pkgname}-${pkgver}"
 
-if [ "$(type -t download)" = function ]; then
-    echo "Downloading..."
-    download
-fi
-
-if [ "$(type -t verify)" = function ]; then
-    echo "Verifying..."
-    verify
-fi
+download
+verify
 
 if [ "$(type -t prepare)" = function ]; then
     echo "Preparing..."
@@ -50,7 +56,9 @@ if [ "$(type -t clean)" = function ]; then
     clean
 fi
 
+LOGFILE="/var/log/packages.log"
+
 # Log the installation
-log_installation
+echo "${pkgname} ${pkgver} installed on $(date)" >> ${LOGFILE}
 
 echo "Package ${pkgname}-${pkgver} has been successfully built and installed."
