@@ -3,10 +3,10 @@ pkgver="24.1.4"
 source="https://mesa.freedesktop.org/archive/${pkgname}-${pkgver}.tar.xz"
 md5sum="04c50eb31359884fba2172bfa181abee"
 
-# Optional: Add more metadata as needed
-depends=()
-makedepends=()
-optdepends=()
+
+required_deps() {
+    echo 'cmake' 'glslang'
+}
 
 # Build and install instructions
 prepare() {
@@ -37,7 +37,6 @@ install() {
     ninja install
 }
 
-# Clean function
 clean() {
     echo "Cleaning up..."
     cd ../..

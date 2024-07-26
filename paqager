@@ -1,0 +1,56 @@
+#!/bin/bash
+# paqager - Package manager for building and installing packages
+
+set -e
+
+LOGFILE="/var/log/packages.log"
+
+# Function to log installations
+log_installation() {
+    echo "${pkgname} ${pkgver} installed on $(date)" >> "$LOGFILE"
+}
+
+# Main execution
+if [ ! -f "OOO" ]; then
+    echo "Error: OOO file not found in the current directory."
+    exit 1
+fi
+
+source "./OOO"
+
+echo "Building package: ${pkgname}-${pkgver}"
+
+if [ "$(type -t download)" = function ]; then
+    echo "Downloading..."
+    download
+fi
+
+if [ "$(type -t verify)" = function ]; then
+    echo "Verifying..."
+    verify
+fi
+
+if [ "$(type -t prepare)" = function ]; then
+    echo "Preparing..."
+    prepare
+fi
+
+if [ "$(type -t build)" = function ]; then
+    echo "Building..."
+    build
+fi
+
+if [ "$(type -t install)" = function ]; then
+    echo "Installing..."
+    install
+fi
+
+if [ "$(type -t clean)" = function ]; then
+    echo "Cleaning..."
+    clean
+fi
+
+# Log the installation
+log_installation
+
+echo "Package ${pkgname}-${pkgver} has been successfully built and installed."

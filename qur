@@ -1,0 +1,116 @@
+#!/bin/bash
+# qur - Script for managing package installations with recursive dependency handling
+
+set -e
+
+REPO_BASE_URL="https://raw.githubusercontent.com/abdurahman-harouat/qalaa-repo/main/source_files"
+LOGFILE="/var/log/packages.log"
+INSTALLED_PACKAGES=()
+
+usage() {
+    echo "Usage: qur -i <package_name>"
+    echo " -i Install the specified package"
+    echo " -h Display this help message"
+}
+
+download_file() {
+    local url="$1"
+    local output_file="$2"
+    if command -v curl &> /dev/null; then
+        curl -s -o "$output_file" "$url"
+    elif command -v wget &> /dev/null; then
+        wget -q -O "$output_file" "$url"
+    else
+        echo "Error: Neither curl nor wget is available. Please install one of them."
+        return 1
+    fi
+}
+
+is_package_installed() {
+    local package=$1
+    local version=$2
+    if grep -q "${package} ${version} installed on" "$LOGFILE"; then
+        return 0
+    fi
+    # Also check if it was installed in this session
+    if [[ " ${INSTALLED_PACKAGES[@]} " =~ " ${package} " ]]; then
+        return 0
+    fi
+    return 1
+}
+
+install_package() {
+    local package=$1
+    local temp_dir=$(mktemp -d)
+    echo "Preparing to install $package..."
+
+    # Download the OOO file
+    echo "Downloading package information for $package..."
+    if ! download_file "$REPO_BASE_URL/$package/OOO" "$temp_dir/OOO"; then
+        rm -rf "$temp_dir"
+        return 1
+    fi
+
+    if [ ! -f "$temp_dir/OOO" ]; then
+        echo "Error: Unable to download package information for $package"
+        rm -rf "$temp_dir"
+        return 1
+    fi
+
+    # Source the OOO file
+    source "$temp_dir/OOO"
+
+    # Check if the package is already installed
+    if is_package_installed "$pkgname" "$pkgver"; then
+        echo "Package $pkgname version $pkgver is already installed. Skipping."
+        rm -rf "$temp_dir"
+        return 0
+    fi
+
+    # Install dependencies recursively
+    if [ "$(type -t required_deps)" = function ]; then
+        local deps=($(required_deps))
+        for dep in "${deps[@]}"; do
+            echo "Installing dependency: $dep for $package"
+            install_package "$dep"
+        done
+    fi
+
+    # Change to the temp directory
+    cd "$temp_dir"
+
+    # Run paqager with the freshly downloaded OOO file
+    echo "Building and installing $package..."
+    paqager
+
+    # Add to installed packages list
+    INSTALLED_PACKAGES+=("$pkgname")
+
+    # Clean up
+    cd - > /dev/null
+    rm -rf "$temp_dir"
+    echo "$package has been successfully installed."
+}
+
+# Main script logic
+if [ $# -eq 0 ]; then
+    usage
+    exit 1
+fi
+
+while getopts "hi:" opt; do
+    case ${opt} in
+        h )
+            usage
+            exit 0
+            ;;
+        i )
+            package=$OPTARG
+            install_package "$package"
+            ;;
+        \? )
+            usage
+            exit 1
+            ;;
+    esac
+done
