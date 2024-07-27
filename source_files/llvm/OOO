@@ -77,7 +77,7 @@ build() {
         -W no-dev -G Ninja ..
 
     # Build
-    ninja -j$(nproc)  # This uses all available cores
+    ninja -j2
 
     # ... commented to avoid test
     # Remove a problematic test file
