@@ -77,7 +77,7 @@ build() {
         -W no-dev -G Ninja ..
 
     # Build
-    ninja -j2
+    ninja -j1
 
     # ... commented to avoid test
     # Remove a problematic test file
