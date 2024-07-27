@@ -1,0 +1,38 @@
+pkgname="SPIRV-LLVM-Translator"
+pkgver="18.1.2"
+source="https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/v18.1.2/${pkgname}-${pkgver}.tar.gz"
+md5sum="ad736591073b870597c4682846badc59"
+
+# Build and install instructions
+
+prepare() {
+    downloaded_file=$(basename "${source}")
+    tar -xf ${downloaded_file}
+    cd ${pkgname}-${pkgver}
+}
+
+build() {
+    mkdir build &&
+    cd    build &&
+
+cmake -D CMAKE_INSTALL_PREFIX=/usr                   \
+      -D CMAKE_BUILD_TYPE=Release                    \
+      -D BUILD_SHARED_LIBS=ON                        \
+      -D CMAKE_SKIP_INSTALL_RPATH=ON                 \
+      -D LLVM_EXTERNAL_SPIRV_HEADERS_SOURCE_DIR=/usr \
+      -G Ninja ..                                    &&
+ninja
+}
+
+install() {
+    ninja install
+}
+
+# Clean function
+
+clean() {
+    cd ../..
+    downloaded_file=$(basename "${source}")
+    rm -Rf ${pkgname}-${pkgver}
+    rm ${downloaded_file}
+}
