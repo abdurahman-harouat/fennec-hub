@@ -1,0 +1,32 @@
+pkgname="libuv"
+pkgver="1.48.0"
+source="https://dist.libuv.org/dist/v1.48.0/${pkgname}-v${pkgver}.tar.gz"
+md5sum="a808517c32ebd07c561bf21a4e30aeab"
+
+# Build and install instructions
+
+prepare() {
+    downloaded_file=$(basename "${source}")
+    tar -xf ${downloaded_file}
+    cd ${pkgname}-v${pkgver}
+}
+
+build() {
+    sh autogen.sh                              &&
+    ./configure --prefix=/usr --disable-static &&
+    make 
+}
+
+install() {
+    make install
+}
+
+# Clean function
+
+clean() {
+    echo "Cleaning up..."
+    cd ..
+    downloaded_file=$(basename "${source}")
+    rm -Rf ${pkgname}-v${pkgver}
+    rm ${downloaded_file}
+}
