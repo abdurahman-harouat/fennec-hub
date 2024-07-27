@@ -60,21 +60,36 @@ build() {
     # Create build directory and change to it
     mkdir -v build && cd build
 
-    # Configure with CMake
-    CC=gcc CXX=g++ \
-    cmake -D CMAKE_INSTALL_PREFIX=/usr \
-        -D CMAKE_SKIP_INSTALL_RPATH=ON \
-        -D LLVM_ENABLE_FFI=ON \
-        -D CMAKE_BUILD_TYPE=Release \
-        -D LLVM_BUILD_LLVM_DYLIB=ON \
-        -D LLVM_LINK_LLVM_DYLIB=ON \
-        -D LLVM_ENABLE_RTTI=ON \
-        -D LLVM_TARGETS_TO_BUILD="host;AMDGPU" \
-        -D LLVM_BINUTILS_INCDIR=/usr/include \
-        -D LLVM_INCLUDE_BENCHMARKS=OFF \
-        -D CLANG_DEFAULT_PIE_ON_LINUX=ON \
-        -D CLANG_CONFIG_FILE_SYSTEM_DIR=/etc/clang \
-        -W no-dev -G Ninja ..
+    # Configure with CMake on any
+    # CC=gcc CXX=g++ \
+    # cmake -D CMAKE_INSTALL_PREFIX=/usr \
+    #     -D CMAKE_SKIP_INSTALL_RPATH=ON \
+    #     -D LLVM_ENABLE_FFI=ON \
+    #     -D CMAKE_BUILD_TYPE=Release \
+    #     -D LLVM_BUILD_LLVM_DYLIB=ON \
+    #     -D LLVM_LINK_LLVM_DYLIB=ON \
+    #     -D LLVM_ENABLE_RTTI=ON \
+    #     -D LLVM_TARGETS_TO_BUILD="host;AMDGPU" \
+    #     -D LLVM_BINUTILS_INCDIR=/usr/include \
+    #     -D LLVM_INCLUDE_BENCHMARKS=OFF \
+    #     -D CLANG_DEFAULT_PIE_ON_LINUX=ON \
+    #     -D CLANG_CONFIG_FILE_SYSTEM_DIR=/etc/clang \
+    #     -W no-dev -G Ninja ..
+
+    # optimized config for M1 macs
+    cmake -G Ninja \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_INSTALL_PREFIX=/usr/local \
+        -DLLVM_ENABLE_PROJECTS="clang;compiler-rt" \
+        -DLLVM_TARGETS_TO_BUILD="AArch64" \
+        -DLLVM_ENABLE_ASSERTIONS=OFF \
+        -DLLVM_OPTIMIZED_TABLEGEN=ON \
+        -DLLVM_ENABLE_RTTI=ON \
+        -DLLVM_ENABLE_EH=ON \
+        -DLLVM_ENABLE_FFI=ON \
+        -DCLANG_DEFAULT_PIE_ON_DARWIN=ON \
+        -DLLVM_ENABLE_LTO=OFF \
+        ..
 
     # Build
     ninja -j2
