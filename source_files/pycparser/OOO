@@ -1,0 +1,25 @@
+pkgname="pycparser"
+pkgver="2.22"
+source="https://files.pythonhosted.org/packages/source/p/pycparser/${pkgname}-${pkgver}.tar.gz"
+md5sum="8922b0b1b53b419e3a38fba4aa43a348"
+
+prepare() {
+    downloaded_file=$(basename "${source}")
+    tar -xf ${downloaded_file}
+    cd ${pkgname}-${pkgver}
+}
+
+build() {
+    pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+}
+
+install() {
+    pip3 install --no-index --find-links=dist --no-cache-dir --no-user pycparser
+}
+
+clean() {
+    cd ..
+    downloaded_file=$(basename "${source}")
+    rm -Rf ${pkgname}-${pkgver}
+    rm ${downloaded_file}
+}
