@@ -61,4 +61,4 @@ LOGFILE="/var/log/packages.log"
 # Log the installation
 echo "${pkgname} ${pkgver} installed on $(date)" >> ${LOGFILE}
 
-echo "Package ${pkgname}-${pkgver} has been successfully built and installed."
+echo -e "\033[32mPackage ${pkgname}-${pkgver} has been successfully built and installed.\033[0m"

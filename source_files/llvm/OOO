@@ -102,16 +102,29 @@ install() {
 
 
 clean() {
-    cd ../..
-    downloaded_file=$(basename "${source}")
-    rm -Rf ${pkgname}-${pkgver}
-    rm ${downloaded_file}
-    rm llvm-cmake-18.src.tar.xz
-    rm llvm-third-party-18.src.tar.xz
-    rm clang-18.1.7.src.tar.xz
-    rm compiler-rt-18.1.7.src.tar.xz
-    rm -Rf llvm-cmake-18.src
-    rm -Rf llvm-third-party-18.src
-    rm -Rf clang-18.1.7.src
-    rm -Rf compiler-rt-18.1.7.src
+    # Navigate to the original directory
+    cd ../.. || { echo "Failed to return to original directory"; return 1; }
+
+    # Define an array of files and directories to remove
+    local items_to_remove=(
+        "${pkgname}-${pkgver}"
+        "$(basename "${source}")"
+        "llvm-cmake-18.src.tar.xz"
+        "llvm-third-party-18.src.tar.xz"
+        "clang-18.1.7.src.tar.xz"
+        "compiler-rt-18.1.7.src.tar.xz"
+        "llvm-cmake-18.src"
+        "llvm-third-party-18.src"
+        "clang-18.1.7.src"
+        "compiler-rt-18.1.7.src"
+    )
+
+    # Remove each item if it exists
+    for item in "${items_to_remove[@]}"; do
+        if [ -e "$item" ]; then
+            rm -rf "$item" && echo "Removed: $item" || echo "Failed to remove: $item"
+        else
+            echo "Not found: $item"
+        fi
+    done
 }

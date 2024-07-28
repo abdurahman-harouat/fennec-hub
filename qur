@@ -53,8 +53,7 @@ install_package() {
     # Clean up
     cd - > /dev/null
     rm -rf "$temp_dir"
-    
-    echo "$package has been successfully installed."
+
 }
 
 # Main script logic

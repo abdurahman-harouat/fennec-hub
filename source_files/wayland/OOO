@@ -1,0 +1,32 @@
+pkgname="wayland"
+pkgver="1.23.0"
+source="https://gitlab.freedesktop.org/wayland/wayland/-/releases/1.23.0/downloads/${pkgname}-${pkgver}.tar.xz"
+md5sum="23ad991e776ec8cf7e58b34cbd2efa75"
+
+prepare() {
+    downloaded_file=$(basename "${source}")
+    tar -xf ${downloaded_file}
+    cd ${pkgname}-${pkgver}
+}
+
+build() {
+    mkdir build &&
+    cd    build &&
+
+    meson setup ..            \
+        --prefix=/usr       \
+        --buildtype=release \
+        -Ddocumentation=false &&
+    ninja
+}
+
+install() {
+    ninja install
+}
+
+clean() {
+    cd ../..
+    downloaded_file=$(basename "${source}")
+    rm -Rf ${pkgname}-${pkgver}
+    rm ${downloaded_file}
+}
