@@ -1,0 +1,25 @@
+pkgname="xbitmaps"
+pkgver="1.1.3"
+source="https://www.x.org/pub/individual/data/${pkgname}-${pkgver}.tar.xz"
+md5sum="2b03f89d78fb91671370e77d7ad46907"
+
+prepare() {
+    downloaded_file=$(basename "${source}")
+    tar -xf ${downloaded_file}
+    cd ${pkgname}-${pkgver}
+}
+
+build() {
+    ./configure $XORG_CONFIG
+}
+
+install() {
+    make install
+}
+
+clean() {
+    cd ..
+    downloaded_file=$(basename "${source}")
+    rm -Rf ${pkgname}-${pkgver}
+    rm ${downloaded_file}
+}
