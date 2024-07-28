@@ -1,0 +1,29 @@
+pkgname="wayland-protocols"
+pkgver="1.36"
+source="https://gitlab.freedesktop.org/wayland/wayland-protocols/-/releases/1.36/downloads/${pkgname}-${pkgver}.tar.xz"
+md5sum="d733380202a75ca837744e65b4dbadc5"
+
+prepare() {
+    downloaded_file=$(basename "${source}")
+    tar -xf ${downloaded_file}
+    cd ${pkgname}-${pkgver}
+}
+
+build() {
+    mkdir build &&
+    cd    build &&
+
+    meson setup --prefix=/usr --buildtype=release &&
+    ninja
+}
+
+install() {
+    ninja install
+}
+
+clean() {
+    cd ../..
+    downloaded_file=$(basename "${source}")
+    rm -Rf ${pkgname}-${pkgver}
+    rm ${downloaded_file}
+}
