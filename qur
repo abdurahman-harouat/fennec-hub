@@ -61,7 +61,9 @@ install_package() {
 list_installed_packages() {
     if [ -f "$INSTALLED_PACKAGES_LOG" ]; then
         echo "Installed Packages:"
-        cat "$INSTALLED_PACKAGES_LOG" | awk '{print $1, $2}' | sort | uniq -c
+        cat "$INSTALLED_PACKAGES_LOG" | awk '{print $1, $2}'
+        echo -e "\033[33mTotal installed packages: $(wc -l < "$INSTALLED_PACKAGES_LOG")\033[0m"
+
     else
         echo "No installed packages found."
     fi
