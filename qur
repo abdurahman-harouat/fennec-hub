@@ -4,6 +4,8 @@ set -e
 
 REPO_BASE_URL="https://raw.githubusercontent.com/abdurahman-harouat/qalaa-repo/main/source_files"
 
+INSTALLED_PACKAGES_LOG="/var/log/packages.log"
+
 usage() {
     echo "Usage: qur -i <package_name> | -l"
     echo "  -i    Install the specified package"
