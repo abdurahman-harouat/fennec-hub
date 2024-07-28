@@ -1,0 +1,26 @@
+pkgname="xf86-input-libinput"
+pkgver="1.4.0"
+source="https://www.x.org/pub/individual/driver/${pkgname}-${pkgver}.tar.xz"
+md5sum="b52a1fc7456cf6595a9a1004287551a3"
+
+prepare() {
+    downloaded_file=$(basename "${source}")
+    tar -xf ${downloaded_file}
+    cd ${pkgname}-${pkgver}
+}
+
+build() {
+    ./configure $XORG_CONFIG &&
+    make
+}
+
+install() {
+    make install
+}
+
+clean() {
+    cd ..
+    downloaded_file=$(basename "${source}")
+    rm -Rf ${pkgname}-${pkgver}
+    rm ${downloaded_file}
+}
