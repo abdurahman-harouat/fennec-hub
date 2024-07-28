@@ -1,0 +1,26 @@
+pkgname="xcursor-themes"
+pkgver="1.0.7"
+source="https://www.x.org/pub/individual/data/${pkgname}-${pkgver}.tar.xz"
+md5sum="070993be1f010b09447ea24bab2c9846"
+
+prepare() {
+    downloaded_file=$(basename "${source}")
+    tar -xf ${downloaded_file}
+    cd ${pkgname}-${pkgver}
+}
+
+build() {
+    ./configure --prefix=/usr &&
+    make
+}
+
+install() {
+    make install
+}
+
+clean() {
+    cd ..
+    downloaded_file=$(basename "${source}")
+    rm -Rf ${pkgname}-${pkgver}
+    rm ${downloaded_file}
+}
