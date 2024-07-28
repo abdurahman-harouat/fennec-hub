@@ -1,0 +1,29 @@
+pkgname="pixman"
+pkgver="0.43.4"
+source="https://www.cairographics.org/releases/${pkgname}-${pkgver}.tar.gz"
+md5sum="21b18058dea39ad48f32d3199b8ffe40"
+
+prepare() {
+    downloaded_file=$(basename "${source}")
+    tar -xf ${downloaded_file}
+    cd ${pkgname}-${pkgver}
+}
+
+build() {
+    mkdir build &&
+    cd    build &&
+
+    meson setup --prefix=/usr --buildtype=release .. &&
+    ninja
+}
+
+install() {
+    ninja install
+}
+
+clean() {
+    cd ../..
+    downloaded_file=$(basename "${source}")
+    rm -Rf ${pkgname}-${pkgver}
+    rm ${downloaded_file}
+}
