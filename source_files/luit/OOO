@@ -1,0 +1,26 @@
+pkgname="luit"
+pkgver="20240102"
+source="https://invisible-mirror.net/archives/luit/${pkgname}-${pkgver}.tgz"
+md5sum="b69a0819905ad8dc4bf82d25f24037a4"
+
+prepare() {
+    downloaded_file=$(basename "${source}")
+    tar -xf ${downloaded_file}
+    cd ${pkgname}-${pkgver}
+}
+
+build() {
+    ./configure $XORG_CONFIG &&
+    make
+}
+
+install() {
+    make install
+}
+
+clean() {
+    cd ..
+    downloaded_file=$(basename "${source}")
+    rm -Rf ${pkgname}-${pkgver}
+    rm ${downloaded_file}
+}
