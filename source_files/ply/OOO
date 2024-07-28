@@ -1,0 +1,25 @@
+pkgname="ply"
+pkgver="3.11"
+source="https://files.pythonhosted.org/packages/source/p/ply/${pkgname}-${pkgver}.tar.gz"
+md5sum="6465f602e656455affcd7c5734c638f8"
+
+prepare() {
+    downloaded_file=$(basename "${source}")
+    tar -xf ${downloaded_file}
+    cd ${pkgname}-${pkgver}
+}
+
+build() {
+    pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+}
+
+install() {
+    pip3 install --no-index --find-links=dist --no-cache-dir --no-user ply
+}
+
+clean() {
+    cd ..
+    downloaded_file=$(basename "${source}")
+    rm -Rf ${pkgname}-${pkgver}
+    rm ${downloaded_file}
+}
