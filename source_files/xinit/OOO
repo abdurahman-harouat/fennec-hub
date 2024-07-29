@@ -1,0 +1,27 @@
+pkgname="xinit"
+pkgver="1.4.2"
+source="https://www.x.org/pub/individual/app/${pkgname}-${pkgver}.tar.xz"
+md5sum="0e9a1b9a82b84ab229c709c0f939c113"
+
+prepare() {
+    downloaded_file=$(basename "${source}")
+    tar -xf ${downloaded_file}
+    cd ${pkgname}-${pkgver}
+}
+
+build() {
+    ./configure $XORG_CONFIG --with-xinitdir=/etc/X11/app-defaults &&
+    make 
+}
+
+install() {
+    make install &&
+    ldconfig
+}
+
+clean() {
+    cd ..
+    downloaded_file=$(basename "${source}")
+    rm -Rf ${pkgname}-${pkgver}
+    rm ${downloaded_file}
+}
