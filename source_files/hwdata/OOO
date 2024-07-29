@@ -1,0 +1,25 @@
+pkgname="hwdata"
+pkgver="0.384"
+source="https://github.com/vcrhonek/hwdata/archive/v0.384/${pkgname}-${pkgver}.tar.gz"
+md5sum="4c02135b60e27735a7a021abd52135af"
+
+prepare() {
+    downloaded_file=$(basename "${source}")
+    tar -xf ${downloaded_file}
+    cd ${pkgname}-${pkgver}
+}
+
+build() {
+    ./configure --prefix=/usr --disable-blacklist
+}
+
+install() {
+    make install
+}
+
+clean() {
+    cd ..
+    downloaded_file=$(basename "${source}")
+    rm -Rf ${pkgname}-${pkgver}
+    rm ${downloaded_file}
+}

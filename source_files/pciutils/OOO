@@ -1,0 +1,35 @@
+pkgname="pciutils"
+pkgver="3.13.0"
+source="https://mj.ucw.cz/download/linux/pci/${pkgname}-${pkgver}.tar.gz"
+md5sum="1edb865de7a2de84e67508911010091b"
+
+prepare() {
+    downloaded_file=$(basename "${source}")
+    tar -xf ${downloaded_file}
+    cd ${pkgname}-${pkgver}
+}
+
+build() {
+    sed -r '/INSTALL/{/PCI_IDS|update-pciids /d; s/update-pciids.8//}' \
+    -i Makefile
+
+    make PREFIX=/usr            \
+     SHAREDIR=/usr/share/hwdata \
+     SHARED=yes
+}
+
+install() {
+    make PREFIX=/usr                \
+     SHAREDIR=/usr/share/hwdata \
+     SHARED=yes                 \
+     install install-lib        &&
+
+    chmod -v 755 /usr/lib/libpci.so
+}
+
+clean() {
+    cd ..
+    downloaded_file=$(basename "${source}")
+    rm -Rf ${pkgname}-${pkgver}
+    rm ${downloaded_file}
+}
