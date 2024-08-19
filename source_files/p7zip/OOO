@@ -1,6 +1,6 @@
 pkgname="p7zip"
 pkgver="17.04"
-source="https://github.com/p7zip-project/${pkgname}/archive/${pkgver}/${pkgname}-${pkgver}.tar.gz"
+source="https://github.com/p7zip-project/${pkgname}/archive/v${pkgver}/${pkgname}-${pkgver}.tar.gz"
 md5sum="00acfd6be87848231722d2d53f89e4a5"
 
 # Build and install instructions
