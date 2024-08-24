@@ -26,7 +26,7 @@ install() {
                 -name \*.1       -o  \
                 -name \*.3       -o  \
                 -name CMakeLists.txt \) -delete &&
-    cp -v -R docs -T /usr/share/doc/curl-8.9.0
+    sudo cp -v -R docs -T /usr/share/doc/curl-8.9.0
 }
 
 # Clean function
