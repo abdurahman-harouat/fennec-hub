@@ -1,0 +1,27 @@
+pkgname="which"
+pkgver="2.21"
+source="https://ftp.gnu.org/gnu/which/which-${pkgver}.tar.gz"
+md5sum="097ff1a324ae02e0a3b0369f07a7544a"
+arch=('x86_64' 'aarch64')
+
+prepare() {
+    downloaded_file=$(basename "${source}")
+    tar -xf ${downloaded_file}
+    cd ${pkgname}-${pkgver}
+}
+
+build() {
+    ./configure --prefix=/usr &&
+    make
+}
+
+install() {
+    make install
+}
+
+clean() {
+    cd ..
+    downloaded_file=$(basename "${source}")
+    rm -Rf ${pkgname}-${pkgver}
+    rm ${downloaded_file}
+}
