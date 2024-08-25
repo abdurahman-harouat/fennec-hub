@@ -14,7 +14,7 @@ build() {
 }
 
 install() {
-    make install
+    sudo make install
 }
 
 clean() {
