@@ -1,0 +1,20 @@
+pkgname: hwdata
+pkgver: "0.384"
+source:
+  url: https://github.com/vcrhonek/hwdata/archive/v0.384/hwdata-0.384.tar.gz
+  md5: 4c02135b60e27735a7a021abd52135af
+
+prepare:
+  - tar -xf $(basename "{{ .source.url }}")
+  - cd {{ .pkgname }}-{{ .pkgver }}
+
+build:
+  - ./configure --prefix=/usr --disable-blacklist
+
+install:
+  - make install
+
+clean:
+  - cd ..
+  - rm -Rf {{ .pkgname }}-{{ .pkgver }}
+  - rm $(basename "{{ .source.url }}")
