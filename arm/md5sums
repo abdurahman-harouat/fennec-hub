@@ -89,3 +89,13 @@ bbf73fb28425cebb854328599f85c4cf  xz-5.6.2.tar.xz
 9a5997c3452909b1769918c759eff8a2  glibc-2.40-fhs-1.patch
 f75cca16a38da6caa7d52151f7136895  kbd-2.6.4-backspace-1.patch
 9ed497b6cb8adcb8dbda9dee9ebce791  readline-8.2-upstream_fixes-3.patch
+097ff1a324ae02e0a3b0369f07a7544a  which-2.21.tar.gz
+c580b12b1a8c040b13c35f324a636bb6  libpng-1.6.42.tar.xz
+c6e309802ada5ed814a6a553161d8fe6  libpng-1.6.40-apng.patch.gz
+94c0b370f43123ea92b146ebea9c709d  icu4c-74_2-src.tgz
+f0adf24e8fdef5f3e332191f653e422a  mandoc-1.14.6.tar.gz
+a8fc3e79336cd6e738ab44f9bc96a5aa  efivar-39.tar.gz
+eaa2135fddb6eb03f2c87ee1823e5a78  popt-1.19.tar.gz
+e170147da25e1d5f72721ffc46fe4e06  efibootmgr-18.tar.gz
+1f625f0a913c449551b1e3790a1817d7  freetype-2.13.2.tar.xz
+da47e9c7a2cec3b68a0fad5d2a341dcc unifont-15.1.05.pcf.gz
