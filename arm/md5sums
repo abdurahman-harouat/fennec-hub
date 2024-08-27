@@ -99,3 +99,13 @@ eaa2135fddb6eb03f2c87ee1823e5a78  popt-1.19.tar.gz
 e170147da25e1d5f72721ffc46fe4e06  efibootmgr-18.tar.gz
 1f625f0a913c449551b1e3790a1817d7  freetype-2.13.2.tar.xz
 da47e9c7a2cec3b68a0fad5d2a341dcc  unifont-15.1.05.pcf.gz
+3394d444ca1905ea56c94b628b706a0b  cpio-2.15.tar.bz2
+605237f35de238dfacc83bcae406d95d  libaio-0.3.113.tar.gz
+271bf949384d0858c2c3d419f6311365  wget-1.24.5.tar.gz
+5e90def5af3ffb27e149ca6fff12bef3  openssh-9.6p1.tar.gz
+99efb2400c4cf4a66fdbb9db6e7aca90  blfs-systemd-units-20240205.tar.xz
+4166279cb188ecb6641c7a2ba5f68270  sudo-1.9.15p5.tar.gz
+f701ab57eb8e7d9c105b2cd5d809b29a  libtasn1-4.19.0.tar.gz
+03f93a4eb62127b5d40e345c624a0665  p11-kit-0.23.22.tar.xz
+0535b5e638b6f0b48f7b259e0ec0ba65  LVM2.2.03.23.tgz
+a304eb0a978ca81045620d06547050a6  mdadm-4.2.tar.xz
