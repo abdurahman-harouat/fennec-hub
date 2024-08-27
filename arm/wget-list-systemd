@@ -102,6 +102,9 @@ https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.19.0.tar.gz
 https://github.com/p11-glue/p11-kit/releases/download/0.23.22/p11-kit-0.23.22.tar.xz
 https://sourceware.org/ftp/lvm2/LVM2.2.03.23.tgz
 https://www.kernel.org/pub/linux/utils/raid/mdadm/mdadm-4.2.tar.xz
+https://github.com/djlucas/make-ca/releases/download/v1.7/make-ca-1.7.tar.xz
+https://curl.se/download/curl-8.9.0.tar.xz
+https://www.nano-editor.org/dist/v8/nano-8.1.tar.xz
 https://www.linuxfromscratch.org/patches/downloads/bzip2/bzip2-1.0.8-install_docs-1.patch
 https://www.linuxfromscratch.org/patches/downloads/coreutils/coreutils-9.5-i18n-2.patch
 https://www.linuxfromscratch.org/patches/downloads/expect/expect-5.45.4-gcc14-1.patch
