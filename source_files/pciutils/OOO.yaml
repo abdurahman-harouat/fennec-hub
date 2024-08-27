@@ -9,5 +9,5 @@ build:
   - make PREFIX=/usr SHAREDIR=/usr/share/hwdata SHARED=yes
 
 install:
-  - make PREFIX=/usr SHAREDIR=/usr/share/hwdata SHARED=yes install install-lib
-  - chmod -v 755 /usr/lib/libpci.so
+  - sudo make PREFIX=/usr SHAREDIR=/usr/share/hwdata SHARED=yes install install-lib
+  - sudo chmod -v 755 /usr/lib/libpci.so
