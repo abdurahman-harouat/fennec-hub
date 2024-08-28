@@ -1,0 +1,13 @@
+pkgname: xorgproto
+pkgver: "2024.1"
+source:
+  url: https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2024.1.tar.xz
+  md5: 12374d29fb5ae642cfa872035e401640
+
+build:
+  - export XORG_PREFIX="/usr"
+  - export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc --localstatedir=/var --disable-static"
+  - mkdir build && cd build && meson setup --prefix=$XORG_PREFIX .. && ninja
+
+install:
+  - sudo ninja install && sudo mv -v $XORG_PREFIX/share/doc/xorgproto{,-2024.1}
