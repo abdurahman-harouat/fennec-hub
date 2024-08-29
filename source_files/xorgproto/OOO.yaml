@@ -11,6 +11,5 @@ build:
   - ninja
 
 install:
-  - cd build
   - ninja install
   - mv -v $XORG_PREFIX/share/doc/xorgproto{,-2024.1}
