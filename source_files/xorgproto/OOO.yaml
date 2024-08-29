@@ -5,12 +5,7 @@ source:
   md5: 12374d29fb5ae642cfa872035e401640
 
 build:
-  - mkdir build
-  - cd build
-  - meson setup --prefix=$XORG_PREFIX ..
-  - ninja
+  - mkdir build && cd build && meson setup --prefix=$XORG_PREFIX .. && ninja
 
 install:
-  - cd build
-  - ninja install
-  - mv -v $XORG_PREFIX/share/doc/xorgproto{,-2024.1}
+  - cd build && ninja install && mv -v $XORG_PREFIX/share/doc/xorgproto{,-2024.1}
