@@ -5,8 +5,6 @@ source:
   md5: 35a4f264a9852be4ae66f07d4100356e
 
 build:
-  - export XORG_PREFIX="/usr"
-  - export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc --localstatedir=/var --disable-static"
   - ./configure $XORG_CONFIG
 
 install:
