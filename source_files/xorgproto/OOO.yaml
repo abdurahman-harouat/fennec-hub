@@ -7,12 +7,7 @@ source:
 build:
   - export XORG_PREFIX="/usr"
   - export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc --localstatedir=/var --disable-static"
-  - mkdir build
-  - cd build
-  - meson setup --prefix=$XORG_PREFIX ..
-  - ninja
+  - mkdir build && cd build && meson setup --prefix=$XORG_PREFIX .. && ninja
 
 install:
-  - cd build
-  - ninja install
-  - mv -v $XORG_PREFIX/share/doc/xorgproto{,-2024.1}
+  - cd build && ninja install && mv -v $XORG_PREFIX/share/doc/xorgproto{,-2024.1}
