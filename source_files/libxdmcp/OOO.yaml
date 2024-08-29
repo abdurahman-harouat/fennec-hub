@@ -1,0 +1,12 @@
+pkgname: libxdmcp
+pkgver: "1.1.5"
+source:
+  url: https://www.x.org/pub/individual/lib/libXdmcp-1.1.5.tar.xz
+  md5: ce0af51de211e4c99a111e64ae1df290
+
+build:
+  - ./configure $XORG_CONFIG --docdir=/usr/share/doc/libXdmcp-1.1.5
+  - make
+
+install:
+  - make install
