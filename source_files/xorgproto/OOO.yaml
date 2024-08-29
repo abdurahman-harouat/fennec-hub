@@ -10,4 +10,5 @@ build:
   - mkdir build && cd build && meson setup --prefix=$XORG_PREFIX .. && ninja
 
 install:
-  - sudo ninja install && sudo mv -v $XORG_PREFIX/share/doc/xorgproto{,-2024.1}
+  - ninja install
+  - mv -v $XORG_PREFIX/share/doc/xorgproto{,-2024.1}

@@ -10,4 +10,4 @@ build:
   - ./configure $XORG_CONFIG
 
 install:
-  - sudo make install
+  - make install
