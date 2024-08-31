@@ -1,0 +1,13 @@
+pkgname: libxcb
+pkgver: "1.17.0"
+source:
+  url: https://xorg.freedesktop.org/archive/individual/lib/libxcb-1.17.0.tar.xz
+  md5: 96565523e9f9b701fcb35d31f1d4086e
+
+build:
+  - ./configure $XORG_CONFIG --without-doxygen --docdir='${datadir}'/doc/libxcb-1.17.0
+  - LC_ALL=en_US.UTF-8 make
+
+install:
+  - make install
+  - chown -Rv root:root $XORG_PREFIX/share/doc/libxcb-1.17.0
