@@ -11,5 +11,5 @@ build:
 
 install:
   - ninja -C build install
-  - install -d $XORG_PREFIX/share/doc/xorgproto-2024.1
-  - cp -r $XORG_PREFIX/share/doc/xorgproto/* $XORG_PREFIX/share/doc/xorgproto-2024.1/
+  - mkdir -p usr/share/doc/xorgproto-2024.1
+  - mv -v usr/share/doc/xorgproto/* usr/share/doc/xorgproto-2024.1/
