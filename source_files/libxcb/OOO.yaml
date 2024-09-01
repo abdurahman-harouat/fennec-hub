@@ -9,5 +9,5 @@ build:
   - LC_ALL=en_US.UTF-8 make
 
 install:
-  - make install
-  - chown -Rv root:root $XORG_PREFIX/share/doc/libxcb-1.17.0
+  - make DESTDIR=$DESTDIR install
+  - chown -Rv root:root $DESTDIR$XORG_PREFIX/share/doc/libxcb-1.17.0
