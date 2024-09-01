@@ -6,10 +6,9 @@ source:
 
 build:
   - mkdir build
-  - cd build
-  - meson setup --prefix=$XORG_PREFIX ..
-  - ninja
+  - meson setup --prefix=$XORG_PREFIX -C build ..
+  - ninja -C build
 
 install:
-  - ninja install
+  - ninja -C build install
   - mv -v $XORG_PREFIX/share/doc/xorgproto{,-2024.1}
