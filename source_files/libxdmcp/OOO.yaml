@@ -9,4 +9,6 @@ Build:
   - make
 
 Install:
-  - make DESTDIR=$DESTDIR install
+  - mkdir -p $DESTDIR
+  - DESTDIR=$DESTDIR make install
+  - ls -l $DESTDIR # Add this to check the contents
