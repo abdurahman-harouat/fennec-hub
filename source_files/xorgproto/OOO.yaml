@@ -6,7 +6,7 @@ source:
 
 build:
   - mkdir build
-  - meson setup build --prefix=$XORG_PREFIX ..
+  - meson setup --prefix=$XORG_PREFIX build
   - ninja -C build
 
 install:
