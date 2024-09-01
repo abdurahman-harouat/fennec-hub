@@ -11,6 +11,4 @@ build:
 
 install:
   - ninja -C build install
-  - cp -R /tempinstall/* $XORG_PREFIX/
-  - mv -v $XORG_PREFIX/share/doc/xorgproto $XORG_PREFIX/share/doc/xorgproto-2024.1
-  - rm -rf /tempinstall
+  - mv -v $XORG_PREFIX/share/doc/xorgproto{,-2024.1}
