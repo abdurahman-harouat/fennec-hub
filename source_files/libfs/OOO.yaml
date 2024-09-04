@@ -1,5 +1,7 @@
 pkgname: libFS
 pkgver: "1.0.9"
+dependencies:
+  - libxext
 source:
   url: https://www.x.org/pub/individual/lib/libFS-1.0.9.tar.xz
   md5: 742863a552ecd53cdb957b7b276213cc
