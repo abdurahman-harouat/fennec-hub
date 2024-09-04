@@ -1,0 +1,13 @@
+pkgname: libXcursor
+pkgver: "1.2.2"
+source:
+  url: https://www.x.org/pub/individual/lib/libXcursor-1.2.2.tar.xz
+  md5: bf3a43ad8cb91a258b48f19c83af8790
+
+build:
+  - ./configure $XORG_CONFIG --docdir=$XORG_PREFIX/share/doc/libXcursor-1.2.2
+  - make
+
+install:
+  - make install
+  - /sbin/ldconfig

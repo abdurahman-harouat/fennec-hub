@@ -1,0 +1,13 @@
+pkgname: libXcomposite
+pkgver: "0.4.6"
+source:
+  url: https://www.x.org/pub/individual/lib/libXcomposite-0.4.6.tar.xz
+  md5: af0a5f0abb5b55f8411cd738cf0e5259
+
+build:
+  - ./configure $XORG_CONFIG --docdir=$XORG_PREFIX/share/doc/libXcomposite-0.4.6
+  - make
+
+install:
+  - make install
+  - /sbin/ldconfig

@@ -1,0 +1,13 @@
+pkgname: libSM
+pkgver: "1.2.4"
+source:
+  url: https://www.x.org/pub/individual/lib/libSM-1.2.4.tar.xz
+  md5: ffa434ed96ccae45533b3d653300730e
+
+build:
+  - ./configure $XORG_CONFIG --docdir=$XORG_PREFIX/share/doc/libSM-1.2.4
+  - make
+
+install:
+  - make install
+  - /sbin/ldconfig

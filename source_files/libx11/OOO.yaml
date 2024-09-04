@@ -1,0 +1,15 @@
+pkgname: libX11
+pkgver: "1.8.9"
+dependencies:
+  - xtrans
+source:
+  url: https://www.x.org/pub/individual/lib/libX11-1.8.9.tar.xz
+  md5: b006876e5b749d82801fe9450d700daf
+
+build:
+  - ./configure $XORG_CONFIG --docdir=$XORG_PREFIX/share/doc/libX11-1.8.9
+  - make
+
+install:
+  - make install
+  - /sbin/ldconfig

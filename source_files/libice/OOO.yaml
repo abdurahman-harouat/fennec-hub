@@ -1,0 +1,13 @@
+pkgname: libICE
+pkgver: "1.1.1"
+source:
+  url: https://www.x.org/pub/individual/lib/libICE-1.1.1.tar.xz
+  md5: b444a0e4c2163d1bbc7b046c3653eb8d
+
+build:
+  - ./configure $XORG_CONFIG --docdir=$XORG_PREFIX/share/doc/libICE-1.1.1
+  - make
+
+install:
+  - make install
+  - /sbin/ldconfig

@@ -1,5 +1,7 @@
 pkgname: xorgproto
 pkgver: "2024.1"
+dependencies:
+  - util-macros
 source:
   url: https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2024.1.tar.xz
   md5: 12374d29fb5ae642cfa872035e401640
