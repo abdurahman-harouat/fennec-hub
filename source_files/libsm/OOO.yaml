@@ -1,5 +1,7 @@
 pkgname: libSM
 pkgver: "1.2.4"
+dependencies:
+  - libice
 source:
   url: https://www.x.org/pub/individual/lib/libSM-1.2.4.tar.xz
   md5: ffa434ed96ccae45533b3d653300730e
