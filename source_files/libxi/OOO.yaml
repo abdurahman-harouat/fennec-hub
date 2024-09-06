@@ -4,7 +4,7 @@ dependencies:
   - libxft
 source:
   url: https://www.x.org/pub/individual/lib/libXi-1.8.1.tar.xz
-  md5: 89ac74da0dcb63d3c97202258d0d3a93
+  md5: 89ac74ad6829c08d5c8ae8f48d363b06
 
 build:
   - ./configure $XORG_CONFIG --docdir=$XORG_PREFIX/share/doc/libXi-1.8.1
