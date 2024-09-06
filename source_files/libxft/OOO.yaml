@@ -1,5 +1,7 @@
 pkgname: libXft
 pkgver: "2.3.8"
+dependencies:
+  - libxfont2
 source:
   url: https://www.x.org/pub/individual/lib/libXft-2.3.8.tar.xz
   md5: cea0a3304e47a841c90fbeeeb55329ee
