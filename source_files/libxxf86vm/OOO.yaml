@@ -4,7 +4,7 @@ dependencies:
   - libxxf86dga
 source:
   url: https://www.x.org/pub/individual/lib/libXxf86vm-1.1.5.tar.xz
-  md5: 74d1acf93b83abeb0954824da0ec400b
+  md5: 5b913dac587f2de17a02e17f9a44a75f
 
 build:
   - ./configure $XORG_CONFIG --docdir=$XORG_PREFIX/share/doc/libXxf86vm-1.1.5
