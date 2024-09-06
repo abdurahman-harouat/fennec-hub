@@ -1,0 +1,15 @@
+pkgname: libxkbfile
+pkgver: "1.1.2"
+dependencies:
+  - libpciaccess
+source:
+  url: https://www.x.org/pub/individual/lib/libxkbfile-1.1.2.tar.xz
+  md5: 229708c15c9937b6e5131d0413474139
+
+build:
+  - ./configure $XORG_CONFIG --docdir=$XORG_PREFIX/share/doc/libxkbfile-1.1.2
+  - make
+
+install:
+  - make install
+  - /sbin/ldconfig

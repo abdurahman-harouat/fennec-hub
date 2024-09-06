@@ -1,0 +1,15 @@
+pkgname: libXv
+pkgver: "1.0.12"
+dependencies:
+  - libxtst
+source:
+  url: https://www.x.org/pub/individual/lib/libXv-1.0.12.tar.xz
+  md5: 70bfdd14ca1a563c218794413f0c1f42
+
+build:
+  - ./configure $XORG_CONFIG --docdir=$XORG_PREFIX/share/doc/libXv-1.0.12
+  - make
+
+install:
+  - make install
+  - /sbin/ldconfig

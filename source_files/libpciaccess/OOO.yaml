@@ -1,0 +1,16 @@
+pkgname: libpciaccess
+pkgver: "0.18.1"
+dependencies:
+  - libxxf86vm
+source:
+  url: https://www.x.org/pub/individual/lib/libpciaccess-0.18.1.tar.xz
+  md5: 57c7efbeceedefde006123a77a7bc825
+
+build:
+  - mkdir build
+  - meson setup --prefix=$XORG_PREFIX --buildtype=release build
+  - ninja -C build
+
+install:
+  - ninja -C build install
+  - /sbin/ldconfig
