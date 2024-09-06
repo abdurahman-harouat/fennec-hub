@@ -1,5 +1,7 @@
 pkgname: libXcomposite
 pkgver: "0.4.6"
+dependencies:
+  - libxfixes
 source:
   url: https://www.x.org/pub/individual/lib/libXcomposite-0.4.6.tar.xz
   md5: af0a5f0abb5b55f8411cd738cf0e5259

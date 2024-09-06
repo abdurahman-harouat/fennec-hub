@@ -1,5 +1,7 @@
 pkgname: libXcursor
 pkgver: "1.2.2"
+dependencies:
+  - libxrender
 source:
   url: https://www.x.org/pub/individual/lib/libXcursor-1.2.2.tar.xz
   md5: bf3a43ad8cb91a258b48f19c83af8790

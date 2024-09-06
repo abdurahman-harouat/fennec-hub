@@ -1,5 +1,7 @@
 pkgname: libXScrnSaver
 pkgver: "1.2.4"
+dependencies:
+  - libsm
 source:
   url: https://www.x.org/pub/individual/lib/libXScrnSaver-1.2.4.tar.xz
   md5: e613751d38e13aa0d0fd8e0149cec057

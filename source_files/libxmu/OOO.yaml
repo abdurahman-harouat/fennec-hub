@@ -1,5 +1,7 @@
 pkgname: libXmu
 pkgver: "1.2.1"
+dependencies:
+  - libxt
 source:
   url: https://www.x.org/pub/individual/lib/libXmu-1.2.1.tar.xz
   md5: 85edefb7deaad4590a03fccba517669f

@@ -1,0 +1,15 @@
+pkgname: libXrandr
+pkgver: "1.5.4"
+dependencies:
+  - libxinerama
+source:
+  url: https://www.x.org/pub/individual/lib/libXrandr-1.5.4.tar.xz
+  md5: 317ad669b6b539cc5ec42cf4065f1b35
+
+build:
+  - ./configure $XORG_CONFIG --docdir=$XORG_PREFIX/share/doc/libXrandr-1.5.4
+  - make
+
+install:
+  - make install
+  - /sbin/ldconfig

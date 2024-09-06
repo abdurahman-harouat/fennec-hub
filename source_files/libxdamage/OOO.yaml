@@ -1,5 +1,7 @@
 pkgname: libXdamage
 pkgver: "1.1.6"
+dependencies:
+  - libxcursor
 source:
   url: https://www.x.org/pub/individual/lib/libXdamage-1.1.6.tar.xz
   md5: ca55d29fa0a8b5c4a89f609a7952ebf8

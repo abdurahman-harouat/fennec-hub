@@ -1,0 +1,15 @@
+pkgname: libXres
+pkgver: "1.2.2"
+dependencies:
+  - libxrandr
+source:
+  url: https://www.x.org/pub/individual/lib/libXres-1.2.2.tar.xz
+  md5: 66c9e9e01b0b53052bb1d02ebf8d7040
+
+build:
+  - ./configure $XORG_CONFIG --docdir=$XORG_PREFIX/share/doc/libXres-1.2.2
+  - make
+
+install:
+  - make install
+  - /sbin/ldconfig

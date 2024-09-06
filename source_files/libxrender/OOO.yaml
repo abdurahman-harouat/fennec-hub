@@ -1,5 +1,7 @@
 pkgname: libXrender
 pkgver: "0.9.11"
+dependencies:
+  - libxcomposite
 source:
   url: https://www.x.org/pub/individual/lib/libXrender-0.9.11.tar.xz
   md5: ebf7fb3241ec03e8a3b2af72f03b4631
