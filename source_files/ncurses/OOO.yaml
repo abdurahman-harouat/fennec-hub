@@ -5,15 +5,8 @@ source:
   md5: ac2d2629296f04c8537ca706b6977687
 
 build:
-  - ./configure --prefix=/usr \
-    --mandir=/usr/share/man \
-    --with-shared \
-    --without-debug \
-    --without-normal \
-    --with-cxx-shared \
-    --enable-pc-files \
-    --with-pkg-config-libdir=/usr/lib/pkgconfig
-  - make
+  - ./configure --prefix=/usr --mandir=/usr/share/man --with-shared --without-debug --without-normal --with-cxx-shared --enable-pc-files --with-pkg-config-libdir=/usr/lib/pkgconfig
+  - time make
 
 install:
   - make DESTDIR=$PWD/dest install
