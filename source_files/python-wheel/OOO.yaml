@@ -1,4 +1,4 @@
-pkgname: wheel
+pkgname: python-wheel
 pkgver: "0.43.0"
 source:
   url: https://pypi.org/packages/source/w/wheel/wheel-0.43.0.tar.gz
