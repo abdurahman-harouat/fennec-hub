@@ -1,0 +1,20 @@
+pkgname: libxml2
+pkgver: "2.13.3"
+dependencies:
+  - icu
+source:
+  url: https://download.gnome.org/sources/libxml2/2.13/libxml2-2.13.3.tar.xz
+  md5: aeb92dc58cea91c95a10751327193a11
+
+additional_downloads:
+  - url: https://www.linuxfromscratch.org/patches/blfs/svn/libxml2-2.13.3-upstream_fix-2.patch
+
+build:
+  - patch -Np1 -i ../libxml2-2.13.3-upstream_fix-2.patch
+  - ./configure --prefix=/usr --sysconfdir=/etc --disable-static --with-history --with-icu PYTHON=/usr/bin/python3 --docdir=/usr/share/doc/libxml2-2.13.3
+  - make
+
+install:
+  - make install
+  - rm -vf /usr/lib/libxml2.la
+  - sed '/libs=/s/xml2.*/xml2"/' -i /usr/bin/xml2-config

@@ -1,0 +1,16 @@
+pkgname: libxslt
+pkgver: "1.1.42"
+dependencies:
+  - libxml2
+  - docbook-xml
+  - docbook-xsl-nons
+source:
+  url: https://download.gnome.org/sources/libxslt/1.1/libxslt-1.1.42.tar.xz
+  md5: 56bc5d89aa39d62002961c150fec08a0
+
+build:
+  - ./configure --prefix=/usr --disable-static --docdir=/usr/share/doc/libxslt-1.1.42
+  - make
+
+install:
+  - make install
