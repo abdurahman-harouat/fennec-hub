@@ -16,7 +16,8 @@ build:
 
 install:
   - rm -fv /usr/bin/desktop-file-edit
-  - ninja install
+  - |
+    cd build && ninja install
   - |
     install -vdm755 /usr/share/applications &&
     update-desktop-database /usr/share/applications
