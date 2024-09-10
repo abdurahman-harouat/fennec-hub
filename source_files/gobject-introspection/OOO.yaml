@@ -15,7 +15,7 @@ additional_downloads:
 build:
   - patch -Np1 -i ../../glib-skip_warnings-1.patch
   - |
-    mkdir build &&
+    mkdir -p build &&
     cd    build &&
 
     meson setup ..                  \

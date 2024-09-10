@@ -7,7 +7,7 @@ source:
   md5: b553fdb6024c5a137ff925bf4c337724
 
 build:
-  - mkdir build
+  - mkdir -p build
   - meson setup --prefix=$XORG_PREFIX --buildtype=release build
   - ninja -C build
 
