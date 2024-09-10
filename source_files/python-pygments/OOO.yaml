@@ -1,0 +1,11 @@
+pkgname: python-pygments
+pkgver: "2.18.0"
+source:
+  url: https://files.pythonhosted.org/packages/source/P/Pygments/pygments-2.18.0.tar.gz
+  md5: fbb7976df756f832f3391008778e8999
+
+build:
+  - pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+
+install:
+  - pip3 install --no-index --find-links=dist --no-cache-dir --no-user Pygments
