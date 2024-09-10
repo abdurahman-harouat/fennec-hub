@@ -1,0 +1,22 @@
+pkgname: pcre2
+pkgver: "10.44"
+source:
+  url: https://github.com/PCRE2Project/pcre2/releases/download/pcre2-10.44/pcre2-10.44.tar.bz2
+  md5: 9d1fe11e2e919c7b395e3e8f0a5c3eec
+
+build:
+  - |
+    ./configure --prefix=/usr                   \
+            --docdir=/usr/share/doc/pcre2-10.44 \
+            --enable-unicode                    \
+            --enable-jit                        \
+            --enable-pcre2-16                   \
+            --enable-pcre2-32                   \
+            --enable-pcre2grep-libz             \
+            --enable-pcre2grep-libbz2           \
+            --enable-pcre2test-libreadline      \
+            --disable-static                    &&
+    make
+
+install:
+  - make install
