@@ -1,0 +1,22 @@
+pkgname: desktop-file-utils
+pkgver: "0.27"
+dependencies:
+  - glib
+source:
+  url: https://www.freedesktop.org/software/desktop-file-utils/releases/desktop-file-utils-0.27.tar.xz
+  md5: fdf9215aea91acb6aebc43f770537f2c
+
+build:
+  - |
+    mkdir build &&
+    cd    build &&
+
+    meson setup --prefix=/usr --buildtype=release .. &&
+    ninja
+
+install:
+  - rm -fv /usr/bin/desktop-file-edit
+  - ninja install
+  - |
+    install -vdm755 /usr/share/applications &&
+    update-desktop-database /usr/share/applications

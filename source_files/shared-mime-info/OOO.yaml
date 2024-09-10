@@ -1,0 +1,19 @@
+pkgname: shared-mime-info
+pkgver: "2.4"
+dependencies:
+  - glib
+  - libxml2
+source:
+  url: https://gitlab.freedesktop.org/xdg/shared-mime-info/-/archive/2.4/shared-mime-info-2.4.tar.gz
+  md5: aac56db912b7b12a04fb0018e28f2f36
+
+build:
+  - |
+    mkdir build &&
+    cd    build &&
+
+    meson setup --prefix=/usr --buildtype=release -D update-mimedb=true .. &&
+    ninja
+
+install:
+  - ninja install
