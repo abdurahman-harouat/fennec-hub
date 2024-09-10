@@ -36,4 +36,5 @@ install:
 additional_commands:
   - |
     cd build && meson configure -D introspection=enabled && ninja
-  - sudo ninja install
+  - |
+    cd build && sudo ninja install
