@@ -1,0 +1,15 @@
+pkgname: xcb-util-renderutil
+pkgver: "0.3.10"
+dependencies:
+  - libxcb
+source:
+  url: https://xcb.freedesktop.org/dist/xcb-util-renderutil-0.3.10.tar.xz
+  md5: 193b890e2a89a53c31e2ece3afcbd55f
+
+build:
+  - |
+    ./configure $XORG_CONFIG &&
+    make
+
+install:
+  - make install

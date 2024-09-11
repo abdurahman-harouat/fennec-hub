@@ -1,0 +1,15 @@
+pkgname: xcb-util-wm
+pkgver: "0.4.2"
+dependencies:
+  - libxcb
+source:
+  url: https://xcb.freedesktop.org/dist/xcb-util-wm-0.4.2.tar.xz
+  md5: 581b3a092e3c0c1b4de6416d90b969c3
+
+build:
+  - |
+    ./configure $XORG_CONFIG &&
+    make
+
+install:
+  - make install
