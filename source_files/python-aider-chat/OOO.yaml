@@ -1,0 +1,11 @@
+pkgname: python-aider-chat
+pkgver: "0.56.0"
+source:
+  url: https://files.pythonhosted.org/packages/e9/4e/30e974a89c88fd837342ae858771c098bb4e408da92890024bd63c91d62b/aider_chat-0.56.0.tar.gz
+  md5: 23933f5da6bb5b9f26df6273fabb6bcf
+
+build:
+  - pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+
+install:
+  - pip3 install --no-index --find-links=dist --no-cache-dir --no-user aider-chat
