@@ -1,6 +1,7 @@
 pkgname: python-aiohappyeyeballs
 pkgver: "2.4.0"
-
+dependencies:
+  - python-poetry
 source:
   url: https://files.pythonhosted.org/packages/2d/f7/22bba300a16fd1cad99da1a23793fe43963ee326d012fdf852d0b4035955/aiohappyeyeballs-2.4.0.tar.gz
   md5: 3c9a696b2d2808a3a633743965415d4d

@@ -1,0 +1,11 @@
+pkgname: python-poetry
+pkgver: "1.8.3"
+source:
+  url: https://files.pythonhosted.org/packages/07/c7/41108195c39ac1010054ef6b3b445894cee79e8ec73f086b73da94a01901/poetry-1.8.3.tar.gz
+  md5: add715b0e317e09c6326f97a925f69b7
+
+build:
+  - pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+
+install:
+  - pip3 install --no-index --find-links=dist --no-cache-dir --no-user poetry
