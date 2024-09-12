@@ -1,0 +1,65 @@
+pkgname: llvm
+pkgver: "18.1.7"
+dependencies:
+  - cmake
+source:
+  url: https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.7/llvm-18.1.7.src.tar.xz
+  md5: ad39785449a878df1eed590339c3a8c4
+
+additional_downloads:
+  - url: https://anduin.linuxfromscratch.org/BLFS/llvm/llvm-cmake-18.src.tar.xz
+    md5: bf2ad617d47ce40fe77c0e5c26b1fe43
+  - url: https://anduin.linuxfromscratch.org/BLFS/llvm/llvm-third-party-18.src.tar.xz
+    md5: 5ebac19868c66cdac8b87077faefd38c
+  - url: https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.7/clang-18.1.7.src.tar.xz
+    md5: 47e26237223d5ee0e6b674f028b56dae
+  - url: https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.7/compiler-rt-18.1.7.src.tar.xz
+    md5: 31753c0ec6271a37c12a17cf84187098
+
+build:
+  - |
+    tar -xf ../llvm-cmake-18.src.tar.xz                                   &&
+    tar -xf ../llvm-third-party-18.src.tar.xz                             &&
+    sed '/LLVM_COMMON_CMAKE_UTILS/s@../cmake@llvm-cmake-18.src@'          \
+        -i CMakeLists.txt                                                 &&
+    sed '/LLVM_THIRD_PARTY_DIR/s@../third-party@llvm-third-party-18.src@' \
+        -i cmake/modules/HandleLLVMOptions.cmake
+
+    tar -xf ../clang-18.1.7.src.tar.xz -C tools &&
+    mv tools/clang-18.1.7.src tools/clang
+
+    tar -xf ../compiler-rt-18.1.7.src.tar.xz -C projects    &&
+    mv projects/compiler-rt-18.1.7.src projects/compiler-rt
+
+    grep -rl '#!.*python' | xargs sed -i '1s/python$/python3/'
+
+    sed 's/utility/tool/' -i utils/FileCheck/CMakeLists.txt
+
+    mkdir -pv build &&
+    cd       build &&
+
+    CC=gcc CXX=g++                               \
+    cmake -D CMAKE_INSTALL_PREFIX=/usr           \
+          -D CMAKE_SKIP_INSTALL_RPATH=ON         \
+          -D LLVM_ENABLE_FFI=ON                  \
+          -D CMAKE_BUILD_TYPE=Release            \
+          -D LLVM_BUILD_LLVM_DYLIB=ON            \
+          -D LLVM_LINK_LLVM_DYLIB=ON             \
+          -D LLVM_ENABLE_RTTI=ON                 \
+          -D LLVM_TARGETS_TO_BUILD="host" \
+          -D LLVM_BINUTILS_INCDIR=/usr/include   \
+          -D LLVM_INCLUDE_BENCHMARKS=OFF         \
+          -D CLANG_DEFAULT_PIE_ON_LINUX=ON       \
+          -D CLANG_CONFIG_FILE_SYSTEM_DIR=/etc/clang \
+          -W no-dev -G Ninja ..                  &&
+    ninja -j1
+
+install:
+  - |
+    cd build && ninja install
+
+  - |
+    mkdir -pv /etc/clang &&
+    for i in clang clang++; do
+      echo -fstack-protector-strong > /etc/clang/$i.cfg
+    done

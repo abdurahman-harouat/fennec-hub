@@ -1,0 +1,16 @@
+pkgname: nghttp2
+pkgver: "1.63.0"
+source:
+  url: https://github.com/nghttp2/nghttp2/releases/download/v1.63.0/nghttp2-1.63.0.tar.xz
+  md5: 15dd1a9e72fc1cd6000a88bced26552c
+
+build:
+  - |
+    ./configure --prefix=/usr     \
+            --disable-static  \
+            --enable-lib-only \
+            --docdir=/usr/share/doc/nghttp2-1.63.0 &&
+    make
+
+install:
+  - make install

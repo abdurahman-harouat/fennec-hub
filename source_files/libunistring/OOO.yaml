@@ -1,0 +1,15 @@
+pkgname: libunistring
+pkgver: "1.2"
+source:
+  url: https://ftp.gnu.org/gnu/libunistring/libunistring-1.2.tar.xz
+  md5: 6b4ea63617bf09d76e5234379e75e7f9
+
+build:
+  - |
+    ./configure --prefix=/usr    \
+            --disable-static \
+            --docdir=/usr/share/doc/libunistring-1.2 &&
+    make
+
+install:
+  - make install

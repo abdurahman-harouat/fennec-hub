@@ -1,0 +1,15 @@
+pkgname: libuv
+pkgver: "1.48.0"
+source:
+  url: https://dist.libuv.org/dist/v1.48.0/libuv-v1.48.0.tar.gz
+  md5: a808517c32ebd07c561bf21a4e30aeab
+
+build:
+  - |
+    sh autogen.sh                              &&
+    ./configure --prefix=/usr --disable-static &&
+    make
+
+install:
+  - make install
+  - install -Dm644 docs/build/man/libuv.1 /usr/share/man/man1

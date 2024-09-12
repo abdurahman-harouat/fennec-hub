@@ -1,0 +1,15 @@
+pkgname: libidn2
+pkgver: "2.3.7"
+dependencies:
+  - libunistring
+source:
+  url: https://ftp.gnu.org/gnu/libidn/libidn2-2.3.7.tar.gz
+  md5: de2818c7dea718a4f264f463f595596b
+
+build:
+  - |
+    ./configure --prefix=/usr --disable-static &&
+    make
+
+install:
+  - make install

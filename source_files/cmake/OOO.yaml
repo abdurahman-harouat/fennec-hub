@@ -1,0 +1,26 @@
+pkgname: cmake
+pkgver: "3.30.3"
+dependencies:
+  - curl
+  - libarchive
+  - libuv
+  - nghttp2
+source:
+  url: https://cmake.org/files/v3.30/cmake-3.30.3.tar.gz
+  md5: 4ca6d3265a257627a2e1c955affb2ba3
+
+build:
+  - |
+    sed -i '/"lib64"/s/64//' Modules/GNUInstallDirs.cmake &&
+
+    ./bootstrap --prefix=/usr        \
+                --system-libs        \
+                --mandir=/share/man  \
+                --no-system-jsoncpp  \
+                --no-system-cppdap   \
+                --no-system-librhash \
+                --docdir=/share/doc/cmake-3.30.3 &&
+    make
+
+install:
+  - make install

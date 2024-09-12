@@ -1,0 +1,21 @@
+pkgname: libpsl
+pkgver: "0.21.5"
+dependencies:
+  - libidn2
+  - libunistring
+source:
+  url: https://github.com/rockdaboot/libpsl/releases/download/0.21.5/libpsl-0.21.5.tar.gz
+  md5: 870a798ee9860b6e77896548428dba7b
+
+build:
+  - |
+    mkdir -p build &&
+    cd    build &&
+
+    meson setup --prefix=/usr --buildtype=release &&
+
+    ninja
+
+install:
+  - |
+    cd build && ninja install

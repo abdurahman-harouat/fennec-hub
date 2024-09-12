@@ -1,0 +1,30 @@
+pkgname: curl
+pkgver: "8.9.1"
+dependencies:
+  - libpsl
+  - make-ca
+source:
+  url: https://curl.se/download/curl-8.9.1.tar.xz
+  md5: 5882f056460240d98cdb5b7f86a06153
+
+build:
+  - |
+    ./configure --prefix=/usr                           \
+            --disable-static                        \
+            --with-openssl                          \
+            --enable-threaded-resolver              \
+            --with-ca-path=/etc/ssl/certs &&
+    make
+
+install:
+  - |
+    make install &&
+
+    rm -rf docs/examples/.deps &&
+
+    find docs \( -name Makefile\* -o  \
+                -name \*.1       -o  \
+                -name \*.3       -o  \
+                -name CMakeLists.txt \) -delete &&
+
+    cp -v -R docs -T /usr/share/doc/curl-8.9.1

@@ -1,0 +1,13 @@
+pkgname: libtasn1
+pkgver: "4.19.0"
+source:
+  url: https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.19.0.tar.gz
+  md5: f701ab57eb8e7d9c105b2cd5d809b29a
+
+build:
+  - |
+    ./configure --prefix=/usr --disable-static &&
+    make
+
+install:
+  - make install

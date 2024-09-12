@@ -1,0 +1,26 @@
+pkgname: libdrm
+pkgver: "2.4.123"
+dependencies:
+  - libxpresent
+source:
+  url: https://dri.freedesktop.org/libdrm/libdrm-2.4.123.tar.xz
+  md5: 322f5ffe2d3adc2f6ecaab52ae64ba4a
+
+additional_downloads:
+  - url: https://www.linuxfromscratch.org/patches/blfs/svn/mesa-add_xdemos-3.patch
+
+build:
+  - |
+    mkdir -p build &&
+    cd    build &&
+
+    meson setup --prefix=$XORG_PREFIX \
+                --buildtype=release   \
+                -D udev=true          \
+                -D valgrind=disabled  \
+                ..                    &&
+    ninja
+
+install:
+  - |
+    cd build && ninja install

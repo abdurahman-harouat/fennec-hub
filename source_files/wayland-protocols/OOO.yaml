@@ -1,0 +1,19 @@
+pkgname: wayland-protocols
+pkgver: "1.37"
+dependencies:
+  - wayland
+source:
+  url: https://gitlab.freedesktop.org/wayland/wayland-protocols/-/releases/1.37/downloads/wayland-protocols-1.37.tar.xz
+  md5: f36a21504ed762c928265bf081604e04
+
+build:
+  - |
+    mkdir -p build &&
+    cd    build &&
+
+    meson setup --prefix=/usr --buildtype=release &&
+    ninja
+
+install:
+  - |
+    cd build && ninja install
