@@ -6,7 +6,7 @@ dependencies:
   - python-mako
   - python-pyyaml
   - glslang
-  - libva-noegl-noglx
+  - libva-noglx
   - libvdpau
   - llvm
   - wayland-protocols

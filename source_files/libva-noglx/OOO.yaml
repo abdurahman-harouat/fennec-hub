@@ -1,4 +1,4 @@
-pkgname: libva-noegl-noglx
+pkgname: libva-noglx
 pkgver: "2.22.0"
 dependencies:
   - libdrm
@@ -9,7 +9,7 @@ source:
 build:
   - |
     cd build &&
-    meson setup --prefix=$XORG_PREFIX --buildtype=release -Dglx=false -Degl=false &&
+    meson setup --prefix=$XORG_PREFIX --buildtype=release -Dwith_glx=no &&
     ninja
 
 install:
