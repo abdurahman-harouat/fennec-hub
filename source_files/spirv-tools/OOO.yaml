@@ -4,7 +4,7 @@ dependencies:
   - cmake
   - spirv-headers
 source:
-  url: https://github.com/KhronosGroup/SPIRV-Tools/archive/vulkan-sdk-1.3.290.0/SPIRV-Tools-1.3.290.0.tar.gz
+  url: https://github.com/abdurahman-harouat/fennec-hub/blob/main/special/SPIRV-Tools-vulkan-sdk-1.3.290.0.tar.gz
   md5: 4a3f873a07f33cffd70890e17a34fe8b
 
 build:
