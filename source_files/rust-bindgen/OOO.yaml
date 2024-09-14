@@ -1,0 +1,16 @@
+pkgname: rust-bindgen
+pkgver: "0.70.1"
+dependencies:
+  - rustc
+  - llvm
+source:
+  url: https://github.com/rust-lang/rust-bindgen/archive/v0.70.1/rust-bindgen-0.70.1.tar.gz
+  md5: 4f00ced86e359945f78276a2255aa1a7
+
+build:
+  - |
+    cargo build --release
+
+install:
+  - |
+    install -v -m755 target/release/bindgen /usr/bin

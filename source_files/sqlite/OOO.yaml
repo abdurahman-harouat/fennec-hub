@@ -1,0 +1,24 @@
+pkgname: sqlite
+pkgver: "3.46.1"
+source:
+  url: https://sqlite.org/2024/sqlite-autoconf-3460100.tar.gz
+  md5: bde7df8c2a4bce82dbf42f7e4dda0e21
+
+build:
+  - |
+    ./configure --prefix=/usr     \
+            --disable-static  \
+            --enable-fts{4,5} \
+            CPPFLAGS="-D SQLITE_ENABLE_COLUMN_METADATA=1 \
+                      -D SQLITE_ENABLE_UNLOCK_NOTIFY=1   \
+                      -D SQLITE_ENABLE_DBSTAT_VTAB=1     \
+                      -D SQLITE_SECURE_DELETE=1"         &&
+    make
+
+install:
+  - |
+    make install
+
+  - |
+    install -v -m755 -d /usr/share/doc/sqlite-3.46.1 &&
+    cp -v -R sqlite-doc-3460100/* /usr/share/doc/sqlite-3.46.1
