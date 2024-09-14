@@ -43,4 +43,4 @@ build:
 install:
   - |
     cd build && ninja install
-  - cp -rv ../docs -T /usr/share/doc/mesa-24.2.2
+  - cp -rv docs -T /usr/share/doc/mesa-24.2.2
