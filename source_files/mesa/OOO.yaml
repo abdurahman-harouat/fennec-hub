@@ -11,7 +11,7 @@ dependencies:
   - llvm
   - wayland-protocols
   - libclc
-  - vulkan-loaders
+  - vulkan-loader
   - python-ply
   - cbindgen
   - rust-bindgen
