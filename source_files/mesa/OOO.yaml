@@ -13,6 +13,7 @@ dependencies:
   - libclc
   - vulkan-loader
   - python-ply
+  - python-pycparser
   - cbindgen
   - rust-bindgen
 source:

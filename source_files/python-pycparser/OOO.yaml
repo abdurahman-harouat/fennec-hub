@@ -1,0 +1,11 @@
+pkgname: python-pycparser
+pkgver: "2.22"
+source:
+  url: https://files.pythonhosted.org/packages/source/p/pycparser/pycparser-2.22.tar.gz
+  md5: 8922b0b1b53b419e3a38fba4aa43a348
+
+build:
+  - pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+
+install:
+  - pip3 install --no-index --find-links=dist --no-cache-dir --no-user pycparser
