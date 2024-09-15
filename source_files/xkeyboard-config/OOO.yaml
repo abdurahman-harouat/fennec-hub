@@ -1,0 +1,19 @@
+pkgname: xkeyboard-config
+pkgver: "2.42"
+dependencies:
+  - libxpresent
+source:
+  url: https://www.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.42.tar.xz
+  md5: 2d3b7e43e597f4c607ad6261e2b3d77f
+
+build:
+  - |
+    mkdir build &&
+    cd    build &&
+
+    meson setup --prefix=$XORG_PREFIX --buildtype=release .. &&
+    ninja
+
+install:
+  - |
+    ninja -C build install

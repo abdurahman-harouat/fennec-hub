@@ -1,0 +1,25 @@
+pkgname: libxkbcommon
+pkgver: "1.7.0"
+dependencies:
+  - xkeyboard-config
+  - libxcb
+  - wayland
+  - wayland-protocols
+source:
+  url: https://github.com/abdurahman-harouat/fennec-hub/raw/main/special/seatd-0.8.0.tar.gz
+  md5: 7c687ded0fa4db2352a8c9a6b41abca7
+
+build:
+  - |
+    mkdir build &&
+    cd    build &&
+
+    meson setup ..             \
+          --prefix=/usr        \
+          --buildtype=release  \
+          -D enable-docs=false &&
+    ninja
+
+install:
+  - |
+    ninja -C build install
