@@ -1,0 +1,19 @@
+pkgname: git
+pkgver: "2.46.0"
+dependencies:
+  - curl
+
+source:
+  url: https://www.kernel.org/pub/software/scm/git/git-2.46.0.tar.xz
+  md5: 2309cd803a02378380f24c50667d9bfb
+
+build:
+  - |
+    ./configure --prefix=/usr \
+            --with-gitconfig=/etc/gitconfig \
+            --with-python=python3 &&
+    make
+
+install:
+  - |
+    make perllibdir=/usr/lib/perl5/5.38.2/site_perl install
