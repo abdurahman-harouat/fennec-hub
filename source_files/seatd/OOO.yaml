@@ -1,0 +1,27 @@
+pkgname: seatd
+pkgver: "0.8.0"
+source:
+  url: https://github.com/kennylevinsen/seatd/archive/refs/tags/0.8.0.tar.gz
+  md5: 5a4df2b20992c49c2e9c98dda5640676
+
+build:
+  - patch -Np1 -i ../mesa-add_xdemos-3.patch
+  - |
+    mkdir -p build &&
+    cd    build &&
+
+    meson setup ..                 \
+          --prefix=$XORG_PREFIX    \
+          --buildtype=release      \
+          -D platforms=x11,wayland \
+          -D gallium-drivers=auto  \
+          -D vulkan-drivers=auto   \
+          -D valgrind=disabled     \
+          -D libunwind=disabled    &&
+
+    ninja
+
+install:
+  - |
+    cd build && ninja install
+  - cp -rv docs -T /usr/share/doc/mesa-24.2.2
