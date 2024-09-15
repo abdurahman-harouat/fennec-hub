@@ -1,0 +1,15 @@
+pkgname: spice-vdagent
+pkgver: "0.22.0"
+source:
+  url: https://www.spice-space.org/download/releases/spice-vdagent-0.22.0.tar.bz2
+  md5: 18cdd892d6fc7237cddd07449d78d1ca
+
+build:
+  - |
+    mkdir -p build &&
+    meson build --prefix=/usr &&
+    ninja -C build
+
+install:
+  - |
+    ninja -C build install
