@@ -13,7 +13,3 @@ build:
 install:
   - |
     sudo ninja -C build install
-  - |
-    sudo systemctl enable seatd
-  - |
-    sudo systemctl start seatd
