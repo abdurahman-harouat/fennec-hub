@@ -1,0 +1,20 @@
+pkgname: libevdev
+pkgver: "1.13.3"
+source:
+  url: https://www.freedesktop.org/software/libevdev/libevdev-1.13.3.tar.xz
+  md5: 57ee77b7d4c480747e693779bb92fb84
+
+build:
+  - |
+    mkdir -p build &&
+    cd    build &&
+
+    meson setup ..                  \
+          --prefix=$XORG_PREFIX     \
+          --buildtype=release       \
+          -D documentation=disabled &&
+    ninja
+
+install:
+  - |
+    ninja -C build install
