@@ -6,8 +6,8 @@ dependencies:
   - wayland
   - wayland-protocols
 source:
-  url: https://github.com/abdurahman-harouat/fennec-hub/raw/main/special/seatd-0.8.0.tar.gz
-  md5: 7c687ded0fa4db2352a8c9a6b41abca7
+  url: https://xkbcommon.org/download/libxkbcommon-1.7.0.tar.xz
+  md5: b05b1a0d473189efb2dd995dd944f152
 
 build:
   - |
