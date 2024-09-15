@@ -14,8 +14,6 @@ install:
   - |
     sudo ninja -C build install
   - |
-    sudo usermod -aG seat,video $USER
-  - |
     sudo systemctl enable seatd
   - |
     sudo systemctl start seatd
