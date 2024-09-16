@@ -30,5 +30,5 @@ build:
 
 install:
   - |
-    ninja install &&
+    cd build && ninja install &&
     mkdir -pv /etc/X11/xorg.conf.d
