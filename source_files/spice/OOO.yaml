@@ -1,0 +1,17 @@
+pkgname: spice
+pkgver: "0.15.2"
+dependencies:
+  - spice-protocol
+  - alsa-lib
+source:
+  url: https://gitlab.freedesktop.org/spice/spice/-/archive/v0.15.2/spice-v0.15.2.tar.gz
+  md5: d17f292e7a7f44dcfbcafe3a1507906f
+
+build:
+  - |
+    ./configure --prefix=/usr --sysconfdir=/etc \
+        --localstatedir=/var --libdir=/usr/lib && make
+
+install:
+  - |
+    make install
