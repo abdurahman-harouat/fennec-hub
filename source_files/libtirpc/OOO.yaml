@@ -1,7 +1,7 @@
 pkgname: libtirpc
 pkgver: "1.3.5"
 source:
-  url: https://downloads.sourceforge.net/libtirpc/libtirpc-1.3.5.tar.bz2
+  url: https://github.com/abdurahman-harouat/fennec-hub/raw/main/special/libtirpc-1.3.5.tar.bz2
   md5: 59a5aba60d99621963d0109f95b622f2
 
 build:
