@@ -7,7 +7,7 @@ dependencies:
   - make-ca
 source:
   url: https://download.gnome.org/sources/glib-networking/2.80/glib-networking-2.80.0.tar.xz
-  md5: a63ea04a9686e9e4470b127ffe1eb96b
+  md5: 8e13b80148e28adc9e4cf681c0b30402
 
 build:
   - |
