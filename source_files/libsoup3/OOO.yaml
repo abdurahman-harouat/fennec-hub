@@ -6,6 +6,9 @@ dependencies:
   - libxml2
   - nghttp2
   - sqlite
+  - glib
+  - gobject-introspection
+  - vala
 source:
   url: https://download.gnome.org/sources/libsoup/3.4/libsoup-3.4.4.tar.xz
   md5: a63ea04a9686e9e4470b127ffe1eb96b
