@@ -1,0 +1,17 @@
+pkgname: pixman
+pkgver: "0.43.4"
+source:
+  url: https://www.cairographics.org/releases/pixman-0.43.4.tar.gz
+  md5: 21b18058dea39ad48f32d3199b8ffe40
+
+build:
+  - |
+    mkdir -p build &&
+    cd    build &&
+
+    meson setup --prefix=/usr --buildtype=release .. &&
+    ninja
+
+install:
+  - |
+    cd build && ninja install

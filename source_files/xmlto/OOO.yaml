@@ -12,7 +12,6 @@ build:
   - |
     autoreconf -fiv                                  &&
     LINKS="/usr/bin/links" ./configure --prefix=/usr &&
-
     make
 
 install:
