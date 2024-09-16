@@ -1,0 +1,17 @@
+pkgname: spice-protocol
+pkgver: "0.14.3"
+source:
+  url: https://www.spice-space.org/download/releases/spice-protocol-0.14.3.tar.xz
+  md5: 950e08044497ca9cf64e368cb3ceb395
+
+build:
+  - |
+    mkdir -p build &&
+    cd    build &&
+
+    meson setup .. &&
+    ninja
+
+install:
+  - |
+    ninja -C build install
