@@ -1,0 +1,22 @@
+pkgname: gnutls
+pkgver: "3.8.7.1"
+dependencies:
+  - nettle
+  - libtasn1
+  - libunistring
+  - p11-kit
+  - make-ca
+source:
+  url: https://www.gnupg.org/ftp/gcrypt/gnutls/v3.8/gnutls-3.8.7.1.tar.xz
+  md5: 46777802233eb7203d47a8b8880c8c90
+
+build:
+  - |
+    ./configure --prefix=/usr \
+            --docdir=/usr/share/doc/gnutls-3.8.7.1 \
+            --with-default-trust-store-pkcs11="pkcs11:" &&
+    make
+
+install:
+  - |
+    make install
