@@ -1,0 +1,17 @@
+pkgname: xorg-libinput
+pkgver: "1.4.0"
+dependencies:
+  - libinput
+  - xorg-server
+source:
+  url: https://www.x.org/pub/individual/driver/xf86-input-libinput-1.4.0.tar.xz
+  md5: b52a1fc7456cf6595a9a1004287551a3
+
+build:
+  - |
+    ./configure $XORG_CONFIG &&
+    make
+
+install:
+  - |
+    make install
