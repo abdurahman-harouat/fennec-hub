@@ -7,7 +7,7 @@ dependencies:
   - p11-kit
   - make-ca
 source:
-  url: https://www.gnupg.org/ftp/gcrypt/gnutls/v3.8/gnutls-3.8.7.1.tar.xz
+  url: https://github.com/abdurahman-harouat/fennec-hub/raw/main/special/gnutls-3.8.7.tar.xz
   md5: 46777802233eb7203d47a8b8880c8c90
 
 build:
