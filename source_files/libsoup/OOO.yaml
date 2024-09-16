@@ -1,0 +1,30 @@
+pkgname: libsoup
+pkgver: "2.74.3"
+dependencies:
+  - glib-networking
+  - libpsl
+  - libxml2
+  - sqlite
+  - glib
+  - gobject-introspection
+  - vala
+source:
+  url: https://download.gnome.org/sources/libsoup/2.74/libsoup-2.74.3.tar.xz
+  md5: 8f657fd301a213629204b3320c35d75a
+
+build:
+  - |
+    mkdir -p build &&
+    cd    build &&
+
+    meson setup --prefix=/usr       \
+                --buildtype=release \
+                -D vapi=enabled     \
+                -D gssapi=disabled  \
+                -D sysprof=disabled \
+                ..                  &&
+    ninja
+
+install:
+  - |
+    cd build && ninja install
