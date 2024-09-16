@@ -1,0 +1,22 @@
+pkgname: gsettings-desktop-schemas
+pkgver: "46.1"
+dependencies:
+  - glib
+  - gobject-introspection
+source:
+  url: https://download.gnome.org/sources/gsettings-desktop-schemas/46/gsettings-desktop-schemas-46.1.tar.xz
+  md5: f1fe79211639016c94df811e8ea6abe6
+
+build:
+  - |
+    sed -i -r 's:"(/system):"/org/gnome\1:g' schemas/*.in &&
+
+    mkdir -p build &&
+    cd    build &&
+
+    meson setup --prefix=/usr --buildtype=release .. &&
+    ninja
+
+install:
+  - |
+    cd build && ninja install
