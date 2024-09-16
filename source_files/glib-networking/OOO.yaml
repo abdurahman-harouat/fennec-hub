@@ -1,0 +1,26 @@
+pkgname: glib-networking
+pkgver: "2.80.0"
+dependencies:
+  - glib
+  - gnutls
+  - gsettings-desktop-schemas
+  - make-ca
+source:
+  url: https://download.gnome.org/sources/glib-networking/2.80/glib-networking-2.80.0.tar.xz
+  md5: a63ea04a9686e9e4470b127ffe1eb96b
+
+build:
+  - |
+    mkdir -p build &&
+    cd    build &&
+
+    meson setup             \
+      --prefix=/usr        \
+      --buildtype=release  \
+      -D libproxy=disabled \
+      .. &&
+    ninja
+
+install:
+  - |
+    cd build && ninja install

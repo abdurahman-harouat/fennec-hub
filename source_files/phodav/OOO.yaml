@@ -1,0 +1,17 @@
+pkgname: phodav
+pkgver: "2.5"
+dependencies:
+  - libsoup3
+source:
+  url: https://gitlab.gnome.org/GNOME/phodav/-/archive/v2.5/phodav-v2.5.tar.gz
+  md5: 89a73e5a8ce5e103bb58b4f548045514
+
+build:
+  - |
+    mkdir -p build && cd build &&
+    meson setup --prefix=/usr .. &&
+    ninja
+
+install:
+  - |
+    cd build && ninja install

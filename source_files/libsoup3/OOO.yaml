@@ -1,0 +1,31 @@
+pkgname: libsoup3
+pkgver: "3.4.4"
+dependencies:
+  - glib-networking
+  - libpsl
+  - libxml2
+  - nghttp2
+  - sqlite
+source:
+  url: https://download.gnome.org/sources/libsoup/3.4/libsoup-3.4.4.tar.xz
+  md5: a63ea04a9686e9e4470b127ffe1eb96b
+
+build:
+  - |
+    sed 's/apiversion/soup_version/' -i docs/reference/meson.build
+  - |
+    mkdir build &&
+    cd    build &&
+
+    meson setup --prefix=/usr          \
+                --buildtype=release    \
+                -D vapi=enabled        \
+                -D gssapi=disabled     \
+                -D sysprof=disabled    \
+                --wrap-mode=nofallback \
+                ..                     &&
+    ninja
+
+install:
+  - |
+    cd build && ninja install

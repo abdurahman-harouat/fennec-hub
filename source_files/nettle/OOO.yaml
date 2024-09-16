@@ -1,0 +1,17 @@
+pkgname: nettle
+pkgver: "3.10"
+source:
+  url: https://ftp.gnu.org/gnu/nettle/nettle-3.10.tar.gz
+  md5: c61453139d5fb44e9cdcc5b684b26e55
+
+build:
+  - |
+    ./configure --prefix=/usr --disable-static &&
+    make
+
+install:
+  - |
+    make install &&
+    chmod   -v   755 /usr/lib/lib{hogweed,nettle}.so &&
+    install -v -m755 -d /usr/share/doc/nettle-3.10 &&
+    install -v -m644 nettle.{html,pdf} /usr/share/doc/nettle-3.10
