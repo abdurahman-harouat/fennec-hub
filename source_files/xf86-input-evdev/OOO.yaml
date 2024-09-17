@@ -1,0 +1,18 @@
+pkgname: xf86-input-evdev
+pkgver: "2.10.6"
+dependencies:
+  - libevdev
+  - mtdev
+  - xorg-server
+source:
+  url: https://www.x.org/pub/individual/driver/xf86-input-evdev-2.10.6.tar.bz2
+  md5: e8bd1edc6751f92e425cae7eba3c61eb
+
+build:
+  - |
+    ./configure $XORG_CONFIG &&
+    make
+
+install:
+  - |
+    make install
