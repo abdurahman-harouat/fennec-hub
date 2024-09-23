@@ -1,7 +1,7 @@
 pkgname: freetype
 pkgver: "2.13.3"
 source:
-  url: https://downloads.sourceforge.net/freetype/freetype-2.13.3.tar.xz
+  url: https://ftp2.osuosl.org/pub/blfs/conglomeration/freetype/freetype-2.13.3.tar.xz
   md5: f3b4432c4212064c00500e1ad63fbc64
 
 build:
