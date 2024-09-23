@@ -5,7 +5,7 @@ dependencies:
   - giflib
   - librsvg
 source:
-  url: https://downloads.sourceforge.net/enlightenment/imlib2-1.12.3.tar.xz
+  url: https://ftp2.osuosl.org/pub/blfs/conglomeration/imlib/imlib2-1.12.3.tar.xz
   md5: 93e5b769ed02a183dfd78569f7b0fbe3
 
 build:
