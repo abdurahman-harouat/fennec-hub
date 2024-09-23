@@ -4,7 +4,6 @@ dependencies:
   - glib
   - gobject-introspection
   - graphite2
-  - icu
   - freetype
 source:
   url: https://github.com/harfbuzz/harfbuzz/releases/download/9.0.0/harfbuzz-9.0.0.tar.xz
