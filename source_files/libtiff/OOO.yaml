@@ -17,4 +17,4 @@ build:
 
 install:
   - |
-    cd libtiff-build && make install
+    cd libtiff-build && ninja install
