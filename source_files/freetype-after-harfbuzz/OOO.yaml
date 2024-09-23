@@ -1,0 +1,21 @@
+pkgname: freetype-after-harfbuzz
+pkgver: "2.13.3"
+dependencies:
+  - harfbuzz
+source:
+  url: https://downloads.sourceforge.net/freetype/freetype-2.13.3.tar.xz
+  md5: f3b4432c4212064c00500e1ad63fbc64
+
+build:
+  - |
+    sed -ri "s:.*(AUX_MODULES.*valid):\1:" modules.cfg &&
+
+    sed -r "s:.*(#.*SUBPIXEL_RENDERING) .*:\1:" \
+        -i include/freetype/config/ftoption.h  &&
+
+    ./configure --prefix=/usr --enable-freetype-config --disable-static &&
+    make
+
+install:
+  - |
+    make install

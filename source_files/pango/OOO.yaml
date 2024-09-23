@@ -1,0 +1,27 @@
+pkgname: pango
+pkgver: "1.54.0"
+dependencies:
+  - fontconfig-after-freetype
+  - fribidi
+  - glib
+  - gobject-introspection
+  - libxpresent
+  - cairo
+source:
+  url: https://download.gnome.org/sources/pango/1.54/pango-1.54.0.tar.xz
+  md5: 7ad89b03f6850e0be28f91522b793842
+
+build:
+  - |
+    mkdir -p build &&
+    cd    build &&
+
+    meson setup --prefix=/usr          \
+                --buildtype=release    \
+                --wrap-mode=nofallback \
+                ..                     &&
+    ninja
+
+install:
+  - |
+    cd build && ninja install

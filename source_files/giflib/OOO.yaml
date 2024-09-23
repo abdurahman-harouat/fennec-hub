@@ -1,0 +1,28 @@
+pkgname: giflib
+pkgver: "5.2.2"
+dependencies:
+  - xmlto
+source:
+  url: https://sourceforge.net/projects/giflib/files/giflib-5.2.2.tar.gz
+  md5: 913dd251492134e235ee3c9a91987a4d
+
+additional_downloads:
+  - url: https://www.linuxfromscratch.org/patches/blfs/svn/giflib-5.2.2-upstream_fixes-1.patch
+
+build:
+  - |
+    patch -Np1 -i ../giflib-5.2.2-upstream_fixes-1.patch
+  - cp pic/gifgrid.gif doc/giflib-logo.gif
+  - make
+
+install:
+  - |
+    make PREFIX=/usr install &&
+
+    rm -fv /usr/lib/libgif.a &&
+
+    find doc \( -name Makefile\* -o -name \*.1 \
+            -o -name \*.xml \) -exec rm -v {} \; &&
+
+    install -v -dm755 /usr/share/doc/giflib-5.2.2 &&
+    cp -v -R doc/* /usr/share/doc/giflib-5.2.2

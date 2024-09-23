@@ -1,0 +1,26 @@
+pkgname: librsvg
+pkgver: "2.58.3"
+dependencies:
+  - pango
+  - gdk-pixbuf
+  - rustc
+  - glib
+  - gobject-introspection
+  - vala
+source:
+  url: https://download.gnome.org/sources/librsvg/2.58/librsvg-2.58.3.tar.xz
+  md5: 8f954b5c25ffff602b4e62813c98c8c9
+
+build:
+  - |
+    ./configure --prefix=/usr    \
+            --enable-vala    \
+            --disable-static \
+            --docdir=/usr/share/doc/librsvg-2.58.3 &&
+    make
+
+install:
+  - |
+    make DOC_INSTALL_DIR='$(docdir)' install
+  - |
+    gdk-pixbuf-query-loaders --update-cache

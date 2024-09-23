@@ -1,0 +1,17 @@
+pkgname: imlib2
+pkgver: "1.12.3"
+dependencies:
+  - libxpresent
+  - giflib
+  - librsvg
+source:
+  url: https://downloads.sourceforge.net/enlightenment/imlib2-1.12.3.tar.xz
+  md5: 93e5b769ed02a183dfd78569f7b0fbe3
+
+build:
+  - |
+    ./configure --prefix=/usr --disable-static &&
+    make
+
+install:
+  - make install

@@ -1,0 +1,17 @@
+pkgname: feh
+pkgver: "3.10.3"
+dependencies:
+  - libpng
+  - imlib2
+  - curl
+source:
+  url: https://feh.finalrewind.org/feh-3.10.3.tar.bz2
+  md5: 4f9e2c6ecc120852ba86dc41df366aba
+
+build:
+  - |
+    sed -i "s:doc/feh:&-3.10.3:" config.mk &&
+    make PREFIX=/usr
+
+install:
+  - make PREFIX=/usr install

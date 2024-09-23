@@ -1,0 +1,24 @@
+pkgname: cairo
+pkgver: "1.18.2"
+dependencies:
+  - libpng
+  - pixman
+  - fontconfig
+  - glib
+  - libxpresent
+  - harfbuzz
+source:
+  url: https://www.cairographics.org/releases/cairo-1.18.2.tar.xz
+  md5: 5ad67c707edd0003f1b91c8bbc0005c1
+
+build:
+  - |
+    mkdir -p build &&
+    cd    build &&
+
+    meson setup --prefix=/usr --buildtype=release .. &&
+    ninja
+
+install:
+  - |
+    cd build && ninja install

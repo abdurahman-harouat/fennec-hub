@@ -1,0 +1,20 @@
+pkgname: libtiff
+pkgver: "4.7.0"
+dependencies:
+  - cmake
+source:
+  url: https://download.osgeo.org/libtiff/tiff-4.7.0.tar.gz
+  md5: 3a0fa4a270a4a192b08913f88d0cfbdd
+
+build:
+  - |
+    mkdir -p libtiff-build &&
+    cd       libtiff-build &&
+
+    cmake -D CMAKE_INSTALL_DOCDIR=/usr/share/doc/libtiff-4.7.0 \
+          -D CMAKE_INSTALL_PREFIX=/usr -G Ninja .. &&
+    ninja
+
+install:
+  - |
+    cd libtiff-build && make install

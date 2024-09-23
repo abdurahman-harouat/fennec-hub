@@ -1,0 +1,26 @@
+pkgname: harfbuzz
+pkgver: "9.0.0"
+dependencies:
+  - glib
+  - gobject-introspection
+  - graphite2
+  - icu
+  - freetype
+source:
+  url: https://github.com/harfbuzz/harfbuzz/releases/download/9.0.0/harfbuzz-9.0.0.tar.xz
+  md5: 0035c129cb1646ab1cff65e5ef7153db
+
+build:
+  - |
+    mkdir -p build &&
+    cd    build &&
+
+    meson setup ..             \
+          --prefix=/usr        \
+          --buildtype=release  \
+          -D graphite2=enabled &&
+    ninja
+
+install:
+  - |
+    cd build && ninja install
