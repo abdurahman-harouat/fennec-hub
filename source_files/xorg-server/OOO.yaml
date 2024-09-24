@@ -25,6 +25,7 @@ build:
           --prefix=$XORG_PREFIX \
           --localstatedir=/var  \
           -D glamor=true        \
+          -D xephyr=true        \
           -D xkb_output_dir=/var/lib/xkb &&
     ninja
 
