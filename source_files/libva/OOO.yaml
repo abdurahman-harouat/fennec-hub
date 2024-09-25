@@ -1,0 +1,19 @@
+pkgname: libva
+pkgver: "2.22.0"
+dependencies:
+  - mesa
+  - libdrm
+source:
+  url: https://github.com/intel/libva/archive/2.22.0/libva-2.22.0.tar.gz
+  md5: 8dba13313d724b5e930f06e65b7437e2
+
+build:
+  - |
+    cd build &&
+
+    meson setup --prefix=$XORG_PREFIX --buildtype=release &&
+    ninja
+
+install:
+  - |
+    cd build && ninja install
