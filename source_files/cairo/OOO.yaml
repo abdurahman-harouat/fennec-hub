@@ -16,7 +16,7 @@ build:
     mkdir -p build &&
     cd    build &&
 
-    meson setup --prefix=/usr --buildtype=release .. &&
+    meson setup --prefix=/usr --buildtype=release -D xlib-xcb=enabled .. &&
     ninja
 
 install:
