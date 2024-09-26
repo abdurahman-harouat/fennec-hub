@@ -1,0 +1,26 @@
+pkgname: gtk
+pkgver: "3.24.43"
+dependencies:
+  - at-spi2-core
+  - gdk-pixbuf
+  - libepoxy
+  - pango
+source:
+  url: https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.43.tar.xz
+  md5: 226e372664a7fae749a50a04983ecd8d
+
+build:
+  - |
+    mkdir -p build &&
+    cd    build &&
+
+    meson setup ..                 \
+          --prefix=/usr            \
+          --buildtype=release      \
+          -D man=true              \
+          -D broadway_backend=true &&
+    ninja
+
+install:
+  - |
+    cd build && ninja install
