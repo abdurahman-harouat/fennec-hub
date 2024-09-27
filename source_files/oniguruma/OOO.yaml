@@ -1,0 +1,14 @@
+pkgname: oniguruma
+pkgver: "6.9.9"
+source:
+  url: https://github.com/kkos/oniguruma/releases/download/v6.9.9/onig-6.9.9.tar.gz
+  md5: 411822bd3b279f7525ff5d2fcc3cced2
+
+build:
+  - |
+    ./configure --prefix=/usr --enable-posix-api
+    make
+
+install:
+  - |
+    make install

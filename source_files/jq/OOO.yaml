@@ -1,0 +1,16 @@
+pkgname: jq
+pkgver: "1.7.1"
+dependencies:
+  - oniguruma
+source:
+  url: https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-1.7.1.tar.gz
+  md5: 974a340105ecb43add8c55601525f9fc
+
+build:
+  - |
+    ./configure --prefix=/usr
+    make
+
+install:
+  - |
+    make prefix=/usr install
