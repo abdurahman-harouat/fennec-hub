@@ -39,7 +39,3 @@ install:
     ! Below, default modified to mouse left button.
     URxvt*matcher.button:     1
     EOF
-
-additional_commands:
-  - |
-    xrdb -merge ~/.Xresources
