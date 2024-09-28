@@ -1,0 +1,9 @@
+pkgname: kitty
+pkgver: "0.36.4"
+source:
+  url: https://github.com/kovidgoyal/kitty/archive/refs/tags/v0.36.4.tar.gz
+  md5: dff09517498a4a111c10ff7e30caffc5
+
+build:
+  - |
+    ./dev.sh build
