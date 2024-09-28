@@ -1,0 +1,32 @@
+pkgname: fuse
+pkgver: "3.16.2"
+source:
+  url: https://github.com/libfuse/libfuse/releases/download/fuse-3.16.2/fuse-3.16.2.tar.gz
+  md5: b00bf08b27ead4a9411578777e94a1cc
+
+build:
+  - |
+    sed -i '/^udev/,$ s/^/#/' util/meson.build &&
+
+    mkdir -p build &&
+    cd    build &&
+
+    meson setup --prefix=/usr --buildtype=release .. &&
+    ninja
+
+install:
+  - |
+    cd build && ninja install &&
+    chmod u+s /usr/bin/fusermount3
+  - |
+    cat > /etc/fuse.conf << "EOF"
+    # Set the maximum number of FUSE mounts allowed to non-root users.
+    # The default is 1000.
+    #
+    #mount_max = 1000
+
+    # Allow non-root users to specify the 'allow_other' or 'allow_root'
+    # mount options.
+    #
+    #user_allow_other
+    EOF
