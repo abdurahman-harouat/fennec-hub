@@ -1,0 +1,14 @@
+pkgname: fuse2
+pkgver: "2.9.9"
+source:
+  url: https://github.com/libfuse/libfuse/releases/download/fuse-2.9.9/fuse-2.9.9.tar.gz
+  md5: 8000410aadc9231fd48495f7642f3312
+
+build:
+  - |
+    ./configure --prefix=/usr --libdir=/usr/lib --enable-lib --enable-util --disable-example &&
+    make
+
+install:
+  - |
+    make install
