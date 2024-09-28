@@ -1,0 +1,22 @@
+pkgname: libptytty
+pkgver: "2.0"
+dependencies:
+  - cmake
+source:
+  url: http://dist.schmorp.de/libptytty/libptytty-2.0.tar.gz
+  md5: 2a7f3f3c0d3ef71902da745dc7959529
+
+build:
+  - |
+    mkdir -p build &&
+    cd    build &&
+
+    cmake -D CMAKE_INSTALL_PREFIX=/usr     \
+          -D CMAKE_BUILD_TYPE=Release      \
+          -D PT_UTMP_FILE:STRING=/run/utmp \
+          .. &&
+    make
+
+install:
+  - |
+    make install
