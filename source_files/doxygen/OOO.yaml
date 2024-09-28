@@ -1,0 +1,28 @@
+pkgname: doxygen
+pkgver: "1.12.0"
+dependencies:
+  - cmake
+  - git
+source:
+  url: https://doxygen.nl/files/doxygen-1.12.0.src.tar.gz
+  md5: 3ab97fd76c6fe090946c836c5051182b
+
+build:
+  - |
+    grep -rl '^#!.*python$' | xargs sed -i '1s/python/&3/'
+  - |
+    mkdir -pv build &&
+    cd       build &&
+
+    cmake -G "Unix Makefiles"          \
+          -D CMAKE_BUILD_TYPE=Release  \
+          -D CMAKE_INSTALL_PREFIX=/usr \
+          -D build_wizard=ON           \
+          -D force_qt=Qt6              \
+          -W no-dev .. &&
+    make
+
+install:
+  - |
+    make install &&
+    install -vm644 ../doc/*.1 /usr/share/man/man1
