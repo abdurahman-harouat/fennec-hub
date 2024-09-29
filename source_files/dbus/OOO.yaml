@@ -1,0 +1,26 @@
+pkgname: dbus
+pkgver: "1.14.10"
+source:
+  url: https://dbus.freedesktop.org/releases/dbus/dbus-1.14.10.tar.xz
+  md5: 46070a3487817ff690981f8cd2ba9376
+
+build:
+  - |
+    ./configure --prefix=/usr                        \
+            --sysconfdir=/etc                    \
+            --localstatedir=/var                 \
+            --runstatedir=/run                   \
+            --enable-user-session                \
+            --disable-doxygen-docs               \
+            --disable-xml-docs                   \
+            --disable-static                     \
+            --docdir=/usr/share/doc/dbus-1.14.10  \
+            --with-system-socket=/run/dbus/system_bus_socket &&
+    make
+
+install:
+  - |
+    make install
+  - |
+    chown -v root:messagebus /usr/libexec/dbus-daemon-launch-helper &&
+    chmod -v      4750       /usr/libexec/dbus-daemon-launch-helper
