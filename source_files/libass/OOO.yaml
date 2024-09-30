@@ -1,0 +1,21 @@
+pkgname: libass
+pkgver: "0.17.3"
+
+dependencies:
+  - freetype
+  - fribidi
+  - nasm
+  - fontconfig
+
+source:
+  url: https://github.com/libass/libass/releases/download/0.17.3/libass-0.17.3.tar.xz
+  md5: baed6dfc87bed705c1955cc6b932d7f6
+
+build:
+  - |
+    ./configure --prefix=/usr --disable-static &&
+    make
+
+install:
+  - |
+    make install
