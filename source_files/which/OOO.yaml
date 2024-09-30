@@ -1,0 +1,14 @@
+pkgname: which
+pkgver: "2.21"
+source:
+  url: https://ftp.gnu.org/gnu/which/which-2.21.tar.gz
+  md5: 097ff1a324ae02e0a3b0369f07a7544a
+
+build:
+  - |
+    ./configure --prefix=/usr &&
+    make
+
+install:
+  - |
+    make install
