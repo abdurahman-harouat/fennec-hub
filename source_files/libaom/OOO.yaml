@@ -1,0 +1,28 @@
+pkgname: libaom
+pkgver: "3.9.1"
+dependencies:
+  - nasm
+  - yasm
+source:
+  url: https://storage.googleapis.com/aom-releases/libaom-3.9.1.tar.gz
+  md5: f31b72e81dd177396e3553576f6515ef
+
+additional_downloads:
+  - url: https://www.linuxfromscratch.org/patches/blfs/svn/ffmpeg-7.0.2-chromium_method-1.patch
+
+build:
+  - |
+    mkdir -p aom-build &&
+    cd    aom-build &&
+
+    cmake -D CMAKE_INSTALL_PREFIX=/usr \
+          -D CMAKE_BUILD_TYPE=Release  \
+          -D BUILD_SHARED_LIBS=1       \
+          -D ENABLE_DOCS=no            \
+          -G Ninja .. &&
+    ninja
+
+install:
+  - |
+    cd aom-build && ninja install &&
+    rm -v /usr/lib/libaom.a

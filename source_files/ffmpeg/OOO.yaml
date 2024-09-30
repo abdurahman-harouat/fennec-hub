@@ -1,5 +1,9 @@
 pkgname: ffmpeg
 pkgver: "7.0.2"
+
+dependencies:
+  - libaom
+
 source:
   url: https://ffmpeg.org/releases/ffmpeg-7.0.2.tar.xz
   md5: e22725fc3738e314d71a7fb32f2336db
