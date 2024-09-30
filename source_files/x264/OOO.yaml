@@ -1,0 +1,18 @@
+pkgname: x264
+pkgver: "20240812"
+dependencies:
+  - nasm
+source:
+  url: https://anduin.linuxfromscratch.org/BLFS/x264/x264-20240812.tar.xz
+  md5: 515794f289b34f59f16553f2438867ed
+
+build:
+  - |
+    ./configure --prefix=/usr \
+            --enable-shared \
+            --disable-cli &&
+    make
+
+install:
+  - |
+    make install

@@ -1,0 +1,23 @@
+pkgname: x265
+pkgver: "3.6"
+dependencies:
+  - nasm
+  - cmake
+source:
+  url: https://bitbucket.org/multicoreware/x265_git/downloads/x265_3.6.tar.gz
+  md5: 99997ecc8ee4d3575ba7715c759ad3bb
+
+build:
+  - |
+    mkdir bld &&
+    cd    bld &&
+
+    cmake -D CMAKE_INSTALL_PREFIX=/usr \
+          -D GIT_ARCHETYPE=1           \
+          -W no-dev ../source          &&
+    make
+
+install:
+  - |
+    cd bld && make install &&
+    rm -vf /usr/lib/libx265.a

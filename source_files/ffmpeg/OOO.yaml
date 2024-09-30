@@ -9,6 +9,10 @@ dependencies:
   - lame
   - libvorbis
   - libvpx
+  - x264
+  - x265
+  - nasm
+  - yasm
 
 source:
   url: https://ffmpeg.org/releases/ffmpeg-7.0.2.tar.xz
