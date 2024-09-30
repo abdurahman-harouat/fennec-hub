@@ -9,7 +9,7 @@ source:
 
 build:
   - |
-    mkdir bld &&
+    mkdir -p bld &&
     cd    bld &&
 
     cmake -D CMAKE_INSTALL_PREFIX=/usr \
