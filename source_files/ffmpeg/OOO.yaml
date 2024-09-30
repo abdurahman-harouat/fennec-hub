@@ -7,6 +7,8 @@ dependencies:
   - fdk-aac
   - freetype
   - lame
+  - libvorbis
+  - libvpx
 
 source:
   url: https://ffmpeg.org/releases/ffmpeg-7.0.2.tar.xz
