@@ -1,0 +1,22 @@
+pkgname: vte
+pkgver: "0.76.4"
+dependencies:
+  - gtk+
+  - libxml2
+  - pcre2
+source:
+  url: https://gitlab.gnome.org/GNOME/vte/-/archive/0.76.4/vte-0.76.4.tar.gz
+  md5: 5d1a548ad131664e8a638da24fbfd3e9
+
+build:
+  - |
+    mkdir -p build &&
+    cd    build &&
+
+    meson setup --prefix=/usr --buildtype=release .. &&
+    ninja
+
+install:
+  - |
+    cd build && ninja install &&
+    rm -v /etc/profile.d/vte.*
