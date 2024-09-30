@@ -3,6 +3,10 @@ pkgver: "7.0.2"
 
 dependencies:
   - libaom
+  - libass
+  - fdk-aac
+  - freetype
+  - lame
 
 source:
   url: https://ffmpeg.org/releases/ffmpeg-7.0.2.tar.xz
