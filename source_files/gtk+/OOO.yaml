@@ -1,4 +1,4 @@
-pkgname: gtk
+pkgname: gtk+
 pkgver: "3.24.43"
 dependencies:
   - at-spi2-core
