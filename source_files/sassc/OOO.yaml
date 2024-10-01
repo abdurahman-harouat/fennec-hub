@@ -26,7 +26,6 @@ install:
 additional_commands:
   - |
     cd libsass-3.6.6 &&
-    popd &&
     autoreconf -fi &&
 
     ./configure --prefix=/usr &&
@@ -34,4 +33,4 @@ additional_commands:
 
 additional_commands_with_sudo:
   - |
-    make install
+    cd libsass-3.6.6 && make install
