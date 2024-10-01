@@ -21,10 +21,11 @@ build:
 
 install:
   - |
-    make install
+    cd libsass-3.6.6 && make install
 
 additional_commands:
   - |
+    cd libsass-3.6.6 &&
     popd &&
     autoreconf -fi &&
 
