@@ -1,0 +1,13 @@
+pkgname: layan-cursors
+pkgver: "2021-08-01"
+source:
+  url: https://github.com/vinceliuice/Layan-cursors/archive/refs/tags/2021-08-01.tar.gz
+  md5: ac11bc04f064917c2416df7dcba1235f
+
+build:
+  - |
+    ./build.sh
+
+install:
+  - |
+    ./install.sh
