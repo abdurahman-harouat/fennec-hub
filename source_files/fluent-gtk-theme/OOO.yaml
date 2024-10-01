@@ -1,0 +1,11 @@
+pkgname: fluent-gtk-theme
+pkgver: "2024-06-12"
+dependencies:
+  - sassc
+source:
+  url: https://github.com/vinceliuice/Fluent-gtk-theme/archive/refs/tags/2024-06-12.tar.gz
+  md5: 1fa02dd8cd356276ea6f60b17284028d
+
+install:
+  - |
+    ./install.sh

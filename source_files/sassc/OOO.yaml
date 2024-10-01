@@ -1,0 +1,36 @@
+pkgname: sassc
+pkgver: "3.6.2"
+
+source:
+  url: https://github.com/sass/sassc/archive/3.6.2/sassc-3.6.2.tar.gz
+  md5: 4c3b06ce2979f2a9f0a35093e501d8bb
+
+additional_downloads:
+  - url: https://github.com/sass/libsass/archive/3.6.6/libsass-3.6.6.tar.gz
+    md5: afda97284d75a030cabadf5b9f998a3b
+
+build:
+  - |
+    tar -xf ../libsass-3.6.6.tar.gz &&
+    pushd libsass-3.6.6 &&
+
+    autoreconf -fi &&
+
+    ./configure --prefix=/usr --disable-static &&
+    make
+
+install:
+  - |
+    make install
+
+additional_commands:
+  - |
+    popd &&
+    autoreconf -fi &&
+
+    ./configure --prefix=/usr &&
+    make
+
+additional_commands_with_sudo:
+  - |
+    make install

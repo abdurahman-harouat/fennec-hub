@@ -10,6 +10,9 @@ dependencies:
   - pango
   - wayland-protocols
   - python-pygobject
+  - fluent-icon-theme
+  - layan-cursors
+  - fluent-gtk-theme
 source:
   url: https://download.gnome.org/sources/gtk/4.16/gtk-4.16.2.tar.xz
   md5: 5796b6edd167706aa91865c653413bfe
@@ -36,11 +39,11 @@ install:
     [Settings]
     gtk-theme-name = Adwaita
     gtk-icon-theme-name = Fluent
-    gtk-font-name = DejaVu Sans 12
+    gtk-font-name = Baloo Bhaijaan 12
     gtk-cursor-theme-size = 18
     gtk-xft-antialias = 1
     gtk-xft-hinting = 1
     gtk-xft-hintstyle = hintslight
     gtk-xft-rgba = rgb
-    gtk-cursor-theme-name = Adwaita
+    gtk-cursor-theme-name = Layan Cursors
     EOF
