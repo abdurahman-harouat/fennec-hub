@@ -1,0 +1,9 @@
+pkgname: fluent-icon-theme
+pkgver: "2024-02-25"
+source:
+  url: https://github.com/vinceliuice/Fluent-icon-theme/archive/refs/tags/2024-02-25.tar.gz
+  md5: c5688cbf34af7a5520c06df3193934ea
+
+build:
+  - |
+    ./install.sh green

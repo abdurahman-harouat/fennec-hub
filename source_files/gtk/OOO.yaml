@@ -1,0 +1,46 @@
+pkgname: gtk
+pkgver: "4.16.2"
+dependencies:
+  - fribidi
+  - gdk-pixbuf
+  - graphene
+  - iso-codes
+  - libepoxy
+  - libxkbcommon
+  - pango
+  - wayland-protocols
+  - python-pygobject
+source:
+  url: https://download.gnome.org/sources/gtk/4.16/gtk-4.16.2.tar.xz
+  md5: 5796b6edd167706aa91865c653413bfe
+
+build:
+  - |
+    mkdir -p build &&
+    cd    build &&
+
+    meson setup --prefix=/usr            \
+                --buildtype=release      \
+                -D broadway-backend=true \
+                -D introspection=enabled \
+                -D vulkan=enabled        \
+                .. &&
+    ninja
+
+install:
+  - |
+    cd build && ninja install
+  - |
+    mkdir -pv ~/.config/gtk-4.0
+    cat > ~/.config/gtk-4.0/settings.ini << "EOF"
+    [Settings]
+    gtk-theme-name = Adwaita
+    gtk-icon-theme-name = oxygen
+    gtk-font-name = DejaVu Sans 12
+    gtk-cursor-theme-size = 18
+    gtk-xft-antialias = 1
+    gtk-xft-hinting = 1
+    gtk-xft-hintstyle = hintslight
+    gtk-xft-rgba = rgb
+    gtk-cursor-theme-name = Adwaita
+    EOF
