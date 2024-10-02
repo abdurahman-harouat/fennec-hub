@@ -1,0 +1,16 @@
+pkgname: flac
+pkgver: "1.4.3"
+source:
+  url: https://downloads.xiph.org/releases/flac/flac-1.4.3.tar.xz
+  md5: 7cab20b46e0bc859234bf5ba7da81625
+
+build:
+  - |
+    ./configure --prefix=/usr                                \
+            --disable-thorough-tests                     \
+            --docdir=/usr/share/doc/flac-1.4.3          &&
+    make
+
+install:
+  - |
+    make install

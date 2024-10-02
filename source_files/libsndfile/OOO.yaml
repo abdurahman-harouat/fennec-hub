@@ -1,0 +1,19 @@
+pkgname: libsndfile
+pkgver: "1.2.2"
+dependencies:
+  - flac
+  - opus
+  - libvorbis
+source:
+  url: https://github.com/libsndfile/libsndfile/releases/download/1.2.2/libsndfile-1.2.2.tar.xz
+  md5: 04e2e6f726da7c5dc87f8cf72f250d04
+
+build:
+  - |
+    ./configure --prefix=/usr    \
+            --docdir=/usr/share/doc/libsndfile-1.2.2 &&
+    make
+
+install:
+  - |
+    make install
