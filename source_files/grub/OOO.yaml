@@ -1,0 +1,35 @@
+pkgname: grub
+pkgver: "2.12"
+
+dependencies:
+  - efibootmgr
+  - freetype
+
+source:
+  url: https://ftp.gnu.org/gnu/grub/grub-2.12.tar.xz
+  md5: 60c564b1bdc39d8e43b3aab4bc0fb140
+
+additional_downloads:
+  - url: https://unifoundry.com/pub/unifont/unifont-16.0.01/font-builds/unifont-16.0.01.pcf.gz
+    md5: 007ffa7aab47ed3f270caee84d12148b
+
+build:
+  - |
+    echo depends bli part_gpt > grub-core/extra_deps.lst
+  - |
+    ./configure --prefix=/usr          \
+            --sysconfdir=/etc      \
+            --disable-efiemu       \
+            --disable-werror     &&
+    unset TARGET_CC &&
+    make
+
+install:
+  - |
+    mkdir -pv /usr/share/fonts/unifont &&
+    gunzip -c ../unifont-16.0.01.pcf.gz > /usr/share/fonts/unifont/unifont.pcf
+  - |
+    make install &&
+    mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions
+  - |
+    cp -av dest/usr/bin/grub-mount /usr/bin

@@ -1,0 +1,17 @@
+pkgname: efivar
+pkgver: "39"
+
+dependencies:
+  - mandoc
+
+source:
+  url: https://github.com/rhboot/efivar/archive/39/efivar-39.tar.gz
+  md5: a8fc3e79336cd6e738ab44f9bc96a5aa
+
+build:
+  - |
+    make
+
+install:
+  - |
+    make install LIBDIR=/usr/lib

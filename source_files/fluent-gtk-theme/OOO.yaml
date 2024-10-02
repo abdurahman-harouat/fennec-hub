@@ -1,7 +1,10 @@
 pkgname: fluent-gtk-theme
 pkgver: "2024-06-12"
 dependencies:
+  - gtk+
   - sassc
+  - gnome-themes-extra
+  - gtk-engine-murrine
 source:
   url: https://github.com/vinceliuice/Fluent-gtk-theme/archive/refs/tags/2024-06-12.tar.gz
   md5: 1fa02dd8cd356276ea6f60b17284028d

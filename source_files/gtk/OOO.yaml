@@ -12,7 +12,7 @@ dependencies:
   - python-pygobject
   - fluent-icon-theme
   - layan-cursors
-  - fluent-gtk-theme
+  - adwaita-icon-theme
 source:
   url: https://download.gnome.org/sources/gtk/4.16/gtk-4.16.2.tar.xz
   md5: 5796b6edd167706aa91865c653413bfe

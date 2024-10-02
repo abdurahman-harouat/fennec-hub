@@ -1,0 +1,16 @@
+pkgname: mandoc
+pkgver: "1.14.6"
+
+source:
+  url: https://mandoc.bsd.lv/snapshots/mandoc-1.14.6.tar.gz
+  md5: f0adf24e8fdef5f3e332191f653e422a
+
+build:
+  - |
+    ./configure &&
+    make mandoc
+
+install:
+  - |
+    install -vm755 mandoc   /usr/bin &&
+    install -vm644 mandoc.1 /usr/share/man/man1
