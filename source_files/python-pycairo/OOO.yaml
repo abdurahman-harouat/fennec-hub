@@ -1,0 +1,19 @@
+pkgname: python-pycairo
+pkgver: "1.26.1"
+dependencies:
+  - cairo
+source:
+  url: https://github.com/pygobject/pycairo/releases/download/v1.26.1/pycairo-1.26.1.tar.gz
+  md5: 36504ac01533ae14f0d2337516bbae2e
+
+build:
+  - |
+    mkdir -p build &&
+    cd    build &&
+
+    meson setup --prefix=/usr --buildtype=release .. &&
+    ninja
+
+install:
+  - |
+    cd build && ninja install

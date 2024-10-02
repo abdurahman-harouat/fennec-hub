@@ -1,0 +1,19 @@
+pkgname: graphene
+pkgver: "1.10.8"
+dependencies:
+  - glib
+source:
+  url: https://download.gnome.org/sources/graphene/1.10/graphene-1.10.8.tar.xz
+  md5: 169e3c507b5a5c26e9af492412070b81
+
+build:
+  - |
+    mkdir -p build &&
+    cd    build &&
+
+    meson setup --prefix=/usr --buildtype=release .. &&
+    ninja
+
+install:
+  - |
+    cd build && ninja install

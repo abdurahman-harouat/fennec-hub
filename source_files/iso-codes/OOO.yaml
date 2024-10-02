@@ -1,0 +1,14 @@
+pkgname: iso-codes
+pkgver: "4.17.0"
+source:
+  url: https://ftp.debian.org/debian/pool/main/i/iso-codes/iso-codes_4.17.0.orig.tar.xz
+  md5: 6ab41fd20ad0be8c5585b573993e36fb
+
+build:
+  - |
+    ./configure --prefix=/usr &&
+    make
+
+install:
+  - |
+    make install LN_S='ln -sfn'

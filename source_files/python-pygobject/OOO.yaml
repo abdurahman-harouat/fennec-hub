@@ -1,0 +1,20 @@
+pkgname: python-pygobject
+pkgver: "3.50.0"
+dependencies:
+  - glib
+  - python-pycairo
+source:
+  url: https://download.gnome.org/sources/pygobject/3.50/pygobject-3.50.0.tar.xz
+  md5: 8f34e4bc1d7d57faf558180b0051c9ef
+
+build:
+  - |
+    mkdir -p build &&
+    cd    build &&
+
+    meson setup --prefix=/usr --buildtype=release .. &&
+    ninja
+
+install:
+  - |
+    cd build && ninja install

@@ -12,7 +12,7 @@ dependencies:
   - python-pygobject
   - fluent-icon-theme
   - layan-cursors
-  - adwaita-icon-theme
+  - whitesur-gtk-theme
 source:
   url: https://download.gnome.org/sources/gtk/4.16/gtk-4.16.2.tar.xz
   md5: 5796b6edd167706aa91865c653413bfe
@@ -37,7 +37,7 @@ install:
     mkdir -pv ~/.config/gtk-4.0
     cat > ~/.config/gtk-4.0/settings.ini << "EOF"
     [Settings]
-    gtk-theme-name = Adwaita
+    gtk-theme-name = WhiteSur
     gtk-icon-theme-name = Fluent
     gtk-font-name = Baloo Bhaijaan 12
     gtk-cursor-theme-size = 18
