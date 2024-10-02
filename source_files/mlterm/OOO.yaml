@@ -1,6 +1,9 @@
 pkgname: mlterm
 pkgver: "3.9.3"
 
+depnedencies:
+  - vte
+
 source:
   url: https://github.com/arakiken/mlterm/archive/refs/tags/3.9.3.tar.gz
   md5: 6a17f57aa5083135e974bd6459aebea0
