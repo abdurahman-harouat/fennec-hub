@@ -5,8 +5,8 @@ depnedencies:
   - vte
 
 source:
-  url: https://github.com/arakiken/mlterm/archive/f3474e1eb6a97239b38869f0fba78ce3e6a8ad87.zip
-  md5: d14c6f6adf5ca30c81ec130403033f03
+  url: https://github.com/abdurahman-harouat/fennec-hub/raw/refs/heads/main/special/mlterm.tar.gz
+  md5: 9de016569b3c34bb5874cb1dd2c142ff
 
 build:
   - |
