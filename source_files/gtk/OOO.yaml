@@ -35,6 +35,8 @@ build:
 install:
   - |
     cd build && ninja install
+
+additional_commands:
   - |
     mkdir -pv ~/.config/gtk-4.0
 
