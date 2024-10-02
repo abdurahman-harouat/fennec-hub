@@ -1,0 +1,33 @@
+pkgname: alsa-tools
+pkgver: "1.2.11"
+dependencies:
+  - alsa-lib
+
+source:
+  url: https://www.alsa-project.org/files/pub/tools/alsa-tools-1.2.11.tar.bz2
+  md5: bc5f5e5689f46a9d4a0b85dc6661732c
+
+build:
+  - |
+    rm -rf qlo10k1 echomixer envy24control rmedigicontrol Makefile gitcompile
+  - |
+    for tool in *
+    do
+      case $tool in
+        seq )
+          tool_dir=seq/sbiload
+        ;;
+        * )
+          tool_dir=$tool
+        ;;
+      esac
+
+      pushd $tool_dir
+        ./configure --prefix=/usr
+        make
+        sudo make install
+        sudo /sbin/ldconfig
+      popd
+
+    done
+    unset tool tool_dir
