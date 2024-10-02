@@ -1,0 +1,22 @@
+pkgname: gst-plugins-base
+pkgver: "1.24.7"
+dependencies:
+  - gstreamer
+source:
+  url: https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.24.7.tar.xz
+  md5: 8a7f8668418d0c8c917bb92218047f9f
+
+build:
+  - |
+    mkdir -p build &&
+    cd    build &&
+
+    meson setup ..               \
+          --prefix=/usr          \
+          --buildtype=release    \
+          --wrap-mode=nodownload &&
+    ninja
+
+install:
+  - |
+    cd build && ninja install

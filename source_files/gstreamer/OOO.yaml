@@ -1,0 +1,22 @@
+pkgname: gstreamer
+pkgver: "1.24.7"
+dependencies:
+  - glib
+source:
+  url: https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.24.7.tar.xz
+  md5: 5abf79978005ae14a8bc7db1ac3ce4ba
+
+build:
+  - |
+    mkdir -p build &&
+    cd    build &&
+
+    meson setup ..            \
+          --prefix=/usr       \
+          --buildtype=release \
+          -D gst_debug=false  &&
+    ninja
+
+install:
+  - |
+    cd build && ninja install

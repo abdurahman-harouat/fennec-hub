@@ -1,0 +1,22 @@
+pkgname: gst-plugins-bad
+pkgver: "1.24.7"
+dependencies:
+  - gst-plugins-base
+source:
+  url: https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.24.7.tar.xz
+  md5: a0a2771d1ae1203004d58d80bc6fcd16
+
+build:
+  - |
+    mkdir -p build &&
+    cd    build &&
+
+    meson setup ..            \
+          --prefix=/usr       \
+          --buildtype=release \
+          -D gpl=enabled      &&
+    ninja
+
+install:
+  - |
+    cd build && ninja install
