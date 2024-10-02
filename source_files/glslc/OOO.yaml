@@ -27,4 +27,4 @@ build:
 
 install:
   - |
-    install -vm755 glslc/glslc /usr/bin
+    cd build && install -vm755 glslc/glslc /usr/bin
