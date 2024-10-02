@@ -15,4 +15,4 @@ build:
 
 install:
   - |
-    make install LIBDIR=/usr/lib
+    make install EFIDIR=LFS LIBDIR=/usr/lib
