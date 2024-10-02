@@ -31,5 +31,3 @@ install:
   - |
     make install &&
     mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions
-  - |
-    cp -av dest/usr/bin/grub-mount /usr/bin
