@@ -11,7 +11,7 @@ source:
 
 build:
   - |
-    make
+    make EFIDIR=LFS EFI_LOADER=grubaa64.efi
 
 install:
   - |
