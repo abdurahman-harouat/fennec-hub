@@ -1,0 +1,19 @@
+pkgname: libxfce4util
+pkgver: "4.18.2"
+
+dependencies:
+  - glib
+  - vala
+
+source:
+  url: https://archive.xfce.org/src/xfce/libxfce4util/4.18/libxfce4util-4.18.2.tar.bz2
+  md5: 9089e8974a581c5f39f610f2727c38ba
+
+build:
+  - |
+    ./configure --prefix=/usr &&
+    make
+
+install:
+  - |
+    make install

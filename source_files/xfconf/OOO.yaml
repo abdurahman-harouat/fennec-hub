@@ -1,0 +1,18 @@
+pkgname: xfconf
+pkgver: "4.18.3"
+
+dependencies:
+  - libxfce4util
+
+source:
+  url: https://archive.xfce.org/src/xfce/xfconf/4.18/xfconf-4.18.3.tar.bz2
+  md5: f807ed0a1b88af479ec70b28c1f78dcc
+
+build:
+  - |
+    ./configure --prefix=/usr &&
+    make
+
+install:
+  - |
+    make install

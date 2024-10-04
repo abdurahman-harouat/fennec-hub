@@ -1,0 +1,23 @@
+pkgname: libwnck
+pkgver: "43.0"
+
+dependencies:
+  - gtk+
+  - glib
+  - startup-notification
+
+source:
+  url: https://download.gnome.org/sources/libwnck/43/libwnck-43.0.tar.xz
+  md5: cd21ef743a1e9286554401c5b28d5ec6
+
+build:
+  - |
+    mkdir -p build &&
+    cd    build &&
+
+    meson setup --prefix=/usr --buildtype=release .. &&
+    ninja
+
+install:
+  - |
+    cd build && ninja install

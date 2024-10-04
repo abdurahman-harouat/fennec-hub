@@ -1,0 +1,18 @@
+pkgname: xfwm4
+pkgver: "4.18.0"
+dependencies:
+  - libwnck
+  - libxfce4ui
+  - startup-notification
+source:
+  url: https://archive.xfce.org/src/xfce/xfwm4/4.18/xfwm4-4.18.0.tar.bz2
+  md5: 181415e457c86124fa5f8aa5d715b967
+
+build:
+  - |
+    ./configure --prefix=/usr &&
+    make
+
+install:
+  - |
+    make install

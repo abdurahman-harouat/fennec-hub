@@ -3,6 +3,8 @@ pkgver: "3.9.3"
 
 depnedencies:
   - vte
+  - gtk
+  - gdk-pixbuf
 
 source:
   url: https://github.com/abdurahman-harouat/fennec-hub/raw/refs/heads/main/special/mlterm.tar.gz

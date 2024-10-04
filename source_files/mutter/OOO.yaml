@@ -1,0 +1,35 @@
+pkgname: mutter
+pkgver: "46.4"
+dependencies:
+  - gnome-settings-daemon
+  - graphene
+  - libei
+  - libxcvt
+  - libxkbcommon
+  - pipewire
+  - desktop-file-utils
+  - glib
+  - gobject-introspection
+  - startup-notification
+  - libinput
+  - wayland
+  - wayland-protocols
+  - xwayland
+source:
+  url: https://download.gnome.org/sources/mutter/46/mutter-46.4.tar.xz
+  md5: 022716bf531a4953a74910fef09019ed
+
+build:
+  - |
+    mkdir -p build &&
+    cd    build &&
+
+    meson setup --prefix=/usr       \
+                --buildtype=release \
+                -D tests=false      \
+                -D profiler=false   \
+                ..                  &&
+    ninja
+install:
+  - |
+    cd build && ninja install
