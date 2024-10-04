@@ -1,0 +1,18 @@
+pkgname: hicolor-icon-theme
+pkgver: "0.18"
+
+source:
+  url: https://icon-theme.freedesktop.org/releases/hicolor-icon-theme-0.18.tar.xz
+  md5: ef14f3af03bcde9ed134aad626bdbaad
+
+build:
+  - |
+    mkdir -p build &&
+    cd    build &&
+
+    meson setup --prefix=/usr --buildtype=release .. &&
+    ninja
+
+install:
+  - |
+    cd build && ninja install
