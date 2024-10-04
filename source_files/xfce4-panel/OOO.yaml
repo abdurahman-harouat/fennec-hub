@@ -1,0 +1,21 @@
+pkgname: xfce4-panel
+pkgver: "4.18.6"
+
+dependencies:
+  - cairo
+  - exo
+  - garcon
+  - libwnck
+
+source:
+  url: https://archive.xfce.org/src/xfce/xfce4-panel/4.18/xfce4-panel-4.18.6.tar.bz2
+  md5: caddd05c820f0fbae9d2acc5218fc7ed
+
+build:
+  - |
+    ./configure --prefix=/usr --sysconfdir=/etc &&
+    make
+
+install:
+  - |
+    make install
