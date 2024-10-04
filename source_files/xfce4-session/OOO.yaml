@@ -1,0 +1,32 @@
+pkgname: xfce4-session
+pkgver: "4.18.4"
+
+dependencies:
+  - libwnck
+  - libxfce4ui
+  - shared-mime-info
+  - desktop-file-utils
+  - xfdesktop
+
+source:
+  url: https://archive.xfce.org/src/xfce/xfce4-session/4.18/xfce4-session-4.18.4.tar.bz2
+  md5: 620c369a44c6b866c80d31e4685d6bef
+
+build:
+  - |
+    ./configure --prefix=/usr \
+            --sysconfdir=/etc \
+            --disable-legacy-sm &&
+    make
+
+install:
+  - |
+    make install
+
+additional_commands:
+  - |
+    cat > ~/.xinitrc << "EOF"
+    dbus-launch --exit-with-x11 startxfce4
+    EOF
+
+    startx
