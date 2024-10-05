@@ -28,5 +28,3 @@ additional_commands:
     cat > ~/.xinitrc << "EOF"
     dbus-launch --exit-with-x11 startxfce4
     EOF
-
-    startx
