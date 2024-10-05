@@ -1,0 +1,22 @@
+pkgname: xfce4-notifyd
+pkgver: "0.9.6"
+
+dependencies:
+  - libnotify
+  - libxfce4ui
+  - libcanberra
+  - xfce4-dev-tools
+  - xfce4-panel
+
+source:
+  url: https://archive.xfce.org/src/apps/xfce4-notifyd/0.9/xfce4-notifyd-0.9.6.tar.bz2
+  md5: 1640c56ec1062dc46b5691eab12db9b6
+
+build:
+  - |
+    ./configure --prefix=/usr --sysconfdir=/etc &&
+    make
+
+install:
+  - |
+    make install

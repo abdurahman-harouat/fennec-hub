@@ -1,0 +1,21 @@
+pkgname: notification-daemon
+pkgver: "3.20.0"
+
+dependencies:
+  - gtk+
+  - libcanberra
+
+source:
+  url: https://download.gnome.org/sources/notification-daemon/3.20/notification-daemon-3.20.0.tar.xz
+  md5: 2de7f4075352831f1d98d8851b642124
+
+build:
+  - |
+    ./configure --prefix=/usr     \
+            --sysconfdir=/etc \
+            --disable-static  &&
+    make
+
+install:
+  - |
+    make install

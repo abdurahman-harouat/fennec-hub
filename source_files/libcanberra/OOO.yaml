@@ -1,0 +1,28 @@
+pkgname: libcanberra
+pkgver: "0.30"
+
+dependencies:
+  - libvorbis
+  - alsa-lib
+  - gtk+
+  - gstreamer
+  - sound-theme-freedesktop
+
+source:
+  url: https://0pointer.de/lennart/projects/libcanberra/libcanberra-0.30.tar.xz
+  md5: 34cb7e4430afaf6f447c4ebdb9b42072
+
+additional_downloads:
+  - url: https://www.linuxfromscratch.org/patches/blfs/svn/libcanberra-0.30-wayland-1.patch
+
+build:
+  - |
+    patch -Np1 -i ../libcanberra-0.30-wayland-1.patch
+
+  - |
+    ./configure --prefix=/usr --disable-oss &&
+    make
+
+install:
+  - |
+    make docdir=/usr/share/doc/libcanberra-0.30 install
