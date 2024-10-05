@@ -1,0 +1,9 @@
+pkgname: nss
+pkgver: "3.105-1"
+
+source:
+  url: http://mirror.archlinuxarm.org/aarch64/core/nss-3.105-1-aarch64.pkg.tar.xz
+  sha1: db1234e17ed13168bd6264978e6a1aa5e75dc41d
+
+copy:
+  - |
