@@ -1,0 +1,27 @@
+pkgname: mercurial
+pkgver: "6.8.1"
+
+dependencies:
+  - python-docutils
+
+source:
+  url: https://www.mercurial-scm.org/release/mercurial-6.8.1.tar.gz
+  md5: f0c076d22c07bf65ffb02753fc516084
+
+build:
+  - |
+    make build
+  - |
+    make doc
+
+install:
+  - |
+    make PREFIX=/usr install-bin
+  - |
+    make PREFIX=/usr install-doc
+  - |
+    install -v -d -m755 /etc/mercurial &&
+    cat > /etc/mercurial/hgrc << "EOF"
+    [web]
+    cacerts = /etc/pki/tls/certs/ca-bundle.crt
+    EOF
