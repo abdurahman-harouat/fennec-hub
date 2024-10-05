@@ -1,0 +1,24 @@
+pkgname: thunar
+pkgver: "4.18.11"
+
+dependencies:
+  - exo
+  - hicolor-icon-theme
+  - libgudev
+  - libnotify
+  - pcre2
+
+source:
+  url: https://archive.xfce.org/src/xfce/thunar/4.18/thunar-4.18.11.tar.bz2
+  md5: 506e80f3fa94aca251b18c185b1303e8
+
+build:
+  - |
+    ./configure --prefix=/usr \
+            --sysconfdir=/etc \
+            --docdir=/usr/share/doc/thunar-4.18.11 &&
+    make
+
+install:
+  - |
+    make install
