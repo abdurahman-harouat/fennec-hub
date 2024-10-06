@@ -1,22 +1,27 @@
 pkgname: pacman
-pkgver: "6.0.2"
+pkgver: "7.0.0"
 
 dependencies:
   - libarchive
   - fakeroot
 
 source:
-  url: https://sources.archlinux.org/other/pacman/pacman-6.0.2.tar.xz
-  md5: f2c7e82cc5483a2c90f228a0393f5526
+  url: https://gitlab.archlinux.org/pacman/pacman/-/archive/v7.0.0/pacman-v7.0.0.tar.gz
+  md5: db6fa41d8806b59da9c6caeac5779e96
 
 build:
   - |
-    ./configure --prefix=/usr  \
-            --disable-doc     \
-            --disable-shared  \
-            --sysconfdir=/etc \
-            --localstatedir=/var &&
-    make
+    meson --prefix=/usr \
+        --buildtype=plain \
+        -Ddoc=enabled \
+        -Ddoxygen=enabled \
+        -Dscriptlet-shell=/usr/bin/bash \
+        -Dldconfig=/usr/bin/ldconfig \
+        build
+
+  - |
+    meson compile -C build
+
 install:
   - |
-    make install
+    meson install -C build
