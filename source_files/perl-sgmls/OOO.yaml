@@ -1,0 +1,15 @@
+pkgname: perl-sgmls
+pkgver: "1:1.1-12"
+
+source:
+  url: https://search.cpan.org/CPAN/authors/id/R/RA/RAAB/SGMLSpm-1.1.tar.gz
+  md5: 746c74ae969992cedb1a2879b4168090
+
+build:
+  - |
+    /usr/bin/perl Makefile.PL &&
+    make
+
+install:
+  - |
+    make install
