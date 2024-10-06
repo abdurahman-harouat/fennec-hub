@@ -1,0 +1,18 @@
+pkgname: perl-text-wrapi18n
+pkgver: "0.06-10"
+
+dependencies:
+  - perl-text-charwidth
+
+source:
+  url: https://search.cpan.org/CPAN/authors/id/K/KU/KUBOTA/Text-WrapI18N-0.06.tar.gz
+  md5: 0799c16a00926e6c18d400c2e2861d5f
+
+build:
+  - |
+    perl Makefile.PL INSTALLDIRS=vendor &&
+    make
+
+install:
+  - |
+    make install
