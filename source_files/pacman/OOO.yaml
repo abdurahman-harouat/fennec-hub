@@ -1,0 +1,22 @@
+pkgname: pacman
+pkgver: "6.0.2"
+
+dependencies:
+  - libarchive
+  - fakeroot
+
+source:
+  url: https://sources.archlinux.org/other/pacman/pacman-6.0.2.tar.xz
+  md5: f2c7e82cc5483a2c90f228a0393f5526
+
+build:
+  - |
+    ./configure --prefix=/usr  \
+            --disable-doc     \
+            --disable-shared  \
+            --sysconfdir=/etc \
+            --localstatedir=/var &&
+    make
+install:
+  - |
+    make install

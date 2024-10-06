@@ -1,0 +1,18 @@
+pkgname: fakeroot
+pkgver: "1.36"
+
+source:
+  url: https://salsa.debian.org/clint/fakeroot/-/archive/upstream/1.36/fakeroot-upstream-1.36.tar.gz
+  md5: 0d5df4f764a32e47964cdc0cc5198deb
+
+build:
+  - |
+    ./configure \
+    --prefix=/usr \
+    --libdir=/usr/lib/libfakeroot \
+    --disable-static &&
+    make
+
+install:
+  - |
+    make install
