@@ -24,4 +24,4 @@ build:
 
 install:
   - |
-    make DESTDIR="$PWD" install
+    make install
