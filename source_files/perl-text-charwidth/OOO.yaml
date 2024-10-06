@@ -1,0 +1,14 @@
+pkgname: perl-text-charwidth
+pkgver: "0.04"
+
+source:
+  url: https://www.cpan.org/authors/id/K/KU/KUBOTA/Text-CharWidth-0.04.tar.gz
+  md5: 37a723df0580c0758c0ee67b37336c15
+
+build:
+  - |
+    PERL_MM_USE_DEFAULT=1 perl Makefile.PL INSTALLDIRS=vendor &&
+    make
+install:
+  - |
+    make install
