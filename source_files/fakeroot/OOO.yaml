@@ -7,6 +7,7 @@ source:
 
 build:
   - |
+    autoreconf -fi &&
     ./configure \
     --prefix=/usr \
     --libdir=/usr/lib/libfakeroot \
