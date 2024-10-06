@@ -1,6 +1,9 @@
 pkgname: fakeroot
 pkgver: "1.36"
 
+dependencies:
+  - po4a
+
 source:
   url: https://salsa.debian.org/clint/fakeroot/-/archive/upstream/1.36/fakeroot-upstream-1.36.tar.gz
   md5: 0d5df4f764a32e47964cdc0cc5198deb
@@ -15,6 +18,10 @@ build:
     --with-ipc=sysv &&
     make
 
+  - |
+    cd doc &&
+    po4a -k 0 --rm-backups --variable 'srcdir=../doc/' po4a/po4a.cfg
+
 install:
   - |
-    make install
+    make DESTDIR="$PWD" install
