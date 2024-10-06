@@ -1,0 +1,16 @@
+pkgname: hyprlang
+pkgver: "0.5.3"
+
+source:
+  url: https://github.com/hyprwm/hyprlang/archive/refs/tags/v0.5.3.tar.gz
+  md5: daec6dd0f8c6b4c86969f1d000f2ab16
+
+build:
+  - |
+    cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_INSTALL_PREFIX:PATH=/usr -S . -B ./build
+  - |
+    cmake --build ./build --config Release --target hyprlang -j`nproc 2>/dev/null || getconf _NPROCESSORS_CONF`
+
+install:
+  - |
+    cmake --install ./build

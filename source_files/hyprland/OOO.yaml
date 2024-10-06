@@ -3,6 +3,9 @@ pkgver: "0.43.0"
 
 dependencies:
   - hyprutils
+  - aquamarine
+  - hyprlang
+  - hyprcursor
 
 source:
   url: https://github.com/hyprwm/Hyprland/archive/refs/tags/v0.43.0.tar.gz

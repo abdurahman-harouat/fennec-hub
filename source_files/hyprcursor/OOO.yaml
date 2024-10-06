@@ -1,0 +1,23 @@
+pkgname: hyprcursor
+pkgver: "0.1.10"
+
+dependencies:
+  - hyprlang
+  - cairo
+  - libzip
+  - librsvg
+  - tomlplusplus
+
+source:
+  url: https://github.com/hyprwm/hyprcursor/archive/refs/tags/v0.1.10.tar.gz
+  md5: 3fb0adb1b8802cb1322f335c0b3bd575
+
+build:
+  - |
+    cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_INSTALL_PREFIX:PATH=/usr -S . -B ./build
+  - |
+    cmake --build ./build --config Release --target all -j`nproc 2>/dev/null || getconf _NPROCESSORS_CONF`
+
+install:
+  - |
+    cmake --install build
