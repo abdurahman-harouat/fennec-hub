@@ -7,9 +7,19 @@ source:
 
 build:
   - |
-    /usr/bin/perl Makefile.PL &&
-    make
+    export \
+      PERL_MM_USE_DEFAULT=1 \
+      PERL_AUTOINSTALL=--skipdeps \
+      MODULEBUILDRC=/dev/null
 
 install:
+  - |
+    /usr/bin/perl Makefile.PL
+
+additional_commands:
+  - |
+    make
+
+additional_commands_with_sudo:
   - |
     make install
