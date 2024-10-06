@@ -1,0 +1,16 @@
+pkgname: hyprutils
+pkgver: "0.2.3"
+
+source:
+  url: https://github.com/hyprwm/hyprutils/archive/refs/tags/v0.2.3.tar.gz
+  md5: 00346fea793771e5df1755e9335bb56c
+
+build:
+  - |
+    cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_INSTALL_PREFIX:PATH=/usr -S . -B ./build
+  - |
+    cmake --build ./build --config Release --target all -j`nproc 2>/dev/null || getconf _NPROCESSO
+
+install:
+  - |
+    cmake --install build

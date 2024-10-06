@@ -1,6 +1,9 @@
 pkgname: hyprland
 pkgver: "0.43.0"
 
+dependencies:
+  - hyprutils
+
 source:
   url: https://github.com/hyprwm/Hyprland/archive/refs/tags/v0.43.0.tar.gz
   md5: 1441ddbafce3f5698f6e9979b7623741
