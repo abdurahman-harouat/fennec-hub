@@ -4,6 +4,7 @@ pkgver: "0.73-1"
 dependencies:
   - perl-text-wrapi18n
   - perl-locale-gettext
+  - perl-term-readkey
 
 source:
   url: https://github.com/mquinson/po4a/releases/download/v0.73/po4a-0.73.tar.gz

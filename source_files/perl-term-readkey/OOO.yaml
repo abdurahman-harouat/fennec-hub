@@ -1,0 +1,15 @@
+pkgname: perl-term-readkey
+pkgver: "2.38-10"
+
+source:
+  url: https://search.cpan.org/CPAN/authors/id/J/JS/JSTOWE/TermReadKey-2.38.tar.gz
+  md5: b2b4aab7a0e6bddb7ac3b21ba637482c
+
+build:
+  - |
+    perl Makefile.PL INSTALLDIRS=vendor &&
+    make
+
+install:
+  - |
+    make install
