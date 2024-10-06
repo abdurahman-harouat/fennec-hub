@@ -1,0 +1,15 @@
+pkgname: perl-inc-latest
+pkgver: "0.500-13"
+
+source:
+  url: https://search.cpan.org/CPAN/authors/id/D/DA/DAGOLDEN/inc-latest-0.500.tar.gz
+  md5: d1e0deb52bcc9f9b0f990ceb077a8ffd
+
+build:
+  - |
+    perl Makefile.PL INSTALLDIRS=vendor &&
+    make
+
+install:
+  - |
+    make install

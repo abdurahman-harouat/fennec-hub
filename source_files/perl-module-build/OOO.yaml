@@ -1,0 +1,18 @@
+pkgname: perl-module-build
+pkgver: "0.4234-4"
+
+dependencies:
+  - perl-inc-latest
+
+source:
+  url: https://search.cpan.org/CPAN/authors/id/L/LE/LEONT/Module-Build-0.4234.tar.gz
+  md5: 0032d0c0bc36a3b68ef41c947829d5e3
+
+build:
+  - |
+    perl Build.PL installdirs=vendor &&
+    perl Build
+
+install:
+  - |
+    perl Build install
