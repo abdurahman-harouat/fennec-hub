@@ -1,0 +1,18 @@
+pkgname: po4a
+pkgver: "0.73-1"
+
+# [TODO]: adding perl as dependency later
+
+source:
+  url: https://github.com/mquinson/po4a/releases/download/v0.73/po4a-0.73.tar.gz
+  md5: b7d9a907d0971aeb67585a2d7b977d1c
+
+build:
+  - |
+    perl Build.PL
+  - |
+    ./Build
+
+install:
+  - |
+    ./Build install

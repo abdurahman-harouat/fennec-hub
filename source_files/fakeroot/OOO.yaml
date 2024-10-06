@@ -11,7 +11,8 @@ build:
     ./configure \
     --prefix=/usr \
     --libdir=/usr/lib/libfakeroot \
-    --disable-static &&
+    --disable-static \
+    --with-ipc=sysv &&
     make
 
 install:
