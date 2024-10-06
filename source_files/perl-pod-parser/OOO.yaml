@@ -1,0 +1,15 @@
+pkgname: perl-pod-parser
+pkgver: "1.67-2"
+
+source:
+  url: https://cpan.metacpan.org/authors/id/M/MA/MAREKR/Pod-Parser-1.67.tar.gz
+  md5: 8ef9384e522e201400a73780348e4f79
+
+build:
+  - |
+    perl Makefile.PL INSTALLDIRS=vendor &&
+    make
+
+install:
+  - |
+    make install

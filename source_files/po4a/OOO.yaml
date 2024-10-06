@@ -6,6 +6,9 @@ dependencies:
   - perl-locale-gettext
   - perl-term-readkey
   - perl-sgmls
+  - perl-module-build
+  - perl-pod-parser
+  - docbook-xsl-nons
 
 source:
   url: https://github.com/mquinson/po4a/releases/download/v0.73/po4a-0.73.tar.gz
