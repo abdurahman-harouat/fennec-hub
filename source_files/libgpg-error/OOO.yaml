@@ -8,7 +8,7 @@ source:
 build:
   - |
     ./configure --prefix=/usr &&
-    make      doc/assuan.texi
+    make
 
 install:
   - |
