@@ -124,6 +124,15 @@ install:
 
   - |
     mkdir -p /usr/lib/sysusers.d &&
-    cat > /usr/lib/sysusers.d/alpm.conf << "EOF"
+    cat > /usr/lib/sysusers.d/alpm.conf << 'EOF'
     u alpm - "Arch Linux Package Management" -
     EOF
+
+  - |
+    local wantsdir="/usr/lib/systemd/system/sockets.target.wants"
+    install -dm755 "$wantsdir"
+
+    local unit
+    for unit in dirmngr gpg-agent gpg-agent-{browser,extra,ssh} keyboxd; do
+      ln -s "../${unit}@.socket" "$wantsdir/${unit}@etc-pacman.d-gnupg.socket"
+    done
