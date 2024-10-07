@@ -27,4 +27,4 @@ build:
 
 install:
   - |
-    make install
+    cd build && make install
