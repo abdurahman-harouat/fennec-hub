@@ -1,0 +1,15 @@
+pkgname: npth
+pkgver: "1.7"
+
+source:
+  url: https://www.gnupg.org/ftp/gcrypt/npth/npth-1.7.tar.bz2
+  md5: 286274d0106ec408efebe4a399975b11
+
+build:
+  - |
+    ./configure --prefix=/usr &&
+    make
+
+install:
+  - |
+    make install
