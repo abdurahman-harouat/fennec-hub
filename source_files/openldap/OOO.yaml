@@ -1,0 +1,31 @@
+pkgname: openldap
+pkgver: "2.6.8"
+
+#dependencies:
+#  - cyrus-sasl
+
+source:
+  url: https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.6.8.tgz
+  md5: a7ca5f245340e478ea18b8f972c89bb1
+
+additional_downloads:
+  - url: https://www.linuxfromscratch.org/patches/blfs/svn/openldap-2.6.8-consolidated-1.patch
+
+build:
+  - |
+    patch -Np1 -i ../openldap-2.6.8-consolidated-1.patch &&
+    autoconf &&
+
+    ./configure --prefix=/usr        \
+                --sysconfdir=/etc    \
+                --disable-static     \
+                --enable-dynamic     \
+                --disable-debug      \
+                --disable-slapd &&
+
+    make depend &&
+    make
+
+install:
+  - |
+    make install
