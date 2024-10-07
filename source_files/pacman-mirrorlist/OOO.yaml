@@ -7,4 +7,5 @@ source:
 
 install:
   - |
+    mkdir -p /etc/pacman.d &&
     install -Dm644 mirrorlist /etc/pacman.d/mirrorlist
