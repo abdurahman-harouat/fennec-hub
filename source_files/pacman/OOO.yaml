@@ -1,4 +1,4 @@
-pkgname: pacman
+pkgname: pacman-arm
 pkgver: "7.0.0"
 
 dependencies:
