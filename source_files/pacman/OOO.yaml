@@ -4,6 +4,8 @@ pkgver: "7.0.0"
 dependencies:
   - libarchive
   - fakeroot
+  - meson
+  - git
 
 source:
   url: https://gitlab.archlinux.org/pacman/pacman/-/archive/v7.0.0/pacman-v7.0.0.tar.gz
@@ -13,8 +15,6 @@ build:
   - |
     meson --prefix=/usr \
         --buildtype=plain \
-        -Ddoc=enabled \
-        -Ddoxygen=enabled \
         -Dscriptlet-shell=/usr/bin/bash \
         -Dldconfig=/usr/bin/ldconfig \
         build
