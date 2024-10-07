@@ -7,6 +7,8 @@ dependencies:
   - meson
   - git
   - gnupg
+  - pacman-mirrorlist
+  - gpgme
 
 source:
   url: https://gitlab.archlinux.org/pacman/pacman/-/archive/v7.0.0/pacman-v7.0.0.tar.gz
