@@ -2,8 +2,9 @@ pkgname: pacman-mirrorlist
 pkgver: "20230206-1"
 
 source:
-  url: https://raw.githubusercontent.com/abdurahman-harouat/fennec-hub/refs/heads/main/special/mirrorlist
-  md5: 73e60eb69dfc358752f4e5e813eab32e
+  url: https://github.com/abdurahman-harouat/fennec-hub/raw/refs/heads/main/special/pacman-mirrorlist.tar.xz
+  md5: 354e2cf30b25235f85d6e04a2b487c7e
 
 install:
   - |
+    install -Dm644 mirrorlist /etc/pacman.d/mirrorlist
