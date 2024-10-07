@@ -1,0 +1,9 @@
+pkgname: pacman-mirrorlist
+pkgver: "20230206-1"
+
+source:
+  url: https://raw.githubusercontent.com/abdurahman-harouat/fennec-hub/refs/heads/main/special/mirrorlist
+  md5: 73e60eb69dfc358752f4e5e813eab32e
+
+install:
+  - |
