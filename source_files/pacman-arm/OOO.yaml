@@ -121,3 +121,9 @@ install:
     #SigLevel = Optional TrustAll
     #Server = file:///home/custompkgs
     EOF
+
+  - |
+    mkdir -p /usr/lib/sysusers.d &&
+    cat > /usr/lib/sysusers.d/alpm.conf << "EOF"
+    u alpm - "Arch Linux Package Management" -
+    EOF
