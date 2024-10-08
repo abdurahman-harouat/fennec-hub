@@ -1,0 +1,14 @@
+pkgname: scdoc
+pkgver: "1.11.3"
+
+source:
+  url: https://git.sr.ht/~sircmpwn/scdoc/archive/1.11.3.tar.gz
+  md5: 4e0928d10d23d24f2c1eb0f311ceef14
+
+build:
+  - |
+    make PREFIX=/usr
+
+install:
+  - |
+    make PREFIX=/usr install

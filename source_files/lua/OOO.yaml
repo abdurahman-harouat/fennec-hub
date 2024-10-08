@@ -45,3 +45,4 @@ install:
      TO_LIB="liblua.so liblua.so.5.4 liblua.so.5.4.7" \
      install &&
     install -v -m644 -D lua.pc /usr/lib/pkgconfig/lua.pc
+    install -v -m644 -D lua.pc /usr/lib/pkgconfig/lua5.3.pc
