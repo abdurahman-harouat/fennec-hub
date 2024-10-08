@@ -1,0 +1,19 @@
+pkgname: libdisplay-info
+pkgver: "0.2.0"
+
+dependencies:
+  - hwdata
+
+source:
+  url: https://gitlab.freedesktop.org/emersion/libdisplay-info/-/releases/0.2.0/downloads/libdisplay-info-0.2.0.tar.xz
+  md5: 160d4159a7805823cf0b3b4f86dfa8d4
+
+build:
+  - mkdir -p build &&
+    cd    build &&
+
+    meson setup --prefix=/usr --buildtype=release .. &&
+    ninja
+
+install:
+  - cd build && ninja install
