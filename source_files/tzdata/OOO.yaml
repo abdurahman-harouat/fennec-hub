@@ -1,0 +1,32 @@
+pkgname: tzdata-algeria
+pkgver: "2024b"
+
+source:
+  url: https://www.iana.org/time-zones/repository/releases/tzdata2024b.tar.gz
+  md5: e1d010b46844502f12dcff298c1b7154
+
+additional_downloads:
+  - url: https://gitlab.archlinux.org/archlinux/packaging/packages/tzdata/-/raw/main/0001-Apr-not-April.patch
+  - url: https://www.iana.org/time-zones/repository/releases/tzcode2024b.tar.gz
+
+build:
+  - |
+    patch -Np1 -i ../0001-Apr-not-April.patch
+  - |
+    sed -i "s:sbin:bin:g" Makefile
+
+  - |
+    make
+
+install:
+  - |
+    _timezones=('africa' 'antarctica' 'asia' 'australasia'
+          'europe' 'northamerica' 'southamerica'
+          'etcetera' 'backward' 'factory')
+
+    make DESTDIR="/usr" install &&
+    ./zic -b fat -d "/usr/share/zoneinfo" ${_timezones[@]} &&
+    ./zic -b fat -d "/usr/share/zoneinfo/posix" ${_timezones[@]} && 
+    ./zic -b fat -d "/usr/share/zoneinfo/right" -L leapseconds ${_timezones[@]} &&
+    ./zic -b fat -d "/usr/share/zoneinfo" -p Africa/Algiers &&
+    install -m644 -t "/usr/share/zoneinfo" iso3166.tab leap-seconds.list zone1970.tab zone.tab SECURITY
