@@ -1,0 +1,20 @@
+pkgname: hyprwayland-scanner
+pkgver: "0.4.2"
+
+dependencies:
+  - pugixml
+
+source:
+  url: https://github.com/hyprwm/hyprwayland-scanner/archive/refs/tags/v0.4.2.tar.gz
+  md5: 700e4abd566bdd5ac346e88da123cfaf
+
+build:
+  - |
+    cmake -DCMAKE_INSTALL_PREFIX=/usr -B build
+
+  - |
+    cmake --build build -j `nproc`
+
+install:
+  - |
+    cmake --install build
