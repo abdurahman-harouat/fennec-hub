@@ -1,12 +1,6 @@
 pkgname: lua
 pkgver: "5.4.7"
 
-dependencies:
-  - hyprutils
-  - aquamarine
-  - hyprlang
-  - hyprcursor
-
 source:
   url: https://www.lua.org/ftp/lua-5.4.7.tar.gz
   md5: fc3f3291353bbe6ee6dec85ee61331e8

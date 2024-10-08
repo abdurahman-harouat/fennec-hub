@@ -1,0 +1,16 @@
+pkgname: aquamarine
+pkgver: "0.4.2"
+
+source:
+  url: https://github.com/hyprwm/aquamarine/archive/refs/tags/v0.4.2.tar.gz
+  md5: 7ee96055f27e0ce808b297de9f5d732b
+
+build:
+  - |
+    cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_INSTALL_PREFIX:PATH=/usr -S . -B ./build
+  - |
+    cmake --build ./build --config Release --target all -j`nproc 2>/dev/null || getconf _NPROCESSORS_CONF`
+
+install:
+  - |
+    cmake --install build
