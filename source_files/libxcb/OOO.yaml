@@ -13,4 +13,3 @@ build:
 
 install:
   - make install
-  - chown -Rv root:root $XORG_PREFIX/share/doc/libxcb-1.17.0
