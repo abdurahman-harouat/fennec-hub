@@ -1,0 +1,16 @@
+pkgname: wget
+pkgver: "1.24.5"
+source:
+  url: https://ftp.gnu.org/gnu/wget/wget-1.24.5.tar.gz
+  md5: 271bf949384d0858c2c3d419f6311365
+
+build:
+  - |
+    ./configure --prefix=/usr      \
+            --sysconfdir=/etc  \
+            --with-ssl=openssl &&
+    make
+
+install:
+  - |
+    make install
