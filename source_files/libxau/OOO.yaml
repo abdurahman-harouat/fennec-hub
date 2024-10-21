@@ -1,5 +1,7 @@
 pkgname: libxau
 pkgver: "1.0.11"
+dependencies:
+  - xorgproto
 source:
   url: https://www.x.org/pub/individual/lib/libXau-1.0.11.tar.xz
   md5: 7f14ba9c84a81a2b9dd023706febab38
