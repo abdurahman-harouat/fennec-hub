@@ -17,5 +17,3 @@ install:
     if [ -d "$XORG_PREFIX/share/doc/xorgproto" ]; then
       mv -v "$XORG_PREFIX/share/doc/xorgproto" "$XORG_PREFIX/share/doc/xorgproto-2024.1"
     fi
-
-#mv -v $XORG_PREFIX/share/doc/xorgproto{,-2024.1}

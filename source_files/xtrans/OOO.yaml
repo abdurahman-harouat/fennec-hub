@@ -1,5 +1,8 @@
 pkgname: xtrans
 pkgver: "1.5.0"
+dependencies:
+  - fontconfig
+  - libxcb
 source:
   url: https://www.x.org/pub/individual/lib/xtrans-1.5.0.tar.xz
   md5: 12344cd74a1eb25436ca6e6a2cf93097
