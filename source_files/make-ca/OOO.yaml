@@ -1,6 +1,7 @@
 pkgname: make-ca
 pkgver: "1.14"
 dependencies:
+  - openssh
   - p11-kit
   - libtasn1
   - wget
