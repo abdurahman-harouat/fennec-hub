@@ -25,16 +25,16 @@ install:
             -addtrust serverAuth -addtrust emailProtection -addtrust codeSigning \
             > /etc/ssl/local/CAcert_Class_3_root.pem &&
     /usr/sbin/make-ca -r
-  - |
-    openssl x509 -in /etc/ssl/certs/Makebelieve_CA_Root.pem \
-             -text \
-             -fingerprint \
-             -setalias "Disabled Makebelieve CA Root" \
-             -addreject serverAuth \
-             -addreject emailProtection \
-             -addreject codeSigning \
-       > /etc/ssl/local/Disabled_Makebelieve_CA_Root.pem &&
-    /usr/sbin/make-ca -r
+  # - |
+  #   openssl x509 -in /etc/ssl/certs/Makebelieve_CA_Root.pem \
+  #            -text \
+  #            -fingerprint \
+  #            -setalias "Disabled Makebelieve CA Root" \
+  #            -addreject serverAuth \
+  #            -addreject emailProtection \
+  #            -addreject codeSigning \
+  #      > /etc/ssl/local/Disabled_Makebelieve_CA_Root.pem &&
+  #   /usr/sbin/make-ca -r
   - |
     mkdir -pv /etc/profile.d &&
     cat > /etc/profile.d/pythoncerts.sh << "EOF"
