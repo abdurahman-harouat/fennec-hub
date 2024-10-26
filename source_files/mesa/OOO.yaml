@@ -21,10 +21,10 @@ source:
   md5: 2efcf055c7d48b12cd2c9df2fc41f1b0
 
 additional_downloads:
-  - url: https://www.linuxfromscratch.org/patches/blfs/svn/mesa-add_xdemos-3.patch
+  - url: https://www.linuxfromscratch.org/patches/blfs/12.2/mesa-add_xdemos-2.patch
 
 build:
-  - patch -Np1 -i ../mesa-add_xdemos-3.patch
+  - patch -Np1 -i ../mesa-add_xdemos-2.patch
   - |
     mkdir -p build &&
     cd    build &&
