@@ -7,7 +7,7 @@ source:
   md5: aeb92dc58cea91c95a10751327193a11
 
 additional_downloads:
-  - url: https://www.linuxfromscratch.org/patches/blfs/svn/libxml2-2.13.3-upstream_fix-2.patch
+  - url: https://www.linuxfromscratch.org/patches/blfs/12.2/libxml2-2.13.3-upstream_fix-2.patch
 
 build:
   - patch -Np1 -i ../libxml2-2.13.3-upstream_fix-2.patch
