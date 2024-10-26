@@ -13,4 +13,5 @@ build:
     make
 install:
   - |
+    cd source                 &&
     make install
