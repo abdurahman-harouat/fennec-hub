@@ -10,12 +10,12 @@ dependencies:
   - libvdpau
   - llvm
   - wayland-protocols
-  - libclc
+  - libclc # required for the Intel iris gallium driver (should not be here -for now !-)
   - vulkan-loader
   - python-ply
   - python-pycparser
-  - cbindgen
-  - rust-bindgen
+  # - cbindgen    required for the Nouveau Vulkan driver aka Nvidia)
+  # - rust-bindgen required for the Nouveau Vulkan driver)
 source:
   url: https://mesa.freedesktop.org/archive/mesa-24.2.2.tar.xz
   md5: 2efcf055c7d48b12cd2c9df2fc41f1b0
