@@ -5,7 +5,7 @@ source:
   md5: a01d543fd891ca48fe47726540d50b17
 
 additional_downloads:
-  - url: https://www.linuxfromscratch.org/patches/blfs/svn/libssh2-1.11.0-security_fixes-1.patch
+  - url: https://www.linuxfromscratch.org/patches/blfs/12.2/libssh2-1.11.0-security_fixes-1.patch
 
 build:
   - |
