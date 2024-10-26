@@ -33,8 +33,8 @@ build:
           --prefix=$XORG_PREFIX    \
           --buildtype=release      \
           -D platforms=x11,wayland \
-          -D gallium-drivers=auto  \
-          -D vulkan-drivers=auto   \
+          -D gallium-drivers=virgl,svga,llvmpipe,softpipe,i915,zink \
+          -D vulkan-drivers=intel,virtio
           -D valgrind=disabled     \
           -D libunwind=disabled    &&
 
