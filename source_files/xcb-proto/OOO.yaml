@@ -5,8 +5,11 @@ source:
   md5: c415553d2ee1a8cea43c3234a079b53f
 
 build:
-  - PYTHON=python3 ./configure $XORG_CONFIG
+  - |
+    PYTHON=python3 ./configure $XORG_CONFIG
 
 install:
-  - make install
-  - rm -f $XORG_PREFIX/lib/pkgconfig/xcb-proto.pc
+  - |
+    make install
+  - |
+    rm -f $XORG_PREFIX/lib/pkgconfig/xcb-proto.pc
