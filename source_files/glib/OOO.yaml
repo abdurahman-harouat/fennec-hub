@@ -1,36 +1,31 @@
 pkgname: glib
-pkgver: "2.82.0"
+pkgver: "2.80.4"
 dependencies:
+  - packaging
   - python-docutils
   - libxslt
   - pcre2
 
 source:
-  url: https://download.gnome.org/sources/glib/2.82/glib-2.82.0.tar.xz
+  url: https://download.gnome.org/sources/glib/2.80/glib-2.80.4.tar.xz
   md5: 9f94b8b15bc22dbe6a2c8aafd6fb0293
 
 additional_downloads:
-  - url: https://www.linuxfromscratch.org/patches/blfs/svn/glib-skip_warnings-1.patch
+  - url: https://www.linuxfromscratch.org/patches/blfs/12.2/glib-skip_warnings-1.patch
 
 build:
-  - patch -Np1 -i ../../glib-skip_warnings-1.patch
+  - patch -Np1 -i ../glib-skip_warnings-1.patch
   - |
-    mkdir -p build &&
+    mkdir build &&
     cd    build &&
 
     meson setup ..                  \
-          --prefix=/usr             \
-          --buildtype=release       \
-          -D introspection=disabled \
-          -D glib_debug=disabled    \
-          -D man-pages=enabled      \
-          -D sysprof=disabled       &&
+      --prefix=/usr             \
+      --buildtype=release       \
+      -D introspection=disabled \
+      -D man-pages=enabled      &&
     ninja
 
 install:
   - |
-    if [ -e /usr/include/glib-2.0 ]; then
-      rm -rf /usr/include/glib-2.0.old &&
-      mv -vf /usr/include/glib-2.0{,.old}
-    fi
-  - ninja -C build install
+    ninja -C build install
