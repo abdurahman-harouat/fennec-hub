@@ -1,14 +1,13 @@
 pkgname: gobject-introspection
-pkgver: "2.82.0"
+pkgver: "2.80.4"
 dependencies:
   - glib
 
 source:
-  url: https://download.gnome.org/sources/glib/2.82/glib-2.82.0.tar.xz
+  url: https://download.gnome.org/sources/glib/2.80/glib-2.80.4.tar.xz
   md5: 9f94b8b15bc22dbe6a2c8aafd6fb0293
-
 additional_downloads:
-  - url: https://www.linuxfromscratch.org/patches/blfs/svn/glib-skip_warnings-1.patch
+  - url: https://www.linuxfromscratch.org/patches/blfs/12.2/glib-skip_warnings-1.patch
   - url: https://download.gnome.org/sources/gobject-introspection/1.80/gobject-introspection-1.80.1.tar.xz
     md5: ef1496a7a7abfcd31d25b3459ea86ebb
 
