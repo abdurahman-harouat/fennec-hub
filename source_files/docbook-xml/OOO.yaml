@@ -8,19 +8,12 @@ source:
 
 install:
   - |
-<<<<<<< HEAD
-    install -v -d -m755 /usr/share/xml/docbook/xml-dtd-4.5 &&
-    install -v -d -m755 /etc/xml &&
-    cp -v -af --no-preserve=ownership docbook.cat *.dtd ent/ *.mod \
-    /usr/share/xml/docbook/xml-dtd-4.5
-=======
     install -v -d -m755 /usr/share/xml/docbook/xml-dtd-4.5
-
   - |
     install -v -d -m755 /etc/xml
   - |
-    cp -v -af --no-preserve=ownership docbook.cat *.dtd ent/ *.mod /usr/share/xml/docbook/xml-dtd-4.5
->>>>>>> 06a3e4f (updating docbook-xml)
+    cp -v -af --no-preserve=ownership docbook.cat *.dtd ent/ *.mod \
+    /usr/share/xml/docbook/xml-dtd-4.5
   - |
     if [ ! -e /etc/xml/docbook ]; then
       xmlcatalog --noout --create /etc/xml/docbook
