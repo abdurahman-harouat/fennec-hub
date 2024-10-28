@@ -7,7 +7,7 @@ source:
   md5: 2666d1488d6ced1551d15f31d7ed8c38
 
 additional_downloads:
-  - url: https://www.linuxfromscratch.org/patches/blfs/svn/docbook-xsl-nons-1.79.2-stack_fix-1.patch
+  - url: https://www.linuxfromscratch.org/patches/blfs/12.2/docbook-xsl-nons-1.79.2-stack_fix-1.patch
   - url: https://github.com/docbook/xslt10-stylesheets/releases/download/release/1.79.2/docbook-xsl-doc-1.79.2.tar.bz2
     md5: 62375ca864fc198cb2b17d98209d0b8c
 
