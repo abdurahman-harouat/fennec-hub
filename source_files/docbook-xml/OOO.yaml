@@ -13,22 +13,8 @@ install:
   - |
     install -v -d -m755 /etc/xml
   - |
-    DEST_DIR="/usr/share/xml/docbook/xml-dtd-4.5"
-
-    # Create destination directory if it doesn't exist
-    install -v -d -m755 "$DEST_DIR"
-
-    # Define files to copy
-    FILES=("docbook.cat" "*.dtd" "ent/" "*.mod")
-
-    # Check each file and copy if exists
-    for file in "${FILES[@]}"; do
-      if compgen -G "$file" > /dev/null; then
-        cp -v -af --no-preserve=ownership $file "$DEST_DIR"
-      else
-        echo "[✗] File or directory $file not found. Skipping..."
-      fi
-    done
+    cp -v -af --no-preserve=ownership docbook.cat *.dtd ent/ *.mod \
+      /usr/share/xml/docbook/xml-dtd-4.5
   - |
     if [ ! -e /etc/xml/docbook ]; then
       xmlcatalog --noout --create /etc/xml/docbook
