@@ -20,7 +20,7 @@ source:
   # url: https://mesa.freedesktop.org/archive/mesa-24.2.2.tar.xz
   # mesa version from BLFS !!
   url: https://mesa.freedesktop.org/archive/mesa-24.1.5.tar.xz
-  md5: 2efcf055c7d48b12cd2c9df2fc41f1b0
+  md5: 0f4de2192e63b438637b98937ac85a10
 
 additional_downloads:
   - url: https://www.linuxfromscratch.org/patches/blfs/12.2/mesa-add_xdemos-2.patch
