@@ -5,7 +5,7 @@ source:
   md5: 99b97d1f30017a62a2aae777a14782d0
 
 build:
-  - pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+  - pip3 wheel packaging==24.1 -w $PWD/dist --no-build-isolation --no-deps --no-cache-dir
 
 install:
   - pip3 install --no-index --find-links=dist --no-cache-dir --no-user packaging
