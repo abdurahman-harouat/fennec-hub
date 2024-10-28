@@ -104,6 +104,7 @@ https://sourceware.org/ftp/lvm2/LVM2.2.03.23.tgz
 https://www.kernel.org/pub/linux/utils/raid/mdadm/mdadm-4.2.tar.xz
 https://curl.se/download/curl-8.9.0.tar.xz
 https://www.nano-editor.org/dist/v8/nano-8.1.tar.xz
+https://github.com/lfs-book/make-ca/archive/v1.14/make-ca-1.14.tar.gz
 https://www.linuxfromscratch.org/patches/downloads/bzip2/bzip2-1.0.8-install_docs-1.patch
 https://www.linuxfromscratch.org/patches/downloads/coreutils/coreutils-9.5-i18n-2.patch
 https://www.linuxfromscratch.org/patches/downloads/expect/expect-5.45.4-gcc14-1.patch

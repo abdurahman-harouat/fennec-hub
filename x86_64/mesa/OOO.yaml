@@ -1,0 +1,25 @@
+pkgname: mesa
+pkgver: "1:24.2.5-1"
+
+dependencies:
+  - libxpresent
+  - libdrm
+  - python-mako
+  - python-pyyaml
+  - glslang
+  - libva-noglx
+  - libvdpau
+  - llvm
+  - wayland-protocols
+  - libclc
+  - vulkan-loader
+  - python-ply
+  - python-pycparser
+  - cbindgen
+  - rust-bindgen
+
+source:
+  url: https://archive.archlinux.org/packages/m/mesa/mesa-1%3A24.2.5-1-x86_64.pkg.tar.zst
+
+install:
+  - |
