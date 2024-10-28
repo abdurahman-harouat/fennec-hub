@@ -7,13 +7,16 @@ source:
   md5: 12374d29fb5ae642cfa872035e401640
 
 build:
-  - mkdir -p build
-  - meson setup --prefix=$XORG_PREFIX build
-  - ninja -C build
+  - |
+    mkdir build &&
+    cd build &&
+    meson setup --prefix=$XORG_PREFIX .. &&
+    ninja
 
 install:
-  - ninja -C build install
   - |
+    cd build &&
+    ninja install &&
     if [ -d "$XORG_PREFIX/share/doc/xorgproto" ]; then
       mv -v "$XORG_PREFIX/share/doc/xorgproto" "$XORG_PREFIX/share/doc/xorgproto-2024.1"
     fi
