@@ -10,6 +10,7 @@ dependencies:
   # - xorg-libinput
   - libinput
   - xcb-util-renderutil
+  - xcb-util-image
 source:
   url: https://www.x.org/pub/individual/xserver/xorg-server-21.1.13.tar.xz
   md5: 69dbed93746d0af6b46de76d711614e4
