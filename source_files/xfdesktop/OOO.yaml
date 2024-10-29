@@ -6,6 +6,7 @@ dependencies:
   - libwnck
   - libnotify
   - startup-notification
+  - thunar
 
 source:
   url: https://archive.xfce.org/src/xfce/xfdesktop/4.18/xfdesktop-4.18.1.tar.bz2
@@ -19,11 +20,3 @@ build:
 install:
   - |
     make install
-
-additional_commands:
-  - |
-    cat > ~/.xinitrc << "EOF"
-    dbus-launch --exit-with-x11 startxfce4
-    EOF
-
-    startx
