@@ -3,8 +3,7 @@ pkgver: "1.6.43"
 
 source:
   url: https://github.com/pnggroup/libpng/archive/refs/tags/v1.6.43.tar.gz
-  md5: 22b8362d16c3724eba9c1fb8d187320a
-
+  md5: dabdabca28f211feeba199d93235c703
 additional_downloads:
   - url: https://downloads.sourceforge.net/sourceforge/libpng-apng/libpng-1.6.43-apng.patch.gz
   - md5: fc21268c9c583c5d2e7ead8a9ec17240
