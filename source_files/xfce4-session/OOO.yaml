@@ -7,6 +7,7 @@ dependencies:
   - shared-mime-info
   - desktop-file-utils
   - xfdesktop
+  - xinit
 
 source:
   url: https://archive.xfce.org/src/xfce/xfce4-session/4.18/xfce4-session-4.18.4.tar.bz2
@@ -25,6 +26,9 @@ install:
 
 additional_commands:
   - |
+    sudo chmod 666 /dev/tty[0-9]*
+    sudo chmod 666 /dev/tty
+    export DISPLAY=:0
     cat > ~/.xinitrc << "EOF"
     dbus-launch --exit-with-x11 startxfce4
     EOF

@@ -1,5 +1,10 @@
 pkgname: xinit
 pkgver: "1.4.2"
+
+depenpdencies:
+  - xterm
+  - xclock
+  - twm
 source:
   url: https://www.x.org/pub/individual/app/xinit-1.4.2.tar.xz
   md5: 0e9a1b9a82b84ab229c709c0f939c113
