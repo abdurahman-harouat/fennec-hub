@@ -1,0 +1,15 @@
+pkgname: xcursorgen
+pkgver: "1.0.8"
+
+dependencies:
+source:
+  url: https://www.x.org/archive//individual/app/xcursorgen-1.0.8.tar.xz
+  md5: 89e81a1c31e4a1fbd0e431425cd733d7
+  build:
+    - |
+      ./configure $XORG_CONFIG
+       make
+
+install:
+  - |
+    make install
