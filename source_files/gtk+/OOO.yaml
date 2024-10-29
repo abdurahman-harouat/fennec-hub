@@ -5,6 +5,8 @@ dependencies:
   - gdk-pixbuf
   - libepoxy
   - pango
+  - libxkbcommon
+  - sassc
 source:
   url: https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.43.tar.xz
   md5: 226e372664a7fae749a50a04983ecd8d
