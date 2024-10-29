@@ -9,6 +9,8 @@ dependencies:
   - xfdesktop
   - xinit
   - iceauth
+  - xorg-server
+  - xorg-libinput
 
 source:
   url: https://archive.xfce.org/src/xfce/xfce4-session/4.18/xfce4-session-4.18.4.tar.bz2
