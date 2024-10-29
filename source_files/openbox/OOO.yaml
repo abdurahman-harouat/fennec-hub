@@ -1,0 +1,33 @@
+pkgname: openbox
+pkgver: "3.6.1"
+dependencies:
+  - libxpresent
+  - mesa
+  - pango
+  - imlib2
+  - feh
+source:
+  url: http://openbox.org/dist/openbox/openbox-3.6.1.tar.gz
+  md5: b72794996c6a3ad94634727b95f9d204
+
+build:
+  - |
+    2to3-3.12 -w data/autostart/openbox-xdg-autostart &&
+    sed 's/python/python3/' -i data/autostart/openbox-xdg-autostart
+  - |
+    ./configure --prefix=/usr     \
+            --sysconfdir=/etc \
+            --disable-static  \
+            --docdir=/usr/share/doc/openbox-3.6.1 &&
+    make
+
+install:
+  - |
+    make install
+  - rm -v /usr/share/xsessions/openbox-{gnome,kde}.desktop
+  - cp -rf /etc/xdg/openbox ~/.config
+  - |
+    cat > ~/.xinitrc << "EOF"
+    feh --bg-fill /path/to/image.jpg &
+    exec openbox
+    EOF
