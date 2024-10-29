@@ -7,6 +7,7 @@ dependencies:
   - libcanberra
   - xfce4-dev-tools
   - xfce4-panel
+  - sqlite
 
 source:
   url: https://archive.xfce.org/src/apps/xfce4-notifyd/0.9/xfce4-notifyd-0.9.6.tar.bz2
