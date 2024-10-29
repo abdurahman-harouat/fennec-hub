@@ -1,0 +1,15 @@
+pkgname: xauth
+pkgver: "1.1"
+
+dependencies:
+source:
+  url: https://www.x.org/archive//individual/app/xauth-1.1.tar.gz
+  md5: 595c941d9aff6f6d6e038c4e42dcff58
+build:
+  - |
+    ./configure $XORG_CONFIG
+     make
+
+install:
+  - |
+    make install
