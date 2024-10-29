@@ -28,6 +28,6 @@ install:
   - cp -rf /etc/xdg/openbox ~/.config
   - |
     cat > ~/.xinitrc << "EOF"
-    feh --bg-fill /path/to/image.jpg &
+    feh --bg-fill /root/home/tester/Pictures/fennec_wallpaper.jpg &
     exec openbox
     EOF
