@@ -10,4 +10,5 @@ build:
 
 install:
   - |
-    pip3 install --no-index --find-links=dist --no-cache-dir --no-user docutils
+    pip3 install ./dist/docutils-0.21.2-py3-none-any.whl
+    # pip3 install --no-index --find-links=dist --no-cache-dir --no-user docutils
