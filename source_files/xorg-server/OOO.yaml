@@ -12,7 +12,7 @@ source:
   md5: 69dbed93746d0af6b46de76d711614e4
 
 additional_downloads:
-  - url: https://www.linuxfromscratch.org/patches/blfs/svn/xorg-server-21.1.13-tearfree_backport-2.patch
+  - url: https://www.linuxfromscratch.org/patches/blfs/12.2/xorg-server-21.1.13-tearfree_backport-2.patch
 
 build:
   - |

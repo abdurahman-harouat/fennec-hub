@@ -8,6 +8,7 @@ dependencies:
   - desktop-file-utils
   - xfdesktop
   - xinit
+  - iceauth
 
 source:
   url: https://archive.xfce.org/src/xfce/xfce4-session/4.18/xfce4-session-4.18.4.tar.bz2
