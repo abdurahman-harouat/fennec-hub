@@ -1,0 +1,32 @@
+pkgname: polkit
+pkgver: "125"
+
+dependencies:
+  - glib
+  - linux-pam
+  - libxslt
+  # - ductape
+
+source:
+  url: https://github.com/polkit-org/polkit/archive/125/polkit-125.tar.gz
+  md5: 8e9f2377fc7b4010bd29b97d2e288b4f
+
+build:
+  - |
+    groupadd -fg 27 polkitd &&
+    useradd -c "PolicyKit Daemon Owner" -d /etc/polkit-1 -u 27 \
+        -g polkitd -s /bin/false polkitd
+    mkdir build &&
+    cd    build &&
+
+    meson setup ..                   \
+      --prefix=/usr              \
+      --buildtype=release        \
+      -D man=true                \
+      -D session_tracking=logind \
+      -D tests=true
+    ninja
+
+install:
+  - |
+    ninja -C build install

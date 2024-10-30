@@ -1,0 +1,33 @@
+pkgname: shadow
+pkgver: "4.16.0"
+
+dependencies:
+  - linux-pam
+
+source:
+  url: https://github.com/shadow-maint/shadow/releases/download/4.16.0/shadow-4.16.0.tar.xz
+  md5: eb70bad3316d08f0d3bb3d4bbeccb3b4
+
+build:
+  - |
+    sed -i 's/groups$(EXEEXT) //' src/Makefile.in          &&
+
+    find man -name Makefile.in -exec sed -i 's/groups\.1 / /'   {} \; &&
+    find man -name Makefile.in -exec sed -i 's/getspnam\.3 / /' {} \; &&
+    find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \; &&
+
+    sed -e 's@#ENCRYPT_METHOD DES@ENCRYPT_METHOD YESCRYPT@' \
+      -e 's@/var/spool/mail@/var/mail@'                   \
+      -e '/PATH=/{s@/sbin:@@;s@/bin:@@}'                  \
+      -i etc/login.defs                                   &&
+
+    ./configure --sysconfdir=/etc   \
+            --disable-static    \
+            --without-libbsd    \
+            --with-{b,yes}crypt &&
+    make
+
+install:
+  - |
+    make exec_prefix=/usr pamddir= install
+    make -C man install-man
