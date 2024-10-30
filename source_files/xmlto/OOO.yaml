@@ -4,6 +4,7 @@ dependencies:
   - docbook-xml
   - docbook-xsl-nons
   - libxslt
+  - links
 source:
   url: https://pagure.io/xmlto/archive/0.0.29/xmlto-0.0.29.tar.gz
   md5: 556f2642cdcd005749bd4c08bc621c37
