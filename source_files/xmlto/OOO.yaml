@@ -11,6 +11,10 @@ source:
 
 build:
   - |
+    xmlcatalog --noout --add "rewriteSystem" \
+    "http://docbook.sourceforge.net/release/xsl/current" \
+    "/usr/share/xml/docbook/xsl-stylesheets-nons-1.79.2" /etc/xml/catalog
+
     autoreconf -fiv                                  &&
     LINKS="/usr/bin/links" ./configure --prefix=/usr &&
     make
