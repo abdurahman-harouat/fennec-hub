@@ -3,7 +3,7 @@ pkgver: "1.6.1"
 
 source:
   url: https://github.com/linux-pam/linux-pam/releases/download/v1.6.1/Linux-PAM-1.6.1.tar.xz
-  md5: 46dc9f9a27ef73a2fbe3b667877e88da
+  md5: 8ad1e72d1ff6480d8e0af658e2d7b768
 
 build:
   - |
