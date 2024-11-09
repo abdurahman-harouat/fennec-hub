@@ -1,4 +1,4 @@
-pkgname: libX11
+pkgname: libx11
 pkgver: "1.8.9"
 dependencies:
   - xtrans
