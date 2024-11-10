@@ -1,4 +1,4 @@
-pkgname: libSM
+pkgname: libsm
 pkgver: "1.2.4"
 dependencies:
   - libice

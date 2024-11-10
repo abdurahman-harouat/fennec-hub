@@ -1,4 +1,4 @@
-pkgname: libXpm
+pkgname: libxpm
 pkgver: "3.5.17"
 dependencies:
   - libxmu

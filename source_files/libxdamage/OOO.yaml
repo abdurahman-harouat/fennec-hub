@@ -1,4 +1,4 @@
-pkgname: libXdamage
+pkgname: libxdamage
 pkgver: "1.1.6"
 dependencies:
   - libxcursor

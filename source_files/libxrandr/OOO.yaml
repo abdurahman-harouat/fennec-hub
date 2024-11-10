@@ -1,4 +1,4 @@
-pkgname: libXrandr
+pkgname: libxrandr
 pkgver: "1.5.4"
 dependencies:
   - libxinerama

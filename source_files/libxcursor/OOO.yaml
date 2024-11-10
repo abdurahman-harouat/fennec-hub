@@ -1,4 +1,4 @@
-pkgname: libXcursor
+pkgname: libxcursor
 pkgver: "1.2.2"
 dependencies:
   - libxrender

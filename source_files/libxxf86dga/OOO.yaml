@@ -1,4 +1,4 @@
-pkgname: libXxf86dga
+pkgname: libxxf86dga
 pkgver: "1.1.6"
 dependencies:
   - libxvmc

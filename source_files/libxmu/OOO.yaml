@@ -1,4 +1,4 @@
-pkgname: libXmu
+pkgname: libxmu
 pkgver: "1.2.1"
 dependencies:
   - libxt

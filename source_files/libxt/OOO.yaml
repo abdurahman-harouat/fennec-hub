@@ -1,4 +1,4 @@
-pkgname: libXt
+pkgname: libxt
 pkgver: "1.3.0"
 dependencies:
   - libxscrnsaver

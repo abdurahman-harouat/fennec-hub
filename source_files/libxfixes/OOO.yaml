@@ -1,4 +1,4 @@
-pkgname: libXfixes
+pkgname: libxfixes
 pkgver: "6.0.1"
 dependencies:
   - libxaw

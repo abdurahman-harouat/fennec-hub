@@ -1,4 +1,4 @@
-pkgname: libXv
+pkgname: libxv
 pkgver: "1.0.12"
 dependencies:
   - libxtst

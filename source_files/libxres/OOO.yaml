@@ -1,4 +1,4 @@
-pkgname: libXres
+pkgname: libxres
 pkgver: "1.2.2"
 dependencies:
   - libxrandr

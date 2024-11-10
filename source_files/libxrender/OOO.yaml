@@ -1,4 +1,4 @@
-pkgname: libXrender
+pkgname: libxrender
 pkgver: "0.9.11"
 dependencies:
   - libxcomposite

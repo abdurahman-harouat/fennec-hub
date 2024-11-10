@@ -1,4 +1,4 @@
-pkgname: libXi
+pkgname: libxi
 pkgver: "1.8.1"
 dependencies:
   - libxft

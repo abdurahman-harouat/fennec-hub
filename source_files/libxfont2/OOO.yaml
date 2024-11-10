@@ -1,4 +1,4 @@
-pkgname: libXfont2
+pkgname: libxfont2
 pkgver: "2.0.6"
 dependencies:
   - libfontenc

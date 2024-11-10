@@ -1,4 +1,4 @@
-pkgname: libFS
+pkgname: libfs
 pkgver: "1.0.9"
 dependencies:
   - libxext

@@ -1,4 +1,4 @@
-pkgname: libXScrnSaver
+pkgname: libxscrnsaver
 pkgver: "1.2.4"
 dependencies:
   - libsm

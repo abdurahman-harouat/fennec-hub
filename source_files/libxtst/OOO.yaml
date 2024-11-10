@@ -1,4 +1,4 @@
-pkgname: libXtst
+pkgname: libxtst
 pkgver: "1.2.4"
 dependencies:
   - libxres
