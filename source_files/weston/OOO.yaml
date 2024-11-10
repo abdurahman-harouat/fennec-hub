@@ -10,7 +10,7 @@ dependencies:
   - wayland
   - wayland-protocols
   - pango
-  - libxpresent
+  - xorg-libraries
   - xorg-server
   - linux-pam
 source:

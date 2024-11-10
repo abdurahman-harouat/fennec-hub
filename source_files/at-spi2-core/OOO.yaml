@@ -4,7 +4,7 @@ dependencies:
   - glib
   - gobject-introspection
   - gsettings-desktop-schemas
-  - libxpresent
+  - xorg-libraries
 source:
   url: https://download.gnome.org/sources/at-spi2-core/2.54/at-spi2-core-2.54.0.tar.xz
   md5: 21a200a6f76673a7178e1669272e8ecf

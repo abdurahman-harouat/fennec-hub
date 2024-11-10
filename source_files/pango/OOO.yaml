@@ -5,7 +5,7 @@ dependencies:
   - fribidi
   - glib
   - gobject-introspection
-  - libxpresent
+  - xorg-libraries
   - cairo
 source:
   url: https://download.gnome.org/sources/pango/1.54/pango-1.54.0.tar.xz

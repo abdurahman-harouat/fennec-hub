@@ -1,7 +1,7 @@
 pkgname: openbox
 pkgver: "3.6.1"
 dependencies:
-  - libxpresent
+  - xorg-libraries
   - mesa
   - pango
   - imlib2

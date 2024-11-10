@@ -2,7 +2,7 @@ pkgname: startup-notification
 pkgver: "0.12"
 
 dependencies:
-  - libxpresent
+  - xorg-libraries
   - xcb-util
 
 source:

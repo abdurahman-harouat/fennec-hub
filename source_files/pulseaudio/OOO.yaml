@@ -6,7 +6,7 @@ dependencies:
   - dbus
   - glib
   - speex
-  - libxpresent
+  - xorg-libraries
 source:
   url: https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-17.0.tar.xz
   md5: c4a3596a26ff4b9dcd0c394dd1d4f8ee

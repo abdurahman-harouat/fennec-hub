@@ -1,7 +1,7 @@
 pkgname: mesa
 pkgver: "24.1.5"
 dependencies:
-  - libxpresent
+  - xorg-libraries
   - libdrm
   - python-mako
   - python-pyyaml

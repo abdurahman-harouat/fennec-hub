@@ -1,7 +1,7 @@
 pkgname: qt
 pkgver: "6.7.3"
 dependencies:
-  - libxpresent
+  - xorg-libraries
 source:
   url: https://download.qt.io/archive/qt/6.7/6.7.3/single/qt-everywhere-src-6.7.3.tar.xz
   md5: 3efadf18f1e16e3271abd09c606d3c9b
