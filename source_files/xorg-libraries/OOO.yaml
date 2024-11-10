@@ -1,0 +1,80 @@
+pkgname: xorg-libraries
+pkgver: "lfs-12.2"
+dependencies:
+  - libxcb
+  - fontconfig
+source:
+  url: https://github.com/abdurahman-harouat/fennec-hub/raw/refs/heads/main/special/lib.tar.xz
+  md5: 126c151b06b7896c3a0704d86917dd88
+
+additional_downloads:
+  - url: https://github.com/abdurahman-harouat/fennec-hub/raw/refs/heads/main/special/lib-7.md5
+
+build:
+  - |
+    for package in $(grep -v '^#' ../lib-7.md5 | awk '{print $2}')
+    do
+      packagedir=${package%.tar.?z*}
+      echo "Building $packagedir"
+
+      tar -xf $package
+      pushd $packagedir
+      docdir="--docdir=$XORG_PREFIX/share/doc/$packagedir"
+      
+      case $packagedir in
+        libXfont2-[0-9]* )
+          ./configure $XORG_CONFIG $docdir --disable-devel-docs
+        ;;
+
+        libXt-[0-9]* )
+          ./configure $XORG_CONFIG $docdir \
+                      --with-appdefaultdir=/etc/X11/app-defaults
+        ;;
+
+        libXpm-[0-9]* )
+          ./configure $XORG_CONFIG $docdir --disable-open-zfile
+        ;;
+      
+        libpciaccess* )
+          mkdir -p build
+          cd    build
+            meson setup --prefix=$XORG_PREFIX --buildtype=release ..
+            ninja
+          popd     # $packagedir
+          continue # for loop
+        ;;
+
+        * )
+          ./configure $XORG_CONFIG $docdir
+        ;;
+      esac
+
+      make
+      popd
+    done
+
+install:
+  - |
+    for package in $(grep -v '^#' ../lib-7.md5 | awk '{print $2}')
+    do
+      packagedir=${package%.tar.?z*}
+      echo "Building $packagedir"
+
+      pushd $packagedir
+      docdir="--docdir=$XORG_PREFIX/share/doc/$packagedir"
+      
+      case $packagedir in
+        libpciaccess* )
+          cd    build
+            ninja install
+          popd     # $packagedir
+          continue # for loop
+        ;;
+
+      esac
+
+      make install
+      popd
+      rm -rf $packagedir
+      /sbin/ldconfig
+    done
