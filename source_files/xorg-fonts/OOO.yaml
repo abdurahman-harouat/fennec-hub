@@ -3,15 +3,15 @@ pkgver: "lfs-12.2"
 dependencies:
   - xcursor-themes
 source:
-  url: https://github.com/abdurahman-harouat/fennec-hub/raw/refs/heads/main/special/app.tar.xz
+  url: https://github.com/abdurahman-harouat/fennec-hub/raw/refs/heads/main/special/font.tar.xz
   md5: 5edb48bc027bd8ebf9b32f7d6dba8ab3
 
 additional_downloads:
-  - url: https://github.com/abdurahman-harouat/fennec-hub/raw/refs/heads/main/special/app-7.md5
+  - url: https://github.com/abdurahman-harouat/fennec-hub/raw/refs/heads/main/special/font-7.md5
 
 build:
   - |
-    for package in $(grep -v '^#' ../app-7.md5 | awk '{print $2}')
+    for package in $(grep -v '^#' ../font-7.md5 | awk '{print $2}')
     do
       packagedir=${package%.tar.?z*}
       tar -xf $package
@@ -23,7 +23,7 @@ build:
 
 install:
   - |
-    for package in $(grep -v '^#' ../app-7.md5 | awk '{print $2}')
+    for package in $(grep -v '^#' ../font-7.md5 | awk '{print $2}')
     do
       packagedir=${package%.tar.?z*}
       pushd $packagedir
