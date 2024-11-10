@@ -36,7 +36,7 @@ build:
           --buildtype=release      \
           -D platforms=x11,wayland \
           # -D gallium-drivers=virgl,svga,llvmpipe,softpipe,i915,zink \
-          -D gallium-drivers=virgl,llvmpipe,softpipe \
+          -D gallium-drivers=virgl,llvmpipe,softpipe,zink \
           # -D vulkan-drivers=intel,virtio \
           -D vulkan-drivers=auto \
           -Dglx=dri              \
