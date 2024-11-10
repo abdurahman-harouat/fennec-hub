@@ -18,49 +18,87 @@ additional_downloads:
 
 build:
   - |
-    tar -xf ../llvm-cmake-18.src.tar.xz                                   &&
-    tar -xf ../llvm-third-party-18.src.tar.xz                             &&
-    sed '/LLVM_COMMON_CMAKE_UTILS/s@../cmake@llvm-cmake-18.src@'          \
-        -i CMakeLists.txt                                                 &&
-    sed '/LLVM_THIRD_PARTY_DIR/s@../third-party@llvm-third-party-18.src@' \
-        -i cmake/modules/HandleLLVMOptions.cmake
+    # Function to check if a directory exists and is not empty
+    dir_not_empty() {
+      [ -d "$1" ] && [ "$(ls -A $1)" ]
+    }
 
-    tar -xf ../clang-18.1.7.src.tar.xz -C tools &&
-    mv tools/clang-18.1.7.src tools/clang
+    # Extract cmake files if not already done
+    if [ ! -d llvm-cmake-18.src ]; then
+      tar -xf ../llvm-cmake-18.src.tar.xz
+    fi
 
-    tar -xf ../compiler-rt-18.1.7.src.tar.xz -C projects    &&
-    mv projects/compiler-rt-18.1.7.src projects/compiler-rt
+    if [ ! -d llvm-third-party-18.src ]; then
+      tar -xf ../llvm-third-party-18.src.tar.xz
+    fi
 
-    grep -rl '#!.*python' | xargs sed -i '1s/python$/python3/'
+    # Apply sed modifications only if not already applied
+    if ! grep -q "llvm-cmake-18.src" CMakeLists.txt; then
+      sed '/LLVM_COMMON_CMAKE_UTILS/s@../cmake@llvm-cmake-18.src@' -i CMakeLists.txt
+    fi
 
-    sed 's/utility/tool/' -i utils/FileCheck/CMakeLists.txt
+    if ! grep -q "llvm-third-party-18.src" cmake/modules/HandleLLVMOptions.cmake; then
+      sed '/LLVM_THIRD_PARTY_DIR/s@../third-party@llvm-third-party-18.src@' \
+          -i cmake/modules/HandleLLVMOptions.cmake
+    fi
 
-    mkdir -pv build &&
-    cd       build &&
+    # Extract and move clang if not already done
+    if [ ! -d tools/clang ]; then
+      tar -xf ../clang-18.1.7.src.tar.xz -C tools
+      mv tools/clang-18.1.7.src tools/clang
+    fi
 
-    CC=gcc CXX=g++                               \
-    cmake -D CMAKE_INSTALL_PREFIX=/usr           \
-          -D CMAKE_SKIP_INSTALL_RPATH=ON         \
-          -D LLVM_ENABLE_FFI=ON                  \
-          -D CMAKE_BUILD_TYPE=Release            \
-          -D LLVM_BUILD_LLVM_DYLIB=ON            \
-          -D LLVM_BUILD_EXAMPLES=OFF             \
-          -D LLVM_APPEND_VC_REV=OFF              \
-          -D LLVM_ENABLE_ASSERTIONS=OFF          \
-          -D LLVM_ENABLE_LIBCXX=OFF              \
-          -D LLVM_ENABLE_LIBEDIT=OFF             \
-          -D LLVM_BUILD_DOCS=OFF                 \
-          -D LLVM_LINK_LLVM_DYLIB=ON             \
-          -D LLVM_ENABLE_RTTI=ON                 \
-          -D LLVM_TARGETS_TO_BUILD="host"        \
-          -D LLVM_BINUTILS_INCDIR=/usr/include   \
-          -D LLVM_INCLUDE_BENCHMARKS=OFF         \
-          -D LLVM_INCLUDE_EXAMPLES=OFF           \
-          -D LLVM_ENABLE_SPHINX=OFF              \
-          -D CLANG_DEFAULT_PIE_ON_LINUX=ON       \
-          -D CLANG_CONFIG_FILE_SYSTEM_DIR=/etc/clang \
-          -W no-dev -G Ninja ..                  &&
-    ninja -j $(nproc)
+    # Extract and move compiler-rt if not already done
+    if [ ! -d projects/compiler-rt ]; then
+      tar -xf ../compiler-rt-18.1.7.src.tar.xz -C projects
+      mv projects/compiler-rt-18.1.7.src projects/compiler-rt
+    fi
+
+    # Apply python3 fix only if needed
+    if [ ! -f .python3_fix_done ]; then
+      grep -rl '#!.*python' | xargs sed -i '1s/python$/python3/'
+      touch .python3_fix_done
+    fi
+
+    # Apply FileCheck fix if not already done
+    if ! grep -q "tool" utils/FileCheck/CMakeLists.txt; then
+      sed 's/utility/tool/' -i utils/FileCheck/CMakeLists.txt
+    fi
+
+    # Create build directory if it doesn't exist
+    mkdir -p build
+    cd build
+
+    # Only run cmake and ninja if build files don't exist or are incomplete
+    if [ ! -f build.ninja ] || [ ! -f rules.ninja ]; then
+      CC=gcc CXX=g++                               \
+      cmake -D CMAKE_INSTALL_PREFIX=/usr           \
+            -D CMAKE_SKIP_INSTALL_RPATH=ON         \
+            -D LLVM_ENABLE_FFI=ON                  \
+            -D CMAKE_BUILD_TYPE=Release            \
+            -D LLVM_BUILD_LLVM_DYLIB=ON           \
+            -D LLVM_BUILD_EXAMPLES=OFF            \
+            -D LLVM_APPEND_VC_REV=OFF             \
+            -D LLVM_ENABLE_ASSERTIONS=OFF         \
+            -D LLVM_ENABLE_LIBCXX=OFF             \
+            -D LLVM_ENABLE_LIBEDIT=OFF            \
+            -D LLVM_BUILD_DOCS=OFF                \
+            -D LLVM_LINK_LLVM_DYLIB=ON           \
+            -D LLVM_ENABLE_RTTI=ON                \
+            -D LLVM_TARGETS_TO_BUILD="host"       \
+            -D LLVM_BINUTILS_INCDIR=/usr/include  \
+            -D LLVM_INCLUDE_BENCHMARKS=OFF        \
+            -D LLVM_INCLUDE_EXAMPLES=OFF          \
+            -D LLVM_ENABLE_SPHINX=OFF             \
+            -D CLANG_DEFAULT_PIE_ON_LINUX=ON      \
+            -D CLANG_CONFIG_FILE_SYSTEM_DIR=/etc/clang \
+            -W no-dev -G Ninja ..
+    fi
+
+    # Check if build is already complete by checking for a specific binary
+    if [ ! -f bin/llvm-config ]; then
+      ninja -j $(nproc)
+    fi
 
 install:
   - |
