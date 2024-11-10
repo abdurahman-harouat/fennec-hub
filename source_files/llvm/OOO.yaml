@@ -111,7 +111,7 @@ build:
     fi
 
   - |
-    ninja -j $(nproc)
+    cd build && ninja -j $(nproc)
 
 install:
   - |
