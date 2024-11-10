@@ -99,10 +99,10 @@ build:
     if [ ! -f bin/llvm-config ]; then
       if [ $(nproc) -gt 4 ]; then
         # compile part by part for systems with more than 4 cores
-        for i in {1..10}; do
+        for i in {1..16}; do
           timeout 240s ninja -j $(nproc)
           echo "Cycle $i completed"
-          sleep 90s
+          sleep 100s
         done
       else
         # use regular compilation for systems with 4 or fewer cores
