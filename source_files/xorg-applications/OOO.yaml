@@ -1,0 +1,36 @@
+pkgname: xorg-applications
+pkgver: "lfs-12.2"
+dependencies:
+  - xbitmaps
+  - xcb-util
+  - libpng
+  - mesa
+source:
+  url: https://github.com/abdurahman-harouat/fennec-hub/raw/refs/heads/main/special/app.tar.xz
+  md5: 4ce908f922ea2564faa270e1fdb5057b
+
+additional_downloads:
+  - url: https://github.com/abdurahman-harouat/fennec-hub/raw/refs/heads/main/special/app-7.md5
+
+build:
+  - |
+    for package in $(grep -v '^#' ../app-7.md5 | awk '{print $2}')
+    do
+      packagedir=${package%.tar.?z*}
+      tar -xf $package
+      pushd $packagedir
+        ./configure $XORG_CONFIG
+        make
+      popd
+    done
+
+install:
+  - |
+    for package in $(grep -v '^#' ../app-7.md5 | awk '{print $2}')
+    do
+      packagedir=${package%.tar.?z*}
+      pushd $packagedir
+        make install
+      popd
+      rm -rf $packagedir
+    done
