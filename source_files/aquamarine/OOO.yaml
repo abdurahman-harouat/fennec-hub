@@ -5,6 +5,8 @@ dependencies:
   - hyprwayland-scanner
   - libdisplay-info
   - hwdata
+  - libinput
+  - seatd
 
 source:
   url: https://github.com/hyprwm/aquamarine/archive/refs/tags/v0.4.2.tar.gz
