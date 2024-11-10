@@ -1,6 +1,7 @@
 pkgname: hyprutils
 pkgver: "0.2.3"
-
+dependencies:
+  - pixman
 source:
   url: https://github.com/hyprwm/hyprutils/archive/refs/tags/v0.2.3.tar.gz
   md5: 00346fea793771e5df1755e9335bb56c
