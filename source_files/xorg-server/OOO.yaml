@@ -3,7 +3,7 @@ pkgver: "21.1.13"
 dependencies:
   - libxcvt
   - pixman
-  - font-util
+  - xorg-fonts
   - xkeyboard-config
   - libepoxy
   - libtirpc
