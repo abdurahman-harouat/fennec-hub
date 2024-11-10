@@ -26,7 +26,13 @@ additional_downloads:
   - url: https://www.linuxfromscratch.org/patches/blfs/12.2/mesa-add_xdemos-2.patch
 
 build:
-  - patch -Np1 -i ../mesa-add_xdemos-2.patch
+  - |
+    # Check if the patch has already been applied
+    if ! patch --dry-run -Np1 -i ../mesa-add_xdemos-2.patch; then
+      patch -Np1 -i ../mesa-add_xdemos-2.patch
+    else
+      echo "Patch already applied, skipping..."
+    fi
   - |
     mkdir -p build &&
     cd    build &&
