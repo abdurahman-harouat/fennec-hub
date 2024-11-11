@@ -13,8 +13,10 @@ install:
   - |
     make install &&
     install -vdm755 /etc/ssl/local
-  - /usr/sbin/make-ca -g
-  - systemctl enable update-pki.timer
+  - |
+    /usr/sbin/make-ca -g
+  - |
+    systemctl enable update-pki.timer
   - |
     wget http://www.cacert.org/certs/root.crt &&
     wget http://www.cacert.org/certs/class3.crt &&

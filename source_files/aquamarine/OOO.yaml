@@ -2,6 +2,7 @@ pkgname: aquamarine
 pkgver: "0.4.4"
 
 dependencies:
+  - libglvnd
   - hyprwayland-scanner
   - libdisplay-info
   - hwdata

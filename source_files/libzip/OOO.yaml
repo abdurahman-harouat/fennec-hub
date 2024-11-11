@@ -1,0 +1,21 @@
+pkgname: libzip
+pkgver: "1.11.1"
+
+source:
+  url: https://libzip.org/download/libzip-1.11.1.tar.xz
+  md5: ce7db66aebd0e1ad052b2966adb4f565
+
+build:
+  - |
+    cmake -B build -S . \
+    -DCMAKE_BUILD_TYPE=None \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_INSTALL_LIBDIR=lib \
+    -Wno-dev
+
+  - |
+    cmake --build build
+
+install:
+  - |
+    cmake --install build
