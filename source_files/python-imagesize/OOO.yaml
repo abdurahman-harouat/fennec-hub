@@ -1,0 +1,12 @@
+pkgname: python-imagesize
+pkgver: "1.4.1"
+
+source:
+  url: https://files.pythonhosted.org/packages/source/i/imagesize/imagesize-1.4.1.tar.gz
+  md5: 5a40586a25c07e1a8f16f6267252c321
+
+build:
+  - pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+
+install:
+  - pip3 install --no-index --find-links=dist --no-cache-dir --no-user imagesize

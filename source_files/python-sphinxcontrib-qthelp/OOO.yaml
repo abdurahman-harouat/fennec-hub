@@ -1,0 +1,12 @@
+pkgname: python-sphinxcontrib-qthelp
+pkgver: "2.0.0"
+
+source:
+  url: https://files.pythonhosted.org/packages/source/s/sphinxcontrib-qthelp/sphinxcontrib_qthelp-2.0.0.tar.gz
+  md5: ed4f32003b71a54ac3d68aa651cb6573
+
+build:
+  - pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+
+install:
+  - pip3 install --no-index --find-links=dist --no-cache-dir --no-user sphinxcontrib-qthelp

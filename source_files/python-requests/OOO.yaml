@@ -1,0 +1,21 @@
+pkgname: python-requests
+pkgver: "2.32.3"
+dependencies:
+  - make-ca
+  - p11-kit
+  - python-charset-normalizer
+  - python-idna
+  - python-urllib3
+
+additional_downloads:
+  - url: https://www.linuxfromscratch.org/patches/blfs/12.2/requests-2.32.3-use_system_certs-1.patch
+source:
+  url: https://files.pythonhosted.org/packages/source/r/requests/requests-2.32.3.tar.gz
+  md5: fa3ee5ac3f1b3f4368bd74ab530d3f0f
+
+build:
+  - patch -Np1 -i ../requests-2.32.3-use_system_certs-1.patch
+  - pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+
+install:
+  - pip3 install --no-index --find-links=dist --no-cache-dir --no-user requests

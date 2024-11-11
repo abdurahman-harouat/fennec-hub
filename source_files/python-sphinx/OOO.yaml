@@ -1,0 +1,27 @@
+pkgname: python-sphinx
+pkgver: "8.0.2"
+dependencies:
+  - python-alabaster
+  - python-babel
+  - python-docutils
+  - python-imagesize
+  - python-packaging
+  - python-pygments
+  - python-requests
+  - python-snowballstemmer
+  - python-sphinxcontrib-applehelp
+  - python-sphinxcontrib-devhelp
+  - python-sphinxcontrib-htmlhelp
+  - python-sphinxcontrib-jsmath
+  - python-sphinxcontrib-qthelp
+  - python-sphinxcontrib-serializinghtml
+
+source:
+  url: https://files.pythonhosted.org/packages/source/s/sphinx/sphinx-8.0.2.tar.gz
+  md5: 9f07671060e83d92a7a4e33893bbd408
+
+build:
+  - pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+
+install:
+  - pip3 install --no-index --find-links=dist --no-cache-dir --no-user sphinx

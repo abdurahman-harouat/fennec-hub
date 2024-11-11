@@ -1,0 +1,13 @@
+pkgname: python-setuptools-scm
+pkgver: "8.1.0"
+dependencies:
+  - python-packaging
+source:
+  url: https://files.pythonhosted.org/packages/source/s/setuptools_scm/setuptools_scm-8.1.0.tar.gz
+  md5: d8046dce093a94dc382b68b45f6a6257
+
+build:
+  - pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+
+install:
+  - pip3 install --no-index --find-links=dist --no-cache-dir --no-user setuptools_scm

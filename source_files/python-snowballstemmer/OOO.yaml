@@ -1,0 +1,11 @@
+pkgname: python-snowballstemmer
+pkgver: "2.2.2"
+source:
+  url: https://files.pythonhosted.org/packages/source/s/snowballstemmer/snowballstemmer-2.2.0.tar.gz
+  md5: 4332ddc7bbee0f344a03915b2ad59a54
+
+build:
+  - pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+
+install:
+  - pip3 install --no-index --find-links=dist --no-cache-dir --no-user snowballstemmer

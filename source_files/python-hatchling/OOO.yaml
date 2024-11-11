@@ -1,0 +1,17 @@
+pkgname: python-hatchling
+pkgver: "1.25.0"
+dependencies:
+  - python-packaging
+  - python-editables
+  - python-pathspec
+  - python-pluggy
+  - python-trove-classifiers
+source:
+  url: https://files.pythonhosted.org/packages/source/h/hatchling/hatchling-1.25.0.tar.gz
+  md5: ac265366ccd17365db319dc95a9e5bc5
+
+build:
+  - pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+
+install:
+  - pip3 install --no-index --find-links=dist --no-cache-dir --no-user hatchling

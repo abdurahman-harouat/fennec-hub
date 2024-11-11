@@ -1,0 +1,11 @@
+pkgname: python-alabaster
+pkgver: "1.0.0"
+source:
+  url: https://files.pythonhosted.org/packages/source/a/alabaster/alabaster-1.0.0.tar.gz
+  md5: c6c2173e5565fb12f08bef410ea50f72
+
+build:
+  - pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+
+install:
+  - pip3 install --no-index --find-links=dist --no-cache-dir --no-user alabaster

@@ -1,0 +1,11 @@
+pkgname: python-sphinxcontrib-applehelp
+pkgver: "2.0.0"
+source:
+  url: https://files.pythonhosted.org/packages/source/s/sphinxcontrib-applehelp/sphinxcontrib_applehelp-2.0.0.tar.gz
+  md5: e16bb1d6199f686d411c180e64a8e831
+
+build:
+  - pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+
+install:
+  - pip3 install --no-index --find-links=dist --no-cache-dir --no-user sphinxcontrib-applehelp

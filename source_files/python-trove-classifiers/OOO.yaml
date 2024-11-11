@@ -1,0 +1,12 @@
+pkgname: python-trove-classifiers
+pkgver: "2024.7.2"
+source:
+  url: https://files.pythonhosted.org/packages/source/t/trove_classifiers/trove_classifiers-2024.7.2.tar.gz
+  md5: ee42acfdbe6fee98be4bcbe0fdaa937c
+
+build:
+  - sed -i '/calver/s/^/#/;$iversion="2024.7.2"' setup.py
+  - pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+
+install:
+  - pip3 install --no-index --find-links=dist --no-cache-dir --no-user trove-classifiers

@@ -1,0 +1,12 @@
+pkgname: python-sphinxcontrib-serializinghtml
+pkgver: "2.0.0"
+
+source:
+  url: https://files.pythonhosted.org/packages/source/s/sphinxcontrib_serializinghtml/sphinxcontrib_serializinghtml-2.0.0.tar.gz
+  md5: b536ce248d5ca134a30018692a17c6ca
+
+build:
+  - pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+
+install:
+  - pip3 install --no-index --find-links=dist --no-cache-dir --no-user sphinxcontrib-serializinghtml
