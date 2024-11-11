@@ -1,7 +1,7 @@
 pkgname: mesa
 pkgver: "24.1.5"
 dependencies:
-  - xorg-libraries
+  - libglvnd
   - libdrm
   - python-mako
   - python-pyyaml
@@ -46,6 +46,7 @@ build:
           # -D vulkan-drivers=intel,virtio \
           -D vulkan-drivers=auto \
           -Dglx=dri              \
+          -D glvnd=enabled        \
           -D valgrind=disabled     \
           -D libunwind=disabled    &&
     export LD_LIBRARY_PATH=$(pwd)/src/gallium/targets/dri:$LD_LIBRARY_PATH
