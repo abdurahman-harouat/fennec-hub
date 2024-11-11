@@ -1,5 +1,7 @@
 pkgname: python-pygments
 pkgver: "2.18.0"
+dependencies:
+  - python-hatchling
 source:
   url: https://files.pythonhosted.org/packages/source/P/Pygments/pygments-2.18.0.tar.gz
   md5: fbb7976df756f832f3391008778e8999
