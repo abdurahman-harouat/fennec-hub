@@ -19,6 +19,8 @@ build:
     --mandir=/share/man \
     --docdir=/share/doc/cmake \
     --datadir=/share/cmake \
+    --no-system-jsoncpp  \
+    --no-system-cppdap   \
     --sphinx-man \
     --sphinx-html \
     --system-libs \
