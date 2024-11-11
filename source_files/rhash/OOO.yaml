@@ -1,0 +1,13 @@
+pkgname: rhash
+pkgver: "1.4.5"
+source:
+  url: https://github.com/rhash/RHash/archive/refs/tags/v1.4.5.tar.gz
+  md5: c5f4fa0aa4dc5b21ee9931abc06d5245
+
+build:
+  - |
+    ./configure --prefix=/usr
+
+install:
+  - |
+    make install
