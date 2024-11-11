@@ -3,6 +3,7 @@ pkgver: "125"
 
 dependencies:
   - glib
+  - gobject-introspection
   - linux-pam
   - libxslt
   - duktape
