@@ -13,13 +13,14 @@ build:
   - |
     sed -i '/"lib64"/s/64//' Modules/GNUInstallDirs.cmake &&
 
-    ./bootstrap --prefix=/usr        \
-                --system-libs        \
-                --mandir=/share/man  \
-                --no-system-jsoncpp  \
-                --no-system-cppdap   \
-                --no-system-librhash \
-                --docdir=/share/doc/cmake-3.31.0 &&
+    ./bootstrap --prefix=/usr \
+    --mandir=/share/man \
+    --docdir=/share/doc/cmake \
+    --datadir=/share/cmake \
+    --sphinx-man \
+    --sphinx-html \
+    --system-libs \
+    --parallel=$(/usr/bin/getconf _NPROCESSORS_ONLN) &&
     make -j $(nproc)
 
 install:
