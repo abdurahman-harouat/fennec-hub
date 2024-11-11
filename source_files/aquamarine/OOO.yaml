@@ -1,5 +1,5 @@
 pkgname: aquamarine
-pkgver: "0.4.2"
+pkgver: "0.4.4"
 
 dependencies:
   - hyprwayland-scanner
@@ -9,8 +9,8 @@ dependencies:
   - seatd
 
 source:
-  url: https://github.com/hyprwm/aquamarine/archive/refs/tags/v0.4.2.tar.gz
-  md5: 7ee96055f27e0ce808b297de9f5d732b
+  url: https://github.com/hyprwm/aquamarine/archive/refs/tags/v0.4.4.tar.gz
+  md5: 8e50595e5a12c248daebfeababd75aa2
 
 build:
   - |
