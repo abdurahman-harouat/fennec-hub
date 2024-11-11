@@ -6,8 +6,10 @@ source:
 
 build:
   - |
-    ./configure --prefix=/usr
+    ./configure --prefix=/usr --sysconfdir=/etc && 
+    make
 
 install:
   - |
-    make install
+    make install &&
+    make -C librhash install-lib-headers install-lib-shared install-so-link
