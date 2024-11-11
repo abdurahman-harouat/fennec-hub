@@ -1,0 +1,17 @@
+pkgname: libglvnd
+pkgver: "1.7.0"
+dependencies:
+  - xorg-libraries
+source:
+  url: https://gitlab.freedesktop.org/glvnd/libglvnd/-/archive/v1.7.0/libglvnd-v1.7.0.tar.gz
+  md5: 6055d0ef8676601eb78a233a9285502c
+
+build:
+  - |
+    ./autogen.sh &&
+    ./configure --prefix=/usr &&
+    make
+
+install:
+  - |
+    make install
