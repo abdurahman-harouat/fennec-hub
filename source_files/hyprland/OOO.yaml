@@ -8,6 +8,21 @@ dependencies:
   - hyprcursor
   - libxkbcommon
   - xcb-util-errors
+  - cmake
+  - meson
+  - libxcb
+  - xcb-proto
+  - xcb-util
+  - xcb-util-keysyms
+  - xorg-libraries
+  - libxfixes
+  - libxrender
+  - cairo
+  - pango
+  - seatd
+  - xcb-util-wm
+  - xwayland
+  - libinput
 
 source:
   url: https://github.com/hyprwm/Hyprland/archive/refs/tags/v0.45.0.tar.gz

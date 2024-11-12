@@ -1,0 +1,30 @@
+pkgname: xwayland
+pkgver: "24.1.1"
+
+dependencies:
+  - libxcvt
+  - pixman
+  - wayland-protocols
+  - xorg-applications
+  - xorg-fonts
+
+source:
+  url: https://www.x.org/pub/individual/xserver/xwayland-24.1.1.tar.xz
+  md5: 4bfc87a030c58867f6fd36c5a8463545
+
+build:
+  - |
+    sed -i '/install_man/,$d' meson.build &&
+
+    mkdir -p build &&
+    cd    build &&
+
+    meson setup --prefix=$XORG_PREFIX         \
+                --buildtype=release           \
+                -Dxkb_output_dir=/var/lib/xkb \
+                ..                            &&
+    ninja
+
+install:
+  - |
+    cd build && ninja install
