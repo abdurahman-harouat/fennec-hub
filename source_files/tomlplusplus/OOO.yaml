@@ -6,17 +6,15 @@ dependencies:
   - meson
 
 source:
-  url: https://github.com/marzer/tomlplusplus/archive/refs/tags/v3.4.0.tar.gz
+  url: https://github.com/marzer/tomlplusplus/archive/v3.4.0/tomlplusplus-v3.4.0.tar.gz
   md5: c1f32ced14311fe949b9ce7cc3f7a867
 
 build:
   - |
-    meson setup build
+    meson setup output
   - |
-    ninja -C build
+    meson compile -C output
 
 install:
   - |
-    meson install -C build
-  - |
-    install -vDm 644 LICENSE /usr/share/licenses/tomlplusplus/LICENSE
+    meson install --no-rebuild -C output
