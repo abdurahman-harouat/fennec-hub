@@ -33,5 +33,5 @@ additional_commands:
     sudo chmod 666 /dev/tty
     export DISPLAY=:0
     cat > ~/.xinitrc << "EOF"
-    dbus-launch --exit-with-x11 startxfce4
+    startxfce4
     EOF
