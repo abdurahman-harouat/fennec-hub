@@ -26,4 +26,4 @@ build:
 
 install:
   - |
-    ninja install
+    cd build && ninja install
