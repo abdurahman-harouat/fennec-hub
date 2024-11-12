@@ -6,13 +6,13 @@ source:
   md5: bb301006bf1087a4328ef153719e69d6
 
 additional_downloads:
-  - url: https://github.com/vmt/udis86/commit/f8f0a6f.patch
-  - url: https://github.com/vmt/udis86/commit/b0f0a6f.patch
+  - url: https://github.com/abdurahman-harouat/fennec-hub/raw/refs/heads/main/special/latest.patch
+  - url: https://github.com/abdurahman-harouat/fennec-hub/raw/refs/heads/main/special/fix-python3-build.patch
 
 build:
   - |
-    patch -p1 < "$srcdir/latest.patch"
-    patch -p1 < "$srcdir/fix-python3-build.patch"
+    patch -Np1 -i ../latest.patch
+    patch -Np1 -i ../fix-python3-build.patch
     ./autogen.sh
   - |
     ./configure \
