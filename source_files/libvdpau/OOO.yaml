@@ -2,6 +2,7 @@ pkgname: libvdpau
 pkgver: "1.5"
 dependencies:
   - xorg-libraries
+  - freetype2
 source:
   url: https://gitlab.freedesktop.org/vdpau/libvdpau/-/archive/1.5/libvdpau-1.5.tar.bz2
   md5: 148a192110e7a49d62c0bf9ef916c099
