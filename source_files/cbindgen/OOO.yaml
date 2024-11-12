@@ -1,7 +1,7 @@
 pkgname: cbindgen
 pkgver: "0.27.0"
-dependencies:
-  - rustc
+# dependencies:
+#   - rustc
 source:
   url: https://github.com/mozilla/cbindgen/archive/v0.27.0/cbindgen-0.27.0.tar.gz
   md5: 9349f81198b82c970822c452d08f25e5
