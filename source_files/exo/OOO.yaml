@@ -2,7 +2,7 @@ pkgname: exo
 pkgver: "4.18.0"
 
 dependencies:
-  - gtk+
+  - gtk3
   - libxfce4ui
   - libxfce4util
 

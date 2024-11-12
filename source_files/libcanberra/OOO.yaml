@@ -4,7 +4,7 @@ pkgver: "0.30"
 dependencies:
   - libvorbis
   - alsa-lib
-  - gtk+
+  - gtk3
   - gstreamer
   - sound-theme-freedesktop
 

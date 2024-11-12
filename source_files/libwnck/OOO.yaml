@@ -2,7 +2,7 @@ pkgname: libwnck
 pkgver: "43.0"
 
 dependencies:
-  - gtk+
+  - gtk3
   - glib
   - startup-notification
 

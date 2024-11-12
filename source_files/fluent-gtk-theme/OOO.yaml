@@ -1,7 +1,7 @@
 pkgname: fluent-gtk-theme
 pkgver: "2024-06-12"
 dependencies:
-  - gtk+
+  - gtk3
   - sassc
   - gnome-themes-extra
   - gtk-engine-murrine

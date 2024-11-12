@@ -1,7 +1,7 @@
 pkgname: vte
 pkgver: "0.76.4"
 dependencies:
-  - gtk+
+  - gtk3
   - libxml2
   - pcre2
   - gtk

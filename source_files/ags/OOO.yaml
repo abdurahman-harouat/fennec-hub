@@ -1,0 +1,30 @@
+pkgname: ags
+pkgver: "1.8.2"
+dependencies:
+  - typescript
+  - npm
+  - meson
+  - gjs
+  - gtk3
+  - gtk-layer-shell
+  - gobject-introspection
+  - libsoup3
+
+source:
+  url: https://github.com/Aylur/ags/archive/refs/tags/v1.8.2.tar.gz
+  md5: ca4a54ada6efe309ee10e767729d263c
+
+build:
+  - |
+    cmake -B build -S . \
+    -DCMAKE_BUILD_TYPE=None \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_INSTALL_LIBDIR=lib \
+    -Wno-dev
+
+  - |
+    cmake --build build
+
+install:
+  - |
+    cmake --install build

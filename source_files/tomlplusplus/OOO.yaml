@@ -1,0 +1,22 @@
+pkgname: tomlplusplus
+pkgver: "3.4.0"
+
+dependencies:
+  - cmake
+  - meson
+
+source:
+  url: https://github.com/marzer/tomlplusplus/archive/refs/tags/v3.4.0.tar.gz
+  md5: b4193fbb4b649338ccf09509fde25215
+
+build:
+  - |
+    meson setup build
+  - |
+    ninja -C build
+
+install:
+  - |
+    meson install -C build
+  - |
+    install -vDm 644 LICENSE /usr/share/licenses/tomlplusplus/LICENSE

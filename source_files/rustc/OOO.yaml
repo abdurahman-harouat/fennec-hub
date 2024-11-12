@@ -107,4 +107,5 @@ install:
     EOF
 
 additional_commands:
-  - source /etc/profile.d/rustc.sh
+  - |
+    source /etc/profile.d/rustc.sh

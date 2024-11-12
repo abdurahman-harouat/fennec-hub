@@ -2,7 +2,7 @@ pkgname: notification-daemon
 pkgver: "3.20.0"
 
 dependencies:
-  - gtk+
+  - gtk3
   - libcanberra
 
 source:

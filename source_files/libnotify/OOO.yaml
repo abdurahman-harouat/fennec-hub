@@ -2,7 +2,7 @@ pkgname: libnotify
 pkgver: "0.8.3"
 
 dependencies:
-  - gtk+
+  - gtk3
   - glib
   - gobject-introspection
   - notification-daemon
