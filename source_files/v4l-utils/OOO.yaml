@@ -1,0 +1,29 @@
+pkgname: v4l-utils
+pkgver: "1.28.1"
+
+dependencies:
+  - alsa-lib
+  - glu
+  - libjpeg-turbo
+
+source:
+  url: https://www.linuxtv.org/downloads/v4l-utils/v4l-utils-1.28.1.tar.xz
+  md5: 6716de513a1fd2e1edb404a46a455855
+
+build:
+  - |
+    sed -i '/^ir_bpf_enabled/s/=.*/= false/' utils/keytable/meson.build
+  - |
+    mkdir -p build &&
+    cd    build &&
+
+    meson setup ..            \
+          --prefix=/usr       \
+          --buildtype=release \
+          -D gconv=disabled   \
+          -D doxygen-doc=disabled &&
+    ninja
+
+install:
+  - |
+    ninja install

@@ -1,0 +1,30 @@
+pkgname: pipewire
+pkgver: "1.2.3"
+
+dependencies:
+  - bluez
+  - gstreamer
+  - gst-plugins-base
+  - pulseaudio
+  - sbc
+  - v4l-utils
+  - wireplumber
+
+source:
+  url: https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/1.2.3/pipewire-1.2.3.tar.bz2
+  md5: 9a37ae78752ac7462bb0660f61a4a870
+
+build:
+  - |
+    mkdir -p build &&
+    cd    build &&
+
+    meson setup ..                 \
+          --prefix=/usr            \
+          --buildtype=release      \
+          -D session-managers="[]" &&
+    ninja
+
+install:
+  - |
+    cd build && ninja install

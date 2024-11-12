@@ -1,0 +1,15 @@
+pkgname: sbc
+pkgver: "2.0"
+
+source:
+  url: https://www.kernel.org/pub/linux/bluetooth/sbc-2.0.tar.xz
+  md5: 5613357181daeffd71e971c6f8470f8d
+
+build:
+  - |
+    ./configure --prefix=/usr --disable-static --disable-tester &&
+    make
+
+install:
+  - |
+    make install
