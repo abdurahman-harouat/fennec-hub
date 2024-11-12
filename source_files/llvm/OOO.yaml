@@ -85,7 +85,7 @@ build:
             -D LLVM_BUILD_DOCS=OFF                \
             -D LLVM_LINK_LLVM_DYLIB=ON           \
             -D LLVM_ENABLE_RTTI=ON                \
-            -D LLVM_TARGETS_TO_BUILD="host"       \
+            -D LLVM_TARGETS_TO_BUILD="host;AMDGPU" \
             -D LLVM_BINUTILS_INCDIR=/usr/include  \
             -D LLVM_INCLUDE_BENCHMARKS=OFF        \
             -D LLVM_INCLUDE_EXAMPLES=OFF          \
