@@ -28,6 +28,7 @@ dependencies:
   - libdisplay-info
   - libliftoff
   - hyprland-protocols
+  - udis86-git
 
 source:
   url: https://github.com/hyprwm/Hyprland/archive/refs/tags/v0.45.0.tar.gz
