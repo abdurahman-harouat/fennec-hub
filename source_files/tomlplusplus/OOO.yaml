@@ -14,7 +14,15 @@ build:
     meson setup output
   - |
     meson compile -C output
+  - |
+    echo 'export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
 
 install:
   - |
     meson install --no-rebuild -C output
+  - |
+    ldconfig
+
+additional_commands:
+  - |
+    source ~/.bashrc
