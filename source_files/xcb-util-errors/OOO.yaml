@@ -1,0 +1,15 @@
+pkgname: xcb-util-errors
+pkgver: "1.0.1"
+dependencies:
+  - xorgproto
+source:
+  url: https://xcb.freedesktop.org/dist/xcb-util-errors-1.0.1.tar.gz
+  md5: 1669d015e01931d04aececaef269feae
+
+build:
+  - |
+    ./configure $XORG_CONFIG &&
+    make
+
+install:
+  - make install
