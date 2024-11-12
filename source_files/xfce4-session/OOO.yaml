@@ -8,7 +8,7 @@ dependencies:
   - desktop-file-utils
   - xfdesktop
   - xinit
-  - iceauth
+  - xorg-applications
   - xorg-server
   - xorg-libinput
 
