@@ -1,2 +1,25 @@
 pkgname: hyprland-protocols
 pkgver: "0.4.0"
+
+source:
+  url: https://github.com/hyprwm/hyprland-protocols/archive/refs/tags/v0.4.0.tar.gz
+  md5: 38e4122fa423e5ef780be9d8c8d4c27c
+
+build:
+  - |
+    meson setup build \
+    --wipe \
+    --prefix /usr \
+    --libexecdir lib \
+    --buildtype release \
+    --wrap-mode nodownload \
+    -D warning_level=0 \
+    -D b_lto=true \
+    -D b_pie=true \
+    -D default_library=shared
+  - |
+    meson compile -C build
+
+install:
+  - |
+    meson install -C build

@@ -27,6 +27,7 @@ dependencies:
   - cpio
   - libdisplay-info
   - libliftoff
+  - hyprland-protocols
 
 source:
   url: https://github.com/hyprwm/Hyprland/archive/refs/tags/v0.45.0.tar.gz
