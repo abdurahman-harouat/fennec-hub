@@ -7,7 +7,7 @@ dependencies:
 
 source:
   url: https://github.com/marzer/tomlplusplus/archive/refs/tags/v3.4.0.tar.gz
-  md5: b4193fbb4b649338ccf09509fde25215
+  md5: c1f32ced14311fe949b9ce7cc3f7a867
 
 build:
   - |
