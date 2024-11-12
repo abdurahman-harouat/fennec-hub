@@ -1,0 +1,16 @@
+pkgname: libliftoff
+pkgver: "0.5.0"
+
+source:
+  url: https://archive.xfce.org/src/xfce/xfce4-session/4.18/xfce4-session-4.18.4.tar.bz2
+  md5: 620c369a44c6b866c80d31e4685d6bef
+
+build:
+  - |
+    meson setup build
+  - |
+    meson compile -C build
+
+install:
+  - |
+    meson install -C build
