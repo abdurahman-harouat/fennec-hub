@@ -1,0 +1,26 @@
+pkgname: udis86
+pkgver: "1.7.2"
+
+source:
+  url: https://github.com/vmt/udis86/archive/refs/tags/v1.7.2.tar.gz
+  md5: bb301006bf1087a4328ef153719e69d6
+
+additional_downloads:
+  - url: https://github.com/vmt/udis86/commit/f8f0a6f.patch
+  - url: https://github.com/vmt/udis86/commit/b0f0a6f.patch
+
+build:
+  - |
+    patch -p1 < "$srcdir/latest.patch"
+    patch -p1 < "$srcdir/fix-python3-build.patch"
+    ./autogen.sh
+  - |
+    ./configure \
+      --prefix=/usr \
+      --with-python=/usr/bin/python \
+      --enable-shared &&
+    make
+
+install:
+  - |
+    make install
