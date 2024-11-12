@@ -14,8 +14,8 @@ dependencies:
   - vulkan-loader
   - python-ply
   - python-pycparser
-  - cbindgen    required for the Nouveau Vulkan driver aka Nvidia)
-  - rust-bindgen required for the Nouveau Vulkan driver)
+  - cbindgen #required for the Nouveau Vulkan driver aka Nvidia)
+  - rust-bindgen #required for the Nouveau Vulkan driver)
 source:
   # url: https://mesa.freedesktop.org/archive/mesa-24.2.2.tar.xz
   # mesa version from BLFS !!
