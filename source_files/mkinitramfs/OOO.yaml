@@ -4,17 +4,12 @@ dependencies:
   - cpio
 source:
   url: https://github.com/MILOUDIAS/mkinitramfs/archive/refs/heads/main.zip
-  # md5: 4f9e2c6ecc120852ba86dc41df366aba
+  # md5: 4f9e2c6ecc120852ba86dc41df366aba 
+extracted_dir: "mkinitramfs-main"
 
 build:
   - |
     chmod +x setup_mkinitramfs.sh
-
-install:
-  - |
-    bash setup_mkinitramfs.sh
-    mkinitramfs 6.10.5
-    mv initrd.img-6.10.5 /boot/
   - |
     cat > update_grub.sh << "EOF"
     #!/bin/bash
@@ -32,4 +27,11 @@ install:
 
   EOF
   chmod +x update_grub.sh
+
+install:
+  - |
+    bash setup_mkinitramfs.sh
+    mkinitramfs 6.10.5
+    mv initrd.img-6.10.5 /boot/
+  - |
   ./update_grub.sh
