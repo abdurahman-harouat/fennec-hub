@@ -1,0 +1,35 @@
+pkgname: mkinitramfs
+pkgver: "0.1"
+dependencies:
+  - cpio
+source:
+  url: https://github.com/MILOUDIAS/mkinitramfs/archive/refs/heads/main.zip
+  # md5: 4f9e2c6ecc120852ba86dc41df366aba
+
+build:
+  - |
+    chmod +x setup_mkinitramfs.sh
+
+install:
+  - |
+    bash setup_mkinitramfs.sh
+    mkinitramfs 6.10.5
+    mv initrd.img-6.10.5 /boot/
+  - |
+    cat > update_grub.sh << "EOF"
+    #!/bin/bash
+
+    # Path to grub.cfg
+    GRUB_CFG="/boot/grub/grub.cfg"
+
+    # Backup the original grub.cfg
+    cp "$GRUB_CFG" "${GRUB_CFG}.backup"
+
+    # Add initrd line after each linux /vmlinuz line
+    sed -i '/linux[[:space:]]\/vmlinuz/a\	initrd \/initrd.img-6.10.5' "$GRUB_CFG"
+
+    echo "GRUB configuration updated. Please review $GRUB_CFG to ensure changes were applied correctly."
+
+  EOF
+  chmod +x update_grub.sh
+  ./update_grub.sh
