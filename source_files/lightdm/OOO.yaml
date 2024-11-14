@@ -1,0 +1,82 @@
+pkgname: lightdm
+pkgver: "1.32.0"
+
+dependencies:
+  - exo
+  - libgcrypt
+  - itstool
+  - linux-pam
+  - xorg-server
+  - glib
+  - libxklavier
+  - vala
+
+source:
+  url: https://github.com/CanonicalLtd/lightdm/releases/download/1.32.0/lightdm-1.32.0.tar.xz
+  md5: e62a5da6c35f612e4d9575eda5c8d467
+
+additional_downloads:
+  - url: https://github.com/Xubuntu/lightdm-gtk-greeter/releases/download/lightdm-gtk-greeter-2.0.9/lightdm-gtk-greeter-2.0.9.tar.gz
+    md5: 35752d730f39293c2bbe884ef6963830
+  - url: https://www.linuxfromscratch.org/blfs/downloads/12.2-systemd/blfs-systemd-units-20240801.tar.xz
+
+build:
+  - |
+    groupadd -g 65 lightdm       &&
+    useradd  -c "Lightdm Daemon" \
+         -d /var/lib/lightdm \
+         -u 65 -g lightdm    \
+         -s /bin/false lightdm
+  - |
+    ./configure --prefix=/usr                 \
+            --libexecdir=/usr/lib/lightdm \
+            --localstatedir=/var          \
+            --sbindir=/usr/bin            \
+            --sysconfdir=/etc             \
+            --disable-static              \
+            --disable-tests               \
+            --with-greeter-user=lightdm   \
+            --with-greeter-session=lightdm-gtk-greeter \
+            --docdir=/usr/share/doc/lightdm-1.32.0 &&
+    make
+
+  - |
+    tar -xf ../lightdm-gtk-greeter-2.0.9.tar.gz &&
+    cd lightdm-gtk-greeter-2.0.9 &&
+
+    ./configure --prefix=/usr                 \
+            --libexecdir=/usr/lib/lightdm \
+            --sbindir=/usr/bin            \
+            --sysconfdir=/etc             \
+            --with-libxklavier            \
+            --enable-kill-on-sigterm      \
+            --disable-libido              \
+            --disable-libindicator        \
+            --disable-static              \
+            --disable-maintainer-mode     \
+            --docdir=/usr/share/doc/lightdm-gtk-greeter-2.0.9 &&
+    make
+
+install:
+  - |
+    make install                                                  &&
+    cp tests/src/lightdm-session /usr/bin                         &&
+    sed -i '1 s/sh/bash --login/' /usr/bin/lightdm-session        &&
+    rm -rf /etc/init                                              &&
+    install -v -dm755 -o lightdm -g lightdm /var/lib/lightdm      &&
+    install -v -dm755 -o lightdm -g lightdm /var/lib/lightdm-data &&
+    install -v -dm755 -o lightdm -g lightdm /var/cache/lightdm    &&
+    install -v -dm770 -o lightdm -g lightdm /var/log/lightdm
+
+  - |
+    cd lightdm-gtk-greeter-2.0.9 &&
+    make install
+
+additional_commands:
+  - |
+    tar -xf ../blfs-systemd-units-20240801.tar.xz
+
+additional_commands_with_sudo:
+  - |
+    cd blfs-systemd-units-20240801 &&
+    make install-lightdm

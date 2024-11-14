@@ -1,0 +1,21 @@
+pkgname: itstool
+pkgver: "2.0.7"
+
+dependencies:
+  - docbook-xml
+
+source:
+  url: https://files.itstool.org/itstool/itstool-2.0.7.tar.bz2
+  md5: 267a3bdc72a2d8abb1b824f2ea32ee9b
+
+build:
+  - |
+    sed -i 's/re.sub(/re.sub(r/'         itstool.in &&
+    sed -i 's/re.compile(/re.compile(r/' itstool.in
+  - |
+    PYTHON=/usr/bin/python3 ./configure --prefix=/usr &&
+    make
+
+install:
+  - |
+    make install
