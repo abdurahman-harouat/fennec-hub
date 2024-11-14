@@ -11,6 +11,7 @@ extracted_dir: "mkinitramfs-main"
 
 build:
   - |
+    cd mkinitramfs-main
     chmod +x setup_mkinitramfs.sh
   - |
     cat > update_grub.sh << "EOF"
@@ -32,6 +33,7 @@ build:
 
 install:
   - |
+    cd mkinitramfs-main
     bash setup_mkinitramfs.sh
     mkinitramfs 6.10.5
     mv initrd.img-6.10.5 /boot/
