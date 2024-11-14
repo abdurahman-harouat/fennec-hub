@@ -1,0 +1,25 @@
+pkgname: extra-cmake-modules
+pkgver: "6.5.0"
+dependencies:
+  - cmake
+source:
+  url: https://download.kde.org/stable/frameworks/6.5/extra-cmake-modules-6.5.0.tar.xz
+  md5: bceea430e534852558b54f4bd3354474
+
+build:
+  - |
+    sed -i '/"lib64"/s/64//' kde-modules/KDEInstallDirsCommon.cmake &&
+
+    sed -e '/PACKAGE_INIT/i set(SAVE_PACKAGE_PREFIX_DIR "${PACKAGE_PREFIX_DIR}")' \
+    -e '/^include/a set(PACKAGE_PREFIX_DIR "${SAVE_PACKAGE_PREFIX_DIR}")' \
+    -i ECMConfig.cmake.in &&
+  - |
+    mkdir build &&
+    cd    build &&
+
+    cmake -D CMAKE_INSTALL_PREFIX=/usr .. &&
+    make
+
+install:
+  - |
+    make install
