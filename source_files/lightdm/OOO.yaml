@@ -36,11 +36,26 @@ build:
 
 install:
   - |
-    groupadd -g 65 lightdm       &&
-    useradd  -c "Lightdm Daemon" \
-         -d /var/lib/lightdm \
-         -u 65 -g lightdm    \
-         -s /bin/false lightdm
+    # Define the username
+    username="lightdm"
+
+    # Check if the user exists
+    if id "$username" &>/dev/null; then
+      echo "User $username already exists, skipping creation."
+    else
+      groupadd -g 65 lightdm 
+      # Add the user if it doesn't exist
+      useradd -c "Lightdm Daemon" \
+            -d /var/lib/lightdm \
+            -u 65 -g lightdm \
+            -s /bin/false "$username"
+      echo "User $username created successfully."
+    fi
+    # groupadd -g 65 lightdm       &&
+    # useradd  -c "Lightdm Daemon" \
+    #      -d /var/lib/lightdm \
+    #      -u 65 -g lightdm    \
+    #      -s /bin/false lightdm
   - |
     make install                                                  &&
     cp tests/src/lightdm-session /usr/bin                         &&
