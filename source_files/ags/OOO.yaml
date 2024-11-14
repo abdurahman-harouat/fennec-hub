@@ -11,20 +11,14 @@ dependencies:
   - libsoup3
 
 source:
-  url: https://github.com/Aylur/ags/archive/refs/tags/v1.8.2.tar.gz
-  md5: ca4a54ada6efe309ee10e767729d263c
+  url: https://github.com/Aylur/ags/archive/refs/tags/v2.0.0.tar.gz
+  md5: 071ea0bd2e6d6db36969d02930e8b737
 
 build:
   - |
-    cmake -B build -S . \
-    -DCMAKE_BUILD_TYPE=None \
-    -DCMAKE_INSTALL_PREFIX=/usr \
-    -DCMAKE_INSTALL_LIBDIR=lib \
-    -Wno-dev
-
-  - |
-    cmake --build build
+    npm install &&
+    meson setup build
 
 install:
   - |
-    cmake --install build
+    meson install -C build

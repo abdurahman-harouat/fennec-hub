@@ -22,12 +22,6 @@ additional_downloads:
 
 build:
   - |
-    groupadd -g 65 lightdm       &&
-    useradd  -c "Lightdm Daemon" \
-         -d /var/lib/lightdm \
-         -u 65 -g lightdm    \
-         -s /bin/false lightdm
-  - |
     ./configure --prefix=/usr                 \
             --libexecdir=/usr/lib/lightdm \
             --localstatedir=/var          \
@@ -58,6 +52,12 @@ build:
     make
 
 install:
+  - |
+    groupadd -g 65 lightdm       &&
+    useradd  -c "Lightdm Daemon" \
+         -d /var/lib/lightdm \
+         -u 65 -g lightdm    \
+         -s /bin/false lightdm
   - |
     make install                                                  &&
     cp tests/src/lightdm-session /usr/bin                         &&
