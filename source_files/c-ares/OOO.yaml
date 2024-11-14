@@ -1,0 +1,20 @@
+pkgname: c-ares
+pkgver: "1.33.0"
+dependencies:
+  - cmake
+
+source:
+  url: https://github.com/c-ares/c-ares/releases/download/v1.33.0/c-ares-1.33.0.tar.gz
+  md5: ff9e46d2ca9feaed7159c8939d70b569
+
+build:
+  - |
+    mkdir -p build &&
+    cd    build &&
+
+    cmake  -D CMAKE_INSTALL_PREFIX=/usr .. &&
+    make
+install:
+  - |
+    cd build &&
+    make install

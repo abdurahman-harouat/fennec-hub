@@ -1,0 +1,34 @@
+pkgname: brotli
+pkgver: "1.1.0"
+dependencies:
+  - cmake
+
+source:
+  url: https://github.com/google/brotli/archive/v1.1.0/brotli-1.1.0.tar.gz
+  md5: 3a6a3dba82a3604792d3cb0bd41bca60
+
+build:
+  - |
+    mkdir -p build &&
+    cd    build &&
+
+    cmake -D CMAKE_INSTALL_PREFIX=/usr \
+          -D CMAKE_BUILD_TYPE=Release  \
+          ..  &&
+    make
+install:
+  - |
+    cd build && make install
+
+additional_commands:
+  - |
+    cd .. &&
+    sed "/c\/.*\.[ch]'/d;\
+        /include_dirs=\[/\
+        i libraries=['brotlicommon','brotlidec','brotlienc']," \
+        -i setup.py &&
+    pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+
+additional_commands_with_sudo:
+  - |
+    cd .. && pip3 install --no-index --find-links=dist --no-cache-dir --no-user Brotli
