@@ -10,16 +10,20 @@ source:
   md5: 60c564b1bdc39d8e43b3aab4bc0fb140
 
 additional_downloads:
-  - url: https://unifoundry.com/pub/unifont/unifont-16.0.01/font-builds/unifont-16.0.01.pcf.gz
-    md5: 007ffa7aab47ed3f270caee84d12148b
+  - url: https://unifoundry.com/pub/unifont/unifont-15.1.05/font-builds/unifont-15.1.05.pcf.gz
+    md5: da47e9c7a2cec3b68a0fad5d2a341dcc
 
 build:
   - |
+    unset {C,CPP,CXX,LD}FLAGS
     echo depends bli part_gpt > grub-core/extra_deps.lst
   - |
-    ./configure --prefix=/usr          \
-            --sysconfdir=/etc      \
-            --disable-efiemu       \
+    ./configure --prefix=/usr        \
+            --sysconfdir=/etc    \
+            --disable-efiemu     \
+            --enable-grub-mkfont \
+            --with-platform=efi  \
+            --target=x86_64      \
             --disable-werror     &&
     unset TARGET_CC &&
     make
@@ -27,7 +31,9 @@ build:
 install:
   - |
     mkdir -pv /usr/share/fonts/unifont &&
-    gunzip -c ../unifont-16.0.01.pcf.gz > /usr/share/fonts/unifont/unifont.pcf
+    gunzip -c ../unifont-15.1.05.pcf.gz > /usr/share/fonts/unifont/unifont.pcf
   - |
-    make install &&
-    mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions
+    make DESTDIR=$PWD/dest install
+    cp -av dest/usr/lib/grub/x86_64-efi -T /usr/lib/grub/x86_64-efi
+    cp -av dest/usr/share/grub/*.{pf2,h}   /usr/share/grub
+    cp -av dest/usr/bin/grub-mkfont        /usr/bin
