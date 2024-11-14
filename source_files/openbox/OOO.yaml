@@ -7,6 +7,7 @@ dependencies:
   - imlib2
   - feh
   - xinit
+  - python-pyxdg
 source:
   url: http://openbox.org/dist/openbox/openbox-3.6.1.tar.gz
   md5: b72794996c6a3ad94634727b95f9d204

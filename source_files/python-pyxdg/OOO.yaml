@@ -1,0 +1,11 @@
+pkgname: python-pyxdg
+pkgver: "0.28"
+source:
+  url: https://files.pythonhosted.org/packages/b0/25/7998cd2dec731acbd438fbf91bc619603fc5188de0a9a17699a781840452/pyxdg-0.28.tar.gz
+  md5: d9a1d04fe60c956f5e3b9de3b4ef4722
+
+build:
+  - pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+
+install:
+  - pip3 install --no-index --find-links=dist --no-cache-dir --no-user pyxdg
