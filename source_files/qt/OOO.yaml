@@ -1,14 +1,20 @@
 pkgname: qt
 pkgver: "6.7.3"
 dependencies:
+  - libpng
+  - glib
+  - harfbuzz
+  - libtiff
   - xorg-libraries
 source:
-  url: https://download.qt.io/archive/qt/6.7/6.7.3/single/qt-everywhere-src-6.7.3.tar.xz
-  md5: 3efadf18f1e16e3271abd09c606d3c9b
+  url: https://download.qt.io/archive/qt/6.7/6.7.2/single/qt-everywhere-src-6.7.2.tar.xz
+  md5: 06d35b47349c7c0a45710daad359e07b
 
 build:
   - |
-    export QT6PREFIX=/opt/qt6 &&
+    export QT6PREFIX=/opt/qt6
+    mkdir -pv /opt/qt-6.7.2
+    ln -sfnv qt-6.7.2 /opt/qt6
     ./configure -prefix $QT6PREFIX      \
             -sysconfdir /etc/xdg    \
             -dbus-linked            \
@@ -115,7 +121,7 @@ install:
 
     # End Qt addition
     EOF
-
+    ldconfig
   - |
     # Create profile script for environment variables
     cat > /etc/profile.d/qt6.sh << "EOF"
