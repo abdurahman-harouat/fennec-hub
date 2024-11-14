@@ -2,7 +2,7 @@ pkgname: ags
 pkgver: "1.8.2"
 dependencies:
   - typescript
-  - npm
+  - nodejs
   - meson
   - gjs
   - gtk3

@@ -1,0 +1,11 @@
+pkgname: python-six
+pkgver: "1.16.0"
+source:
+  url: https://files.pythonhosted.org/packages/source/s/six/six-1.16.0.tar.gz
+  sha512: 076fe31c8f03b0b52ff44346759c7dc8317da0972403b84dfe5898179f55acdba6c78827e0f8a53ff20afe8b76432c6fe0d655a75c24259d9acbaa4d9e8015c0
+
+build:
+  - pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+
+install:
+  - pip3 install --no-index --find-links=dist --no-cache-dir --no-user six
