@@ -1,8 +1,8 @@
 pkgname: sddm
 pkgver: "0.21.0"
 dependencies:
-  - extra-cmake-modules
   - qt
+  - extra-cmake-modules
   - docutils
   - linux-pam
 source:
