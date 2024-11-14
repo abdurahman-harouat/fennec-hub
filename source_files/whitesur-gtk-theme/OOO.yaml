@@ -4,6 +4,7 @@ dependencies:
   - sassc
   - glib
   - libxml2
+  - which
 source:
   url: https://github.com/vinceliuice/WhiteSur-gtk-theme/archive/refs/tags/2024.09.02.tar.gz
   md5: a0f28ce50c72e4df243d0c4a0ee3c66b
