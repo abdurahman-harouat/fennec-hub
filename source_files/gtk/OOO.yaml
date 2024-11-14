@@ -12,7 +12,8 @@ dependencies:
   - python-pygobject
   - fluent-icon-theme
   - layan-cursors
-  - whitesur-gtk-theme
+  # - whitesur-gtk-theme
+  - adwaita-icon-theme
   - gst-plugins-bad
   - glslc
 source:

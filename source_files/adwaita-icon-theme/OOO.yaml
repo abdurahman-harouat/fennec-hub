@@ -1,0 +1,22 @@
+pkgname: adwaita-icon-theme
+pkgver: "46.2"
+
+dependencies:
+  - gtk3
+  - librsvg
+source:
+  url: https://download.gnome.org/sources/adwaita-icon-theme/46/adwaita-icon-theme-46.2.tar.xz
+  md5: 6829461ddc1dd0a9b7d115ccc0c186ac
+
+build:
+  - |
+    mkdir build &&
+    cd    build &&
+
+    meson setup --prefix=/usr .. &&
+    ninja
+
+install:
+  - |
+    rm -rf /usr/share/icons/Adwaita/ &&
+    ninja install
