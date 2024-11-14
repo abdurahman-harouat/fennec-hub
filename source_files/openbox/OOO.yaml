@@ -16,17 +16,21 @@ build:
     2to3-3.12 -w data/autostart/openbox-xdg-autostart &&
     sed 's/python/python3/' -i data/autostart/openbox-xdg-autostart
   - |
-    ./configure --prefix=/usr     \
+    ./configure --prefix=/usr \
             --sysconfdir=/etc \
-            --disable-static  \
-            --docdir=/usr/share/doc/openbox-3.6.1 &&
+            --disable-static \
+            --docdir=/usr/share/doc/openbox-3.6.1 \
+            --build=$(uname -m)-unknown-linux-gnu &&
     make
 
 install:
   - |
     make install
   - rm -v /usr/share/xsessions/openbox-{gnome,kde}.desktop
-  - cp -rf /etc/xdg/openbox ~/.config
+
+additional_commands:
+  - |
+    cp -rf /etc/xdg/openbox ~/.config
   - |
     cat > ~/.xinitrc << "EOF"
     exec openbox

@@ -3,6 +3,8 @@ pkgver: "0.1.1"
 
 dependencies:
   - pipewire
+  - dbus
+  -
 
 source:
   url: https://github.com/nferhat/fht-compositor/archive/refs/tags/0.1.1.tar.gz
