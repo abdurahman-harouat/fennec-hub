@@ -5,6 +5,7 @@ dependencies:
   - libxml2
   - pcre2
   - gtk
+  - gnutls
 source:
   url: https://gitlab.gnome.org/GNOME/vte/-/archive/0.76.4/vte-0.76.4.tar.gz
   md5: 5d1a548ad131664e8a638da24fbfd3e9
