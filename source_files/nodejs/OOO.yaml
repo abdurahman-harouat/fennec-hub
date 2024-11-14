@@ -1,0 +1,19 @@
+pkgname: nodejs
+pkgver: "20.16.0"
+dependencies:
+  - which
+  - icu
+  - nghttp2
+  - libuv
+  - c-ares
+  - brotli
+
+source:
+  url: https://nodejs.org/dist/v20.16.0/node-v20.16.0.tar.xz
+  md5: 7832164e52741a743106c5aadd34cdee
+
+build:
+  - |
+
+install:
+  - |

@@ -34,23 +34,6 @@ build:
             --docdir=/usr/share/doc/lightdm-1.32.0 &&
     make
 
-  - |
-    tar -xf ../lightdm-gtk-greeter-2.0.9.tar.gz &&
-    cd lightdm-gtk-greeter-2.0.9 &&
-
-    ./configure --prefix=/usr                 \
-            --libexecdir=/usr/lib/lightdm \
-            --sbindir=/usr/bin            \
-            --sysconfdir=/etc             \
-            --with-libxklavier            \
-            --enable-kill-on-sigterm      \
-            --disable-libido              \
-            --disable-libindicator        \
-            --disable-static              \
-            --disable-maintainer-mode     \
-            --docdir=/usr/share/doc/lightdm-gtk-greeter-2.0.9 &&
-    make
-
 install:
   - |
     groupadd -g 65 lightdm       &&
@@ -68,15 +51,30 @@ install:
     install -v -dm755 -o lightdm -g lightdm /var/cache/lightdm    &&
     install -v -dm770 -o lightdm -g lightdm /var/log/lightdm
 
-  - |
-    cd lightdm-gtk-greeter-2.0.9 &&
-    make install
-
 additional_commands:
+  - |
+    tar -xf ../lightdm-gtk-greeter-2.0.9.tar.gz &&
+    cd lightdm-gtk-greeter-2.0.9 &&
+
+    ./configure --prefix=/usr                 \
+            --libexecdir=/usr/lib/lightdm \
+            --sbindir=/usr/bin            \
+            --sysconfdir=/etc             \
+            --with-libxklavier            \
+            --enable-kill-on-sigterm      \
+            --disable-libido              \
+            --disable-libindicator        \
+            --disable-static              \
+            --disable-maintainer-mode     \
+            --docdir=/usr/share/doc/lightdm-gtk-greeter-2.0.9 &&
+    make
   - |
     tar -xf ../blfs-systemd-units-20240801.tar.xz
 
 additional_commands_with_sudo:
+  - |
+    cd lightdm-gtk-greeter-2.0.9 &&
+    make install
   - |
     cd blfs-systemd-units-20240801 &&
     make install-lightdm
