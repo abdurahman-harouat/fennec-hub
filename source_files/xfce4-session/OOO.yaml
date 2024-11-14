@@ -25,7 +25,8 @@ build:
 
 install:
   - |
-    make install
+    make install &&
+    usermod -a -G video,input,tty $USER
 
 additional_commands:
   - |

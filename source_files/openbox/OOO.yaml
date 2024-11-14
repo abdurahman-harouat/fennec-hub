@@ -26,7 +26,8 @@ build:
 
 install:
   - |
-    make install
+    make install &&
+    usermod -a -G video,input,tty $USER
   - rm -v /usr/share/xsessions/openbox-{gnome,kde}.desktop
 
 additional_commands:
@@ -34,5 +35,5 @@ additional_commands:
     cp -rf /etc/xdg/openbox ~/.config
   - |
     cat > ~/.xinitrc << "EOF"
-    exec openbox
+    exec openbox-session
     EOF
