@@ -22,7 +22,6 @@ install:
 
 additional_commands:
   - |
-    cd .. &&
     sed "/c\/.*\.[ch]'/d;\
         /include_dirs=\[/\
         i libraries=['brotlicommon','brotlidec','brotlienc']," \
@@ -31,4 +30,4 @@ additional_commands:
 
 additional_commands_with_sudo:
   - |
-    cd .. && pip3 install --no-index --find-links=dist --no-cache-dir --no-user Brotli
+    pip3 install --no-index --find-links=dist --no-cache-dir --no-user Brotli
