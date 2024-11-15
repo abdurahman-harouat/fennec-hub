@@ -12,10 +12,10 @@ source:
 
 build:
   - |
-    cd squashfs-tools-4.6.1 &&
+    cd squashfs-tools-4.6.1/squashfs-tools &&
     make
 
 install:
   - |
-    cd squashfs-tools-4.6.1 &&
+    cd squashfs-tools-4.6.1/squashfs-tools &&
     make install
