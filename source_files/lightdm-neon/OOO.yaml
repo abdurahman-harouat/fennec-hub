@@ -14,3 +14,15 @@ install:
     greeter:
       theme: neon
     EOF
+  - |
+    # Check if the [Seat:*] section exists, and add/replace/uncomment the greeter-session line
+    if grep -q "^\[Seat:\*\]" /etc/lightdm/lightdm.conf; then
+      # If [Seat:*] exists, ensure greeter-session is set to web-greeter and uncomment if needed
+      sed -i '/^\[Seat:\*\]/,/^$/ {
+        s/^#\?greeter-session=.*/greeter-session=web-greeter/; t
+        /^$/ i\greeter-session=web-greeter
+      }' /etc/lightdm/lightdm.conf
+    else
+      # If [Seat:*] does not exist, append it to the end of the file
+      echo -e "\n[Seat:*]\ngreeter-session=web-greeter" >> /etc/lightdm/lightdm.conf
+    fi
