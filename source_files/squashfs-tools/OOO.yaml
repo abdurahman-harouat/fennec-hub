@@ -8,14 +8,14 @@ source:
   url: https://github.com/plougher/squashfs-tools/archive/refs/tags/4.6.1.tar.gz
   md5: db23a40fa0dc54b4d6d225fb20ee6555
 
-# extracted_dir: squashfs-tools-4.6.1
+extracted_dir: squashfs-tools-4.6.1
 
 build:
   - |
-    cd squashfs-tools-4.6.1/squashfs-tools &&
+    cd squashfs-tools &&
     make
 
 install:
   - |
-    cd squashfs-tools-4.6.1/squashfs-tools &&
+    cd squashfs-tools &&
     make install
