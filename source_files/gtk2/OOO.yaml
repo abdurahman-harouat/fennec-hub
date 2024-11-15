@@ -9,7 +9,7 @@ source:
   url: https://download.gnome.org/sources/gtk+/2.22/gtk%2B-2.22.0.tar.gz
   sha512: 4a90741681a12fd5e8b4e3ead307ae2359a9fb996e0f590738b441951bbed3602cafae91fef0fc18d49a994c25d934b432ff8278b0d438caf1e90038ef9bf149
 
-extracted_dir: "gtk%2B-2.22.0.tar.gz"
+extracted_dir: "gtk+-2.22.0"
 
 build:
   - |
