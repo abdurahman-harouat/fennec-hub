@@ -4,7 +4,7 @@ dependencies:
   - intltool
 source:
   url: https://ftp.gnome.org/pub/GNOME/sources/murrine/0.98/murrine-0.98.2.tar.xz
-  sha512: 5ed6b499b957c33d301c7ac508937517e8f9753fabb84e0cf977f67b10b09968cee5a10bdeae64a05f64606b5769e7313ededbb3b0c3ae9f78e34f893aa96667e
+  sha512: 5ed6b499b957c33d301c7ac508937517e8f9753fabb84e0cf977f67b10b09968cee5a10bdeae64a05f64606b5769e7313ededbb3b0c3ae9f78e34f893aa96667
 
 additional_downloads:
   - url: https://github.com/abdurahman-harouat/fennec-hub/raw/refs/heads/main/special/fix-crasher.patch
