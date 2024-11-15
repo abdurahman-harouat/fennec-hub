@@ -1,0 +1,25 @@
+pkgname: rsync
+pkgver: "3.3.0"
+dependencies:
+  - popt
+
+source:
+  url: https://www.samba.org/ftp/rsync/src/rsync-3.3.0.tar.gz
+  md5: f5c17f9c9164ef9e60d9d8c96b23da06
+
+install:
+  - |
+    groupadd -g 48 rsyncd &&
+    useradd -c "rsyncd Daemon" -m -d /home/rsync -g rsyncd \
+        -s /bin/false -u 48 rsyncd
+
+additional_commands:
+  - |
+    ./configure --prefix=/usr    \
+            --disable-xxhash \
+            --without-included-zlib &&
+    make
+
+additional_commands_with_sudo:
+  - |
+    make install
