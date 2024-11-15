@@ -51,11 +51,6 @@ install:
             -s /bin/false "$username"
       echo "User $username created successfully."
     fi
-    # groupadd -g 65 lightdm       &&
-    # useradd  -c "Lightdm Daemon" \
-    #      -d /var/lib/lightdm \
-    #      -u 65 -g lightdm    \
-    #      -s /bin/false lightdm
   - |
     make install                                                  &&
     cp tests/src/lightdm-session /usr/bin                         &&
@@ -93,3 +88,6 @@ additional_commands_with_sudo:
   - |
     cd blfs-systemd-units-20240801 &&
     make install-lightdm
+
+  - |
+    systemctl enable lightdm
