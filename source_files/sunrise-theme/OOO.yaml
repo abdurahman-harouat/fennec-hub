@@ -1,0 +1,10 @@
+pkgname: sunrise-theme
+pkgver: "2.1.9"
+
+source:
+  url: https://github.com/abdurahman-harouat/fennec-hub/raw/main/special/Sunrise.tar.xz
+  sha512: 7fe4ba03d2aedd388efa5ab4b775bb2854e84c337fa94aef56e05a46c0c8440653a578b8734c20b69706fa44f6713615ec37f55d1c3b0200bf6d576ef2e00b16
+
+build:
+  - |
+    cd .. && cp -r Sunrise ~/.local/share/themes
