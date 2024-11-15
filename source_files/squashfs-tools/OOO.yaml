@@ -1,0 +1,18 @@
+pkgname: squashfs-tools
+pkgver: "4.6.1"
+
+dependencies:
+  - cpio
+
+source:
+  url: https://github.com/plougher/squashfs-tools/archive/refs/tags/4.6.1.tar.gz
+  md5: db23a40fa0dc54b4d6d225fb20ee6555
+
+extracted_dir: squashfs-tools-4.6.1
+
+build:
+  - |
+    make
+
+install:
+  - make install
