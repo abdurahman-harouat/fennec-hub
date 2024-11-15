@@ -4,7 +4,7 @@ dependencies:
   - gtk3
   - sassc
   - gnome-themes-extra
-  - gtk-engine-murrine
+  # - gtk-engine-murrine
 source:
   url: https://github.com/vinceliuice/Fluent-gtk-theme/archive/refs/tags/2024-06-12.tar.gz
   md5: 1fa02dd8cd356276ea6f60b17284028d
