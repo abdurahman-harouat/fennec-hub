@@ -1,0 +1,16 @@
+pkgname: lightdm-neon
+pkgver: "0.2.4"
+source:
+  url: https://github.com/hertg/lightdm-neon/archive/refs/tags/v0.2.4.tar.gz
+  sha512: 8515dd8035631589aa2fdefcfa548b192d04ca1b2da4005d1842a77c825cd56ec0a4fc008d84946acc5f9749333526792bc74ac5f8c814be426f1746daa909bb
+
+build:
+  - make build
+
+install:
+  - make install
+  - |
+    cat > /etc/lightdm/web-greeter.yml << "EOF"
+    greeter:
+      theme: neon
+    EOF
