@@ -1,0 +1,20 @@
+pkgname: atk
+pkgver: "2.38.0"
+dependencies:
+  - glib
+  - gobject-introspection
+source:
+  url: https://download.gnome.org/sources/atk/2.38/atk-2.38.0.tar.xz
+  md5: 4dcea15cbf166706c166fc4fee05e3f8
+
+build:
+  - |
+    mkdir -p build &&
+    cd    build &&
+
+    meson --prefix=/usr --buildtype=release .. &&
+    ninja
+
+install:
+  - |
+    cd build && ninja install

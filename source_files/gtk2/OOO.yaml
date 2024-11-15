@@ -1,0 +1,30 @@
+pkgname: gtk2
+pkgver: "2.24.33"
+dependencies:
+  - hicolor-icon-theme
+  - gdk-pixbuf
+  - atk
+  - pango
+source:
+  url: https://download.gnome.org/sources/gtk+/2.24/gtk+-2.24.33.tar.xz
+  md5: 0118e98dbe0e4dab90ce475f9f0e6c0c
+
+build:
+  - |
+    sed -e 's#l \(gtk-.*\).sgml#& -o \1#' \
+    -i docs/{faq,tutorial}/Makefile.in      &&
+
+    ./configure --prefix=/usr --sysconfdir=/etc &&
+
+    make
+
+install:
+  - |
+    make install
+
+additional_commands:
+  - |
+    cat > ~/.gtkrc-2.0 << "EOF"
+    include "/usr/share/themes/Glider/gtk-2.0/gtkrc"
+    gtk-icon-theme-name = "hicolor"
+    EOF
