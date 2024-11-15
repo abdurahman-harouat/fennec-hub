@@ -1,0 +1,25 @@
+pkgname: gtk-engine-murrine
+pkgver: "0.98.2"
+dependencies:
+  - intltool
+source:
+  url: https://ftp.gnome.org/pub/GNOME/sources/murrine/0.98/murrine-0.98.2.tar.xz
+  md5: 6d80261125b964aef2f2cbfbb1a9da2a
+
+additional_downloads:
+  - url: https://github.com/abdurahman-harouat/fennec-hub/raw/refs/heads/main/special/fix-crasher.patch
+
+build:
+  - |
+    patch -Np1 -i ../fix-crasher.patch
+  - |
+    ./configure \
+      --prefix=/usr \
+      --enable-animation \
+      --enable-animationrtl &&
+      sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool &&
+      make
+
+install:
+  - |
+    make install
