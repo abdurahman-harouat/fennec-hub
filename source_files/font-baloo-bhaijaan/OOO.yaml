@@ -7,6 +7,7 @@ source:
   sha512: 0073bb8094bd38b6a7a8d6e8048da0a2105a007d487f0d6f90d8871fc41932a9f096826db7648f7e1837432e6258cd8bd794fc4e1d79f2842bc23d74724c4937
 
 install:
+  - cp BalooBhaijaan-Regular.ttf /usr/share/fonts
   - fc-cache -fv
   - |
     cat > /etc/fonts/local.conf << "EOF"
